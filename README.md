@@ -1,2 +1,3 @@
 # SmartHome
 SmartHomeRpi
+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
