@@ -7,8 +7,21 @@ module com.sm.smarthome {
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
+    requires org.kordamp.ikonli.materialdesign;
     requires org.kordamp.bootstrapfx.core;
+    requires com.jfoenix;
+    requires org.kordamp.ikonli.core;
 
     opens com.sm.smarthome to javafx.fxml;
     exports com.sm.smarthome;
+    exports com.sm.smarthome.Interfaces;
+    opens com.sm.smarthome.Interfaces to javafx.fxml;
+    exports com.sm.smarthome.Core;
+    opens com.sm.smarthome.Core to javafx.fxml;
+    exports com.sm.smarthome.Events;
+    opens com.sm.smarthome.Events to javafx.fxml;
+    exports com.sm.smarthome.Core.Services;
+    opens com.sm.smarthome.Core.Services to javafx.fxml;
+    exports com.sm.smarthome.Core.Providers;
+    opens com.sm.smarthome.Core.Providers to javafx.fxml;
 }

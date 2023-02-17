@@ -2,6 +2,26 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/ConsciousScrollPaneSkin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/FXButtonSkin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/FXPasswordFieldSkin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/FXSkins.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/FXSliderSkin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/FXTextFieldSkin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/FXToggleButtonSkin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/FXToggleSwitchSkin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/PointsProgressBarSkin.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/Button Sample.fxml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/PasswordField Sample.fxml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/ProgressBar Sample.fxml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/ScrollPane Sample.fxml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/Slider Sample.fxml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/TextField Sample.fxml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/ToggleButton Sample.fxml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/ToggleSwitch Sample.fxml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/default-skin.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/toggleswitch-sample.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Skins/fx-skins.css" charset="UTF-8" />
   </component>
 </project>
