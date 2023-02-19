@@ -2,15 +2,18 @@ module com.sm.smarthome {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
-
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.materialdesign;
+    requires org.kordamp.ikonli.materialdesign2;
+    requires org.kordamp.ikonli.fluentui;
     requires org.kordamp.bootstrapfx.core;
     requires com.jfoenix;
     requires org.kordamp.ikonli.core;
+    requires org.jetbrains.annotations;
+    requires org.jfxtras.styles.jmetro;
 
     opens com.sm.smarthome to javafx.fxml;
     exports com.sm.smarthome;
@@ -24,4 +27,6 @@ module com.sm.smarthome {
     opens com.sm.smarthome.Core.Services to javafx.fxml;
     exports com.sm.smarthome.Core.Providers;
     opens com.sm.smarthome.Core.Providers to javafx.fxml;
+    exports com.sm.smarthome.Controllers;
+    opens com.sm.smarthome.Controllers to javafx.fxml;
 }

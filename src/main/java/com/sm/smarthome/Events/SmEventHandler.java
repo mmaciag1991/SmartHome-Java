@@ -1,7 +1,7 @@
 package com.sm.smarthome.Events;
 
-import com.sm.smarthome.Enums.ApplicationAction;
-import com.sm.smarthome.Enums.ButtonAction;
+import com.sm.smarthome.Enums.Actions.ApplicationAction;
+import com.sm.smarthome.Enums.Actions.ButtonAction;
 import javafx.event.EventHandler;
 
 public abstract class SmEventHandler implements EventHandler<SmActionEvent> {

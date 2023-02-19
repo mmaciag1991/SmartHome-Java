@@ -1,9 +1,9 @@
 package com.sm.smarthome.Interfaces;
 
-import com.sm.smarthome.Enums.ButtonSize;
-import com.sm.smarthome.Enums.ButtonNodeType;
-import com.sm.smarthome.Enums.ButtonWidthType;
-import com.sm.smarthome.Enums.ButtonAction;
+import com.sm.smarthome.Enums.Ui.Bottons.ButtonSize;
+import com.sm.smarthome.Enums.Ui.Bottons.ButtonNodeType;
+import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
+import com.sm.smarthome.Enums.Actions.ButtonAction;
 import org.kordamp.ikonli.Ikon;
 
 public interface IButton {

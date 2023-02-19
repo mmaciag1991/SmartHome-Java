@@ -4,34 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c1e5f1c-a948-4557-88a6-2252bf242bb9" name="Changes" comment="dalsza implementacja SMH">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/gson-2.8.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jfoenix-9.0.10-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jfoenix-9.0.10-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jfoenix-9.0.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/DatabaseProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/ActionEventService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/GuiService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/ApplicationAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/ButtonAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/ButtonNodeType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/ButtonSize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/ButtonWidthType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/ButtonEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/SmActionEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/SmEventHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Interfaces/IButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/SimpleButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="7c1e5f1c-a948-4557-88a6-2252bf242bb9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/ControlersProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/SystemService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/Actions/ButtonAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/Other/UserPermissions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/Ui/Bottons/ButtonState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/Ui/Bottons/ButtonWidthType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/Ui/Pages/PageType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Interfaces/ITwoStateButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Data/UserModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/MarkButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/TwoStateButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/HomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/PageBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/SetupPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/WeatherPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Media/Icons/icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/GuiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/GuiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/ApplicationAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/Actions/ApplicationAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/ButtonAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/ButtonNodeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/Ui/Bottons/ButtonNodeType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/ButtonSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/Ui/Bottons/ButtonSize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/ButtonWidthType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/ButtonEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/ButtonEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/SmEventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/SmEventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Interfaces/IButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Interfaces/IButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/SimpleButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/SimpleButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Views/MainView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +48,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Enum" />
         <option value="FxmlFile" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -81,31 +87,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Mateusz/Desktop/vnc_android_library-master/eclipse_projects/SmartHome/src/Liblaries/Design/FXSkins-1.0.0.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2772074&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Language Defaults&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Mateusz/Desktop/vnc_android_library-master/eclipse_projects/SmartHome/src/main/resources/com/sm/smarthome/Media/Icons",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.40804598",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Language Defaults"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\Media\Icons" />
       <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\Liblaries\Design" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\Media\Icons" />
+      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\Views" />
       <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\pixelduke\control\skin" />
       <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\java\com\pixelduke\control\skin" />
       <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\Skins" />
-      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\Views" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sm.smarthome.Models.Ui.Pages" />
+      <recent name="com.sm.smarthome.Models.Ui" />
     </key>
   </component>
   <component name="RunManager">
@@ -144,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676321512100</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="dalsza implementacja SMH">
+      <created>1676673862284</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676673862284</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
