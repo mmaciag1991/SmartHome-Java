@@ -3,7 +3,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane minHeight="800.0" minWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sm.smarthome.Controllers.MainViewController">
+<GridPane minHeight="800.0" minWidth="1200.0" styleClass="background" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sm.smarthome.Controllers.MainViewController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="128.0" prefWidth="128.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -13,27 +13,29 @@
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-
-      <GridPane GridPane.columnIndex="1">
+      <VBox fx:id="LeftButtonsBox" prefHeight="200.0" prefWidth="100.0" styleClass="background" GridPane.rowIndex="1">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <GridPane.margin>
+            <Insets top="10.0" />
+         </GridPane.margin></VBox>
+      <StackPane fx:id="PagePane" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="10.0" top="10.0" />
+         </GridPane.margin></StackPane>
+      <GridPane fx:id="topGridPane" GridPane.columnSpan="2">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <HBox fx:id="topButtonsBox" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" />
+            <HBox fx:id="topButtonsBox" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-border-width: 0;" styleClass="menu-button" GridPane.columnIndex="1" />
+            <Pane fx:id="userPane" prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 0;" styleClass="menu-button" />
          </children>
       </GridPane>
-      <VBox fx:id="leftButtonsBox" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <padding>
-            <Insets top="10.0" />
-         </padding></VBox>
-      <Pane fx:id="userPane" prefHeight="200.0" prefWidth="200.0" />
-      <StackPane fx:id="pagePane" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
 </GridPane>

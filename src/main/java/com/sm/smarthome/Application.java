@@ -21,14 +21,14 @@ public class Application extends javafx.application.Application {
         Parent parent = fxmlLoader.load();
         parent.getStyleClass().add(JMetroStyleClass.BACKGROUND);
         MainViewController mainViewController = fxmlLoader.getController();
-        engine.ControlersProvider.mainViewController = mainViewController;
+        engine.ControlersProvider.MainViewController = mainViewController;
         mainViewController.Initialize(engine);
         Scene scene = new Scene(parent, 1200, 800);
-        engine.GuiProvider.JMetroThemeManager.setScene(scene);
+        engine.GuiService.JMetroThemeManager.setScene(scene);
         stage.setTitle("Smart Home App");
         stage.setScene(scene);
         stage.getIcons().add(new Image(Application.class.getResourceAsStream("Media/Icons/icon.png")));
-        engine.GuiProvider.SetTheme(Style.DARK);
+        engine.GuiService.SetTheme(Style.DARK);
 
         stage.show();
     }

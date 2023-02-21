@@ -29,4 +29,6 @@ module com.sm.smarthome {
     opens com.sm.smarthome.Core.Providers to javafx.fxml;
     exports com.sm.smarthome.Controllers;
     opens com.sm.smarthome.Controllers to javafx.fxml;
+    exports com.sm.smarthome.Controllers.OtherControls;
+    opens com.sm.smarthome.Controllers.OtherControls to javafx.fxml;
 }

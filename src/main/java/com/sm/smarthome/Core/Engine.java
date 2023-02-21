@@ -2,6 +2,7 @@ package com.sm.smarthome.Core;
 
 import com.sm.smarthome.Core.Providers.ControlersProvider;
 import com.sm.smarthome.Core.Services.GuiService;
+import com.sm.smarthome.Core.Services.PagesService;
 import com.sm.smarthome.Core.Services.SystemService;
 import com.sm.smarthome.Enums.Actions.ApplicationAction;
 import com.sm.smarthome.Enums.Actions.ButtonAction;
@@ -18,15 +19,15 @@ public class Engine {
 
     public SystemService SystemService = new SystemService();
     public SimpleObjectProperty<UserModel> CurrentUser = new SimpleObjectProperty<UserModel>();
-    public GuiService GuiProvider;
+    public GuiService GuiService;
+    public PagesService PagesService;
     public ActionEventService ActionEventService = new ActionEventService();
     public ControlersProvider ControlersProvider = new ControlersProvider();
 
     public Engine(Stage mainStage){
 
-        CurrentUser.set(new UserModel(-1,"Guest", UserPermissions.Guest));
-
-        GuiProvider = new GuiService(mainStage);
+        GuiService = new GuiService(this);
+        PagesService = new PagesService(this);
 
         InitializeSmEventHandler(ActionEventService);
     }
@@ -45,8 +46,8 @@ public class Engine {
                     //Top bar actions
                     case ActionWifiOn, ActionWifiOff -> WifiAction(action);
                     case ActionLogin , ActionLogoff -> ChangeUserAction(action);
-                    case ActionThemeDark -> GuiProvider.SetTheme(Style.DARK);
-                    case ActionThemeLight -> GuiProvider.SetTheme(Style.LIGHT);
+                    case ActionThemeDark -> GuiService.SetTheme(Style.DARK);
+                    case ActionThemeLight -> GuiService.SetTheme(Style.LIGHT);
                 }
 
             }
@@ -59,13 +60,15 @@ public class Engine {
     }
 
     private void SetHomePage(){
-        ControlersProvider.mainViewController.SetActivePageByIndex(0);
+        PagesService.SetActivePageByIndex(0);
     }
     private void SetWeatherPage(){
-        ControlersProvider.mainViewController.SetActivePageByIndex(1);
+
+        PagesService.SetActivePageByIndex(1);
     }
     private void SetSetupPage(){
-        ControlersProvider.mainViewController.SetActivePageByIndex(2);
+
+        PagesService.SetActivePageByIndex(2);
     }
     private void WifiAction(ButtonAction action){}
     private void ChangeUserAction(ButtonAction action){

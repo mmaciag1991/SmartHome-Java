@@ -3,6 +3,7 @@ package com.sm.smarthome.Models.Ui.Buttons;
 import com.sm.smarthome.Core.Engine;
 import com.sm.smarthome.Core.Services.ActionEventService;
 import com.sm.smarthome.Enums.Actions.ButtonAction;
+import com.sm.smarthome.Enums.Other.UserPermissions;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonSize;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonState;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
@@ -21,8 +22,8 @@ public class TwoStateButton extends SimpleButton implements ITwoStateButton {
     private final ButtonAction actionActiveState, actionInactiveState;
     private final boolean autoSize;
 
-    public TwoStateButton(Ikon iconCodeActiveState, Ikon iconCodeInactiveState, String displayTextActiveState, String displayTextInactiveState, ButtonAction actionActiveState, ButtonAction actionInactiveState, boolean autoSize, ButtonState initialState) {
-        super(iconCodeActiveState, displayTextActiveState, actionActiveState);
+    public TwoStateButton(Ikon iconCodeActiveState, Ikon iconCodeInactiveState, String displayTextActiveState, String displayTextInactiveState, ButtonAction actionActiveState, ButtonAction actionInactiveState, ButtonSize size, ButtonWidthType widthType, Engine engine, boolean autoSize, ButtonState initialState, UserPermissions permissions) {
+        super( iconCodeActiveState, displayTextActiveState, null, actionActiveState, size, widthType, engine, permissions);
         this.iconCodeActiveState = iconCodeActiveState;
         this.iconCodeInactiveState = iconCodeInactiveState;
         this.displayTextActiveState = displayTextActiveState;
@@ -31,17 +32,8 @@ public class TwoStateButton extends SimpleButton implements ITwoStateButton {
         this.actionInactiveState = actionInactiveState;
         this.autoSize = autoSize;
         SelectState(initialState);
-    }
-    public TwoStateButton(Ikon iconCodeActiveState, Ikon iconCodeInactiveState, String displayTextActiveState, String displayTextInactiveState, ButtonAction actionActiveState, ButtonAction actionInactiveState, ButtonSize size, ButtonWidthType widthType, Engine engine, boolean autoSize, ButtonState initialState) {
-        super( iconCodeActiveState, displayTextActiveState, null, actionActiveState, size, widthType, engine);
-        this.iconCodeActiveState = iconCodeActiveState;
-        this.iconCodeInactiveState = iconCodeInactiveState;
-        this.displayTextActiveState = displayTextActiveState;
-        this.displayTextInactiveState = displayTextInactiveState;
-        this.actionActiveState = actionActiveState;
-        this.actionInactiveState = actionInactiveState;
-        this.autoSize = autoSize;
-        SelectState(initialState);
+        getStyleClass().add("check-box");
+        this.setStyle("-fx-border-color: transparent; -fx-border-width: 0 0 0 0;");
     }
 
     /**
@@ -51,8 +43,10 @@ public class TwoStateButton extends SimpleButton implements ITwoStateButton {
     @Override
     public void InitializeFireEvent(ActionEventService actionEventNode){
         Platform.runLater(() -> this.setOnAction(event -> {
-            SelectState(state == ButtonState.Active ? ButtonState.Inactive : ButtonState.Active);
-            actionEventNode.fireEvent(new ButtonEvent(TwoStateButton.this.getAction()));
+            if (CheckUserPermissions(this.permissions)) {
+                SelectState(state == ButtonState.Active ? ButtonState.Inactive : ButtonState.Active);
+                actionEventNode.fireEvent(new ButtonEvent(TwoStateButton.this.getAction()));
+            }
         }));
     }
 
@@ -74,6 +68,8 @@ public class TwoStateButton extends SimpleButton implements ITwoStateButton {
         Repaint();
         preformAutoSize();
         setValue(state);
+
+            fontIcon.setIconColor(engine.GuiService.FontColor.getValue());
     }
 
     /**
