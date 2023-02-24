@@ -1,30 +1,25 @@
 package com.sm.smarthome.Core.Services;
 
 import com.sm.smarthome.Core.Engine;
-import com.sm.smarthome.Enums.Ui.Bottons.ButtonState;
-import com.sm.smarthome.Models.Ui.Pages.HomePage;
-import com.sm.smarthome.Models.Ui.Pages.PageBase;
-import com.sm.smarthome.Models.Ui.Pages.SetupPage;
-import com.sm.smarthome.Models.Ui.Pages.WeatherPage;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.scene.Scene;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetro;
-import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 
 public class GuiService {
 
 
+    public Stage MainStage;
     public JMetro JMetroThemeManager = new JMetro(Style.DARK);
     public SimpleObjectProperty<Color> FontColor = new SimpleObjectProperty<Color>(Color.TRANSPARENT);
     public SimpleObjectProperty<Color> AccentColor = new SimpleObjectProperty<Color>(Color.RED);
 
 
-    public GuiService(Engine engine){
+    public GuiService(Engine engine, Stage mainStage){
+        this.MainStage = mainStage;
         SetTheme(Style.LIGHT);
     }
 

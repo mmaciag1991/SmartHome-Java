@@ -1,4 +1,4 @@
-package com.sm.smarthome.CustomControls;
+package com.sm.smarthome.CustomControls.ColorPicker;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -36,7 +36,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;

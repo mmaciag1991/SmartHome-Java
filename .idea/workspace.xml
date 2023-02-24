@@ -5,11 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c1e5f1c-a948-4557-88a6-2252bf242bb9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Indicators/CircularProgressIndicator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Skins/circular-progress-indicator.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/OtherControls/SimplePopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/OtherControls/SimplePopupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXCustomColorPicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXCustomColorPicker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXCustomColorPickerDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXCustomColorPickerDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/PagesProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/PagesProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/ActionEventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/ActionEventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/GuiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/GuiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXColorPickerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/ColorPicker/JFXColorPickerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXCustomColorPicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/ColorPicker/JFXCustomColorPicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXCustomColorPickerDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/ColorPicker/JFXCustomColorPickerDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/ColorPicker/JFXDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/MarkButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/MarkButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/WeatherPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/WeatherPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677267755509</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Poprawki colorpickera dla koloru akcentu">
+      <created>1677270454258</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677270454258</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,6 +224,7 @@
     <MESSAGE value="dalsza implementacja SMH" />
     <MESSAGE value="dalsza implementacja SMH dobra wersja" />
     <MESSAGE value="Poprawka do poprzedniego commita przywrócenie trzech class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Poprawka do poprzedniego commita przywrócenie trzech class" />
+    <MESSAGE value="Poprawki colorpickera dla koloru akcentu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Poprawki colorpickera dla koloru akcentu" />
   </component>
 </project>

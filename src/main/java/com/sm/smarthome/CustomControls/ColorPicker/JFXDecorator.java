@@ -1,4 +1,4 @@
-package com.sm.smarthome.CustomControls;
+package com.sm.smarthome.CustomControls.ColorPicker;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one

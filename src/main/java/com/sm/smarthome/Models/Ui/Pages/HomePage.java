@@ -46,7 +46,7 @@ public class HomePage extends PageBase{
         parent.getStyleClass().add(JMetroStyleClass.BACKGROUND);
         HomePageViewController homePageViewController = fxmlLoader.getController();
 
-        Platform.runLater(() -> InitializeTiles(homePageViewController.getGridPane()));
+        InitializeTiles(homePageViewController.getGridPane());
 
         return parent;
     }

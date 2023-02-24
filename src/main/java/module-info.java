@@ -19,6 +19,7 @@ module com.sm.smarthome {
     requires eu.hansolo.fx.heatmap;
     requires eu.hansolo.toolboxfx;
     requires eu.hansolo.toolbox;
+    requires org.apache.commons.lang3;
 
     opens com.sm.smarthome to javafx.fxml;
     exports com.sm.smarthome;

@@ -7,6 +7,7 @@ import com.sm.smarthome.Enums.Ui.Bottons.ButtonSize;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
 import com.sm.smarthome.Enums.Ui.Pages.PageType;
 import com.sm.smarthome.Models.Ui.Buttons.MarkButton;
+import javafx.application.Platform;
 import javafx.scene.control.TextArea;
 import javafx.scene.web.WebView;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
@@ -19,10 +20,14 @@ public class WeatherPage extends PageBase{
         this.Name = "Weather Page";
         this.DisplayName = "Weather";
         this.Type = PageType.Main;
-        WebView webView = new WebView();
-        webView.getEngine().load(Address2);
-        //webView.setZoom(1.5);
-        this.BodyInstance = webView;
+
+
+        Platform.runLater(() -> {
+            WebView webView = new WebView();
+            webView.getEngine().load(Address2);
+            this.BodyInstance = webView;
+        });
+
         this.Button = new MarkButton(MaterialDesign.MDI_WEATHER_LIGHTNING_RAINY, DisplayName, null, ButtonAction.ActionWeatherPage, ButtonSize.Big, ButtonWidthType.Widthx2, engine, UserPermissions.Guest);
     }
 }

@@ -6,6 +6,7 @@ import com.sm.smarthome.Models.Ui.Pages.HomePage;
 import com.sm.smarthome.Models.Ui.Pages.PageBase;
 import com.sm.smarthome.Models.Ui.Pages.SetupPage;
 import com.sm.smarthome.Models.Ui.Pages.WeatherPage;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -1,4 +1,4 @@
-package com.sm.smarthome.CustomControls;
+package com.sm.smarthome.CustomControls.ColorPicker;
 
 
 import com.jfoenix.effects.JFXDepthManager;
