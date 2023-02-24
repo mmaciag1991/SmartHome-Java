@@ -14,6 +14,11 @@ module com.sm.smarthome {
     requires org.kordamp.ikonli.core;
     requires org.jetbrains.annotations;
     requires org.jfxtras.styles.jmetro;
+    requires eu.hansolo.tilesfx;
+    requires eu.hansolo.fx.countries;
+    requires eu.hansolo.fx.heatmap;
+    requires eu.hansolo.toolboxfx;
+    requires eu.hansolo.toolbox;
 
     opens com.sm.smarthome to javafx.fxml;
     exports com.sm.smarthome;
@@ -31,4 +36,9 @@ module com.sm.smarthome {
     opens com.sm.smarthome.Controllers to javafx.fxml;
     exports com.sm.smarthome.Controllers.OtherControls;
     opens com.sm.smarthome.Controllers.OtherControls to javafx.fxml;
+    exports com.sm.smarthome.Core.Providers.Gui;
+    opens com.sm.smarthome.Core.Providers.Gui to javafx.fxml;
+    exports com.sm.smarthome.Controllers.Pages;
+    opens com.sm.smarthome.Controllers.Pages to javafx.fxml;
+
 }

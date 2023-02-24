@@ -39,15 +39,19 @@ public class GuiService {
         }
         JMetroThemeManager.setStyle(style);
     }
-    public DropShadow GetShadow(Color color, double offsetX, double offsetY, double width, double height){
+    public DropShadow GetShadow(SimpleObjectProperty<Color> color, double offsetX, double offsetY, double width, double height, boolean ignoreAccentColor){
         DropShadow shadow= new DropShadow();
         shadow.setBlurType(BlurType.THREE_PASS_BOX);
-        shadow.setColor(color);
+        shadow.setColor(color.getValue());
         shadow.setSpread(0.2);
         shadow.setWidth(width);
         shadow.setHeight(height);
         shadow.setOffsetX(offsetX);
         shadow.setOffsetY(offsetY);
+
+        if (!ignoreAccentColor)
+            color.addListener((observable, oldValue, newValue) -> { shadow.setColor(newValue);});
+
 
         return shadow;
     }

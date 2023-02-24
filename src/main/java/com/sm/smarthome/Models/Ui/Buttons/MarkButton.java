@@ -20,6 +20,7 @@ public class MarkButton extends SimpleButton {
     public MarkButton(Ikon iconCode, String displayText, Object value, ButtonAction action, ButtonSize size, ButtonWidthType widthType, Engine engine, UserPermissions permissions) {
         super(iconCode, displayText, value, action, size, widthType, engine, permissions);
         setState(ButtonState.Inactive);
+        engine.GuiService.AccentColor.addListener((observable, oldValue, newValue) -> setState(state));
     }
 
     @Override
@@ -41,11 +42,11 @@ public class MarkButton extends SimpleButton {
                     case Active -> {
                         this.setFocused(false);
                         this.setStyle("-fx-border-color: "+ engine.GuiService.GetRgbaColorToStyleFx(color, .7) +" -fx-border-width: 0 3 0 0;");
-                        this.setEffect(engine.GuiService.GetShadow(engine.GuiService.AccentColor.getValue(),1.3, 0, 30,0));
+                        this.setEffect(engine.GuiService.GetShadow(engine.GuiService.AccentColor,1.3, 0, 30,0, false));
                     }
                     case Inactive -> {
                         this.setStyle("-fx-border-color: "+ engine.GuiService.GetRgbaColorToStyleFx(color, .4) +" -fx-border-width: 0 3 0 0;");
-                        this.setEffect(engine.GuiService.GetShadow(engine.GuiService.AccentColor.getValue(),0, 0, 30, 0));
+                        this.setEffect(engine.GuiService.GetShadow(engine.GuiService.AccentColor,0, 0, 30, 0, false));
                     }
             }
         });

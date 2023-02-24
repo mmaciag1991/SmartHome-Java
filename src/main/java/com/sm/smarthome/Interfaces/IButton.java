@@ -4,10 +4,12 @@ import com.sm.smarthome.Enums.Ui.Bottons.ButtonSize;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonNodeType;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
 import com.sm.smarthome.Enums.Actions.ButtonAction;
+import javafx.scene.Node;
 import org.kordamp.ikonli.Ikon;
 
 public interface IButton {
 
+    Node getNode();
     Ikon getIconCode();
     void setIconCode(Ikon iconCode);
 

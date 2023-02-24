@@ -17,6 +17,7 @@ import com.sm.smarthome.Events.ButtonEvent;
 import com.sm.smarthome.Interfaces.IButton;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ContentDisplay;
@@ -99,6 +100,10 @@ public class SimpleButton extends JFXButton implements IButton {
         setWidthType(widthType);
     }
 
+
+    public Node getNode(){
+        return this;
+    }
     public Ikon getIconCode(){
         return iconCode;
     }
