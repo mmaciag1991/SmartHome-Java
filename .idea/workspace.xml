@@ -5,72 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c1e5f1c-a948-4557-88a6-2252bf242bb9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/countries-17.0.22.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/heatmap-17.0.9.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-base-17.0.2-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-base-17.0.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-controls-17.0.2-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-controls-17.0.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-graphics-17.0.2-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-graphics-17.0.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-swing-17.0.2-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-swing-17.0.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/toolbox-17.0.22.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/toolbox-17.0.26.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/toolboxfx-17.0.28.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/toolboxfx-17.0.33.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/Pages/HomePageViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TilesProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TopBarProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXColorPickerUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXCustomColorPicker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXCustomColorPickerDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/Other/LanguageE.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Data/LanguageModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Views/Pages/HomePageView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/FXSkins-1.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/avatica-core-1.15.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/avatica-metrics-1.15.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/calcite-linq4j-1.21.0.152.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/commons-codec-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/commons-logging-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/controlsfx-11.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/flatlaf-2.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/gson-2.8.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/guava-19.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/httpclient-4.5.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/httpcore-4.4.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/jackson-annotations-2.9.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/jackson-core-2.9.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/jackson-databind-2.9.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javafx-base-11.0.2-win.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javafx-base-11.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javafx-controls-11.0.2-win.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javafx-controls-11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javafx-graphics-11.0.2-win.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javafx-graphics-11.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javafx-media-11-win.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javafx-media-11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javafx-web-11-win.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javafx-web-11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/jfoenix-9.0.10-javadoc.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/protobuf-java-3.6.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/slf4j-api-1.7.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/GuiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/GuiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/PagesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/PagesProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/SystemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/SystemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/Actions/ButtonAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Interfaces/IButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Interfaces/IButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/MarkButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/MarkButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/SimpleButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/SimpleButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Views/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Views/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXCustomColorPicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXCustomColorPicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXCustomColorPickerDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXCustomColorPickerDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXDecorator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +157,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677015704994</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="dalsza implementacja SMH dobra wersja">
+      <created>1677267570941</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677267570941</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Poprawka do poprzedniego commita przywrócenie trzech class">
+      <created>1677267755509</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677267755509</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,6 +202,8 @@
     <MESSAGE value="sdk19" />
     <MESSAGE value="dalsza implementacja SMH + biblioteki" />
     <MESSAGE value="dalsza implementacja SMH" />
-    <option name="LAST_COMMIT_MESSAGE" value="dalsza implementacja SMH" />
+    <MESSAGE value="dalsza implementacja SMH dobra wersja" />
+    <MESSAGE value="Poprawka do poprzedniego commita przywrócenie trzech class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Poprawka do poprzedniego commita przywrócenie trzech class" />
   </component>
 </project>

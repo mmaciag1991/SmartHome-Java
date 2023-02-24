@@ -119,7 +119,7 @@ public class JFXDecorator extends VBox {
      * @param node  the node to be decorated
      */
     public JFXDecorator(Stage stage, Node node) {
-        this(stage, node, true, true, true);
+        this(stage, node, true, true, true,true);
     }
 
     /**
@@ -134,7 +134,7 @@ public class JFXDecorator extends VBox {
      * @param max        indicates whether to show maximize option or not
      * @param min        indicates whether to show minimize option or not
      */
-    public JFXDecorator(Stage stage, Node node, boolean fullScreen, boolean max, boolean min) {
+    public JFXDecorator(Stage stage, Node node, boolean fullScreen, boolean max, boolean min, boolean close) {
         primaryStage = stage;
         // Note that setting the style to TRANSPARENT is causing performance
         // degradation, as an alternative we set it to UNDECORATED instead.
@@ -144,7 +144,7 @@ public class JFXDecorator extends VBox {
         getStyleClass().add("jfx-decorator");
 
         initializeButtons();
-        initializeContainers(node, fullScreen, max, min);
+        initializeContainers(node, fullScreen, max, min, close);
 
         primaryStage.fullScreenProperty().addListener((o, oldVal, newVal) -> {
             if (newVal) {
@@ -311,7 +311,7 @@ public class JFXDecorator extends VBox {
         }
     }
 
-    private void initializeContainers(Node node, boolean fullScreen, boolean max, boolean min) {
+    private void initializeContainers(Node node, boolean fullScreen, boolean max, boolean min, boolean close) {
         buttonsContainer = new HBox();
         buttonsContainer.getStyleClass().add("jfx-decorator-buttons-container");
         buttonsContainer.setBackground(new Background(new BackgroundFill(Color.BLACK,
@@ -338,7 +338,8 @@ public class JFXDecorator extends VBox {
                 }
             });
         }
-        btns.add(btnClose);
+        if (close)
+            btns.add(btnClose);
 
         text = new Text();
         text.getStyleClass().addAll("jfx-decorator-text", "title", "jfx-decorator-title");

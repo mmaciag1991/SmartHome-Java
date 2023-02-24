@@ -32,6 +32,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -55,6 +56,7 @@ public class JFXCustomColorPickerDialog extends StackPane {
     // used for concurrency control and preventing FX-thread over use
     private final AtomicInteger concurrencyController = new AtomicInteger(-1);
 
+    public ObjectProperty<Color> ActualColorProperty = new SimpleObjectProperty<>(Color.WHITE);
     public ObjectProperty<Color> currentColorProperty = new SimpleObjectProperty<>(Color.WHITE);
     public ObjectProperty<Color> customColorProperty = new SimpleObjectProperty<>(Color.TRANSPARENT);
     private Runnable onSave;
@@ -79,7 +81,7 @@ public class JFXCustomColorPickerDialog extends StackPane {
         dialog.setResizable(false);
 
         // create JFX Decorator
-        pickerDecorator = new JFXDecorator(dialog, this, false, false, false);
+        pickerDecorator = new JFXDecorator(dialog, this, false, false, false, false);
 
         setOnMouseClicked(event -> updateColor2());
 
@@ -124,25 +126,27 @@ public class JFXCustomColorPickerDialog extends StackPane {
         hexField.setPromptText("#HEX Color");
         hexField.textProperty().addListener((o, oldVal, newVal) -> updateColorFromUserInput(newVal));
 
-        StackPane tabContent = new StackPane();
-        tabContent.getChildren().add(rgbField);
-        tabContent.setMinHeight(100);
-
-        Tab rgbTab = new Tab("RGB");
-        rgbTab.setContent(tabContent);
-        Tab hsbTab = new Tab("HSB");
-        hsbTab.setContent(hsbField);
-        Tab hexTab = new Tab("HEX");
-        hexTab.setContent(hexField);
-
-        tabs.getTabs().add(rgbTab);
-        tabs.getTabs().add(hsbTab);
-        tabs.getTabs().add(hexTab);
+//        StackPane tabContent = new StackPane();
+//        tabContent.getChildren().add(rgbField);
+//        tabContent.setMinHeight(100);
+//
+//        Tab rgbTab = new Tab("RGB");
+//        rgbTab.setContent(tabContent);
+//        Tab hsbTab = new Tab("HSB");
+//        hsbTab.setContent(hsbField);
+//        Tab hexTab = new Tab("HEX");
+//        hexTab.setContent(hexField);
+//
+//        tabs.getTabs().add(rgbTab);
+//        tabs.getTabs().add(hsbTab);
+//        tabs.getTabs().add(hexTab);
 
         curvedColorPicker.selectedPath.addListener((o, oldVal, newVal) -> {
             if (paraTransition != null) {
                 paraTransition.stop();
             }
+
+            ActualColorProperty.set((Color) newVal.getFill());
             Region tabsHeader = (Region) tabs.lookup(".tab-header-background");
             pane.backgroundProperty().unbind();
             tabsHeader.backgroundProperty().unbind();
@@ -188,6 +192,9 @@ public class JFXCustomColorPickerDialog extends StackPane {
                     });
 
                     Color newColor = (Color) newVal.getFills().get(0).getFill();
+
+                    ActualColorProperty.set(newColor);
+
                     String hex = String.format("#%02X%02X%02X",
                             (int) (newColor.getRed() * 255),
                             (int) (newColor.getGreen() * 255),
@@ -276,7 +283,14 @@ public class JFXCustomColorPickerDialog extends StackPane {
         };
 
 
-        container.getChildren().add(tabs);
+        JFXButton jfxButtonClose = new JFXButton("Ok");
+        jfxButtonClose.setAlignment(Pos.CENTER);
+        jfxButtonClose.setMinHeight(40);
+        Platform.runLater(() -> jfxButtonClose.setPrefWidth(dialog.getWidth()));
+        jfxButtonClose.setOnAction(actionEvent -> {
+            updateColor();
+        });
+        container.getChildren().addAll(tabs, jfxButtonClose);
 
         this.getChildren().add(container);
         this.setPadding(new Insets(0));

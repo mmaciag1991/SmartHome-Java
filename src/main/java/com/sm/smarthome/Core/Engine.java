@@ -103,7 +103,7 @@ public class Engine {
             jfxCustomColorPickerDialog.setCurrentColor(GuiService.AccentColor.getValue());
             jfxCustomColorPickerDialog.getStyleClass().add(JMetroStyleClass.BACKGROUND);
             jfxCustomColorPickerDialog.setOnSave(() -> {});
-            jfxCustomColorPickerDialog.customColorProperty.addListener((observable, oldValue, newValue) -> {GuiService.AccentColor.setValue(newValue);});
+            jfxCustomColorPickerDialog.ActualColorProperty.addListener((observable, oldValue, newValue) -> {GuiService.AccentColor.setValue(newValue);});
             JMetro JMetroThemeManager = new JMetro(Style.DARK);
             JMetroThemeManager.setScene(jfxCustomColorPickerDialog.customScene);
             JMetroThemeManager.setStyle(Style.DARK);

@@ -50,7 +50,7 @@ import static javafx.animation.Interpolator.EASE_BOTH;
  */
 public class JFXCustomColorPicker extends Pane {
 
-    ObjectProperty<JFXCustomColorPicker.RecentColorPath> selectedPath = new SimpleObjectProperty<>();
+    public ObjectProperty<JFXCustomColorPicker.RecentColorPath> selectedPath = new SimpleObjectProperty<>();
     private MoveTo startPoint;
     private CubicCurveTo curve0To;
     private CubicCurveTo outerCircleCurveTo;
