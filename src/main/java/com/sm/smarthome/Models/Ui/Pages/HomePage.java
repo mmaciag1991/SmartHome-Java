@@ -15,6 +15,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.chart.XYChart;
 import javafx.scene.layout.GridPane;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
@@ -55,11 +56,24 @@ public class HomePage extends PageBase{
         SimpleDoubleProperty val1 = new SimpleDoubleProperty(26);
         SimpleDoubleProperty val2 = new SimpleDoubleProperty(26);
         SimpleDoubleProperty val3 = new SimpleDoubleProperty(26);
+
+        // AreaChart Data
+        XYChart.Series<String, Number> series1 = new XYChart.Series();
+        series1.setName("Whatever");
+        series1.getData().add(new XYChart.Data("MO", 23));
+        series1.getData().add(new XYChart.Data("TU", 21));
+        series1.getData().add(new XYChart.Data("WE", 20));
+        series1.getData().add(new XYChart.Data("TH", 22));
+        series1.getData().add(new XYChart.Data("FR", 24));
+        series1.getData().add(new XYChart.Data("SA", 22));
+        series1.getData().add(new XYChart.Data("SU", 20));
+
         Thread thread = new Thread(() -> {
           while (true){
               val1.set(Math.random() * 99 + 1);
               val2.set(Math.random() * 99 + 1);
               val3.set(Math.random() * 89 + 1);
+              series1.getData().forEach(data -> data.setYValue(Math.random() * 99 + 1));
               try {
                   Thread.sleep(1900);
               } catch (InterruptedException e) {
@@ -74,6 +88,8 @@ public class HomePage extends PageBase{
         tilesGridPane.add(engine.TilesProvider.getProcentageTile("Wilgotność", "Kuchnia", 100, val1), 1, 0, 2, 1);
         tilesGridPane.add(engine.TilesProvider.getGuageTile("Temperatura", "℃", val2, val3), 3, 0, 1, 1);
         tilesGridPane.add(engine.TilesProvider.getClockTile(), 0, 1, 2, 1);
+        tilesGridPane.add(engine.TilesProvider.geSparkLineTile("SparkLine", "mb", val2), 2, 1, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.geSmoothedChartTile("SparkLine", series1), 1, 2, 2, 1);
 
     }
 }

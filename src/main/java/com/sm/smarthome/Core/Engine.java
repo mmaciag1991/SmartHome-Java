@@ -14,10 +14,14 @@ import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import jfxtras.styles.jmetro.JMetro;
+import jfxtras.styles.jmetro.Style;
 import org.apache.commons.lang3.time.StopWatch;
 
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -33,47 +37,27 @@ public class Engine {
     public ActionEventService ActionEventService;
     public ControlersProvider ControlersProvider = new ControlersProvider();
 
+    private SplashScreen splashScreen = new SplashScreen();
+
     public Engine(Stage mainStage){
-
-        Stage stage = new Stage();
-
-                CircularProgressIndicator indicator = new CircularProgressIndicator();
-                StackPane pane = new StackPane(indicator);
-                indicator.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);
-                Scene scene = new Scene(pane, 1200, 800);
-
-                stage.initStyle(StageStyle.UNDECORATED);
-                stage.setTitle("Circular Progress Indicator");
-                stage.setScene(scene);
-
-
-
-
-
         new Thread(() -> {
-//            try {
-//                //Thread.sleep(5000);
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
                 InitializeActionEventService();
                 InitializeGuiService(mainStage);
                 InitializeTilesProvider();
                 InitializePagesProvider();
                 InitializeTopBarProvider();
 
-
-            Platform.runLater(() ->  stage.close());
-
+                Platform.runLater(() ->  splashScreen.close());
         }).start();
-        stage.showAndWait();
-
+        splashScreen.showAndWait();
     }
     private void InitializeActionEventService()  {
 
+        String text = "Initializing future: ActionEventService";
+        splashScreen.setLoadingTextLabel(text);
         StopWatch watch = new StopWatch();
         watch.start();
-        System.out.println("Initializing future: ActionEventService");
+        System.out.println(text);
         {
             ActionEventService = new ActionEventService(this);
         }
@@ -83,9 +67,11 @@ public class Engine {
     }
     private void InitializeGuiService(Stage mainStage)  {
 
+        String text = "Initializing future: GuiService";
+        splashScreen.setLoadingTextLabel(text);
         StopWatch watch = new StopWatch();
         watch.start();
-        System.out.println("Initializing future: GuiService");
+        System.out.println(text);
         {
             GuiService = new GuiService(this, mainStage);
         }
@@ -95,9 +81,11 @@ public class Engine {
     }
     private void InitializePagesProvider()  {
 
+        String text = "Initializing future: PagesProvider";
+        splashScreen.setLoadingTextLabel(text);
         StopWatch watch = new StopWatch();
         watch.start();
-        System.out.println("Initializing future: PagesProvider");
+        System.out.println(text);
         {
             PagesProvider = new PagesProvider(this);
         }
@@ -107,9 +95,11 @@ public class Engine {
     }
     private void InitializeTopBarProvider()  {
 
+        String text = "Initializing future: TopBarProvider";
+        splashScreen.setLoadingTextLabel(text);
         StopWatch watch = new StopWatch();
         watch.start();
-        System.out.println("Initializing future: TopBarProvider");
+        System.out.println(text);
         {
             TopBarProvider = new TopBarProvider(this);
         }
@@ -119,9 +109,11 @@ public class Engine {
     }
     private void InitializeTilesProvider()  {
 
+        String text = "Initializing future: TilesProvider";
+        splashScreen.setLoadingTextLabel(text);
         StopWatch watch = new StopWatch();
         watch.start();
-        System.out.println("Initializing future: TilesProvider");
+        System.out.println(text);
         {
             TilesProvider = new TilesProvider(this);
         }
@@ -129,6 +121,5 @@ public class Engine {
         System.out.println("Initialized future (" + watch.getTime() + " ms): TilesProvider");
 
     }
-
 
 }

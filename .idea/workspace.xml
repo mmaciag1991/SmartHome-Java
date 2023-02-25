@@ -5,24 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c1e5f1c-a948-4557-88a6-2252bf242bb9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Indicators/CircularProgressIndicator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Skins/circular-progress-indicator.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/SplashScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/OtherControls/SimplePopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/OtherControls/SimplePopupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/PagesProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/PagesProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/ActionEventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/ActionEventService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/GuiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/GuiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXColorPickerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/ColorPicker/JFXColorPickerUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXCustomColorPicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/ColorPicker/JFXCustomColorPicker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXCustomColorPickerDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/ColorPicker/JFXCustomColorPickerDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/JFXDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/ColorPicker/JFXDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/MarkButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/MarkButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TilesProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TilesProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TopBarProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TopBarProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/WeatherPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/WeatherPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Skins/circular-progress-indicator.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Skins/circular-progress-indicator.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,22 +64,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Mateusz/Desktop/vnc_android_library-master/eclipse_projects/SmartHome/src/main/resources/com/sm/smarthome/Skins",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.40804598",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Mateusz/Desktop/vnc_android_library-master/eclipse_projects/SmartHome/src/main/resources/com/sm/smarthome/Skins&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.40804598&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.sm.smarthome.Interfaces" />
@@ -191,7 +180,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677270454258</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Dalsza implementacja sm preloader">
+      <created>1677279959693</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677279959693</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Dalsza implementacja sm preloader">
+      <created>1677279979659</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1677279979659</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,6 +228,7 @@
     <MESSAGE value="dalsza implementacja SMH dobra wersja" />
     <MESSAGE value="Poprawka do poprzedniego commita przywrócenie trzech class" />
     <MESSAGE value="Poprawki colorpickera dla koloru akcentu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Poprawki colorpickera dla koloru akcentu" />
+    <MESSAGE value="Dalsza implementacja sm preloader" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dalsza implementacja sm preloader" />
   </component>
 </project>

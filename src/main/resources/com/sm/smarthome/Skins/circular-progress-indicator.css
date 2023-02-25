@@ -15,7 +15,7 @@
  */
 
 .circular-progress {
-    -indicator-color: #673ab7;
+    -indicator-color: #c40606;
 }
 .circular-progress .indicator {
     -fx-stroke-type    : centered;

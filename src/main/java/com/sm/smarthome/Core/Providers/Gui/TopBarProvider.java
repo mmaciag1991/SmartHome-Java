@@ -12,8 +12,10 @@ import com.sm.smarthome.Models.Ui.Buttons.TwoStateButton;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.kordamp.ikonli.fluentui.FluentUiFilledAL;
 import org.kordamp.ikonli.fluentui.FluentUiFilledMZ;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
+import org.kordamp.ikonli.materialdesign2.MaterialDesignC;
 
 public class TopBarProvider {
 
@@ -41,7 +43,7 @@ public class TopBarProvider {
             });
         });
 
-        colorAccentButton = new TwoStateButton(MaterialDesign.MDI_COLOR_HELPER, MaterialDesign.MDI_COLOR_HELPER, "","",  ButtonAction.ActionAccentColor,  ButtonAction.ActionAccentColor, ButtonSize.Small, ButtonWidthType.Normal, engine, false, ButtonState.Inactive, UserPermissions.User);
+        colorAccentButton = new TwoStateButton(FluentUiFilledAL.COLOR_24, FluentUiFilledAL.COLOR_24, "","",  ButtonAction.ActionAccentColor,  ButtonAction.ActionAccentColor, ButtonSize.Small, ButtonWidthType.Normal, engine, false, ButtonState.Inactive, UserPermissions.User);
 
         TwoStateButton cameraButton = new TwoStateButton(MaterialDesign.MDI_CAMERA, MaterialDesign.MDI_CAMERA_OFF, "","",  ButtonAction.ActionCameraOn,  ButtonAction.ActionCameraOff, ButtonSize.Small, ButtonWidthType.Normal, engine, false, ButtonState.Inactive, UserPermissions.User);
         TwoStateButton keyboardButton = new TwoStateButton(MaterialDesign.MDI_KEYBOARD, MaterialDesign.MDI_KEYBOARD_OFF, "","",  ButtonAction.ActionKeyboardOn,  ButtonAction.ActionKeyboardOff, ButtonSize.Small, ButtonWidthType.Normal, engine, false, ButtonState.Inactive, UserPermissions.Guest);
