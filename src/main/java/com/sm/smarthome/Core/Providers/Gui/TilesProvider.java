@@ -1,13 +1,22 @@
 package com.sm.smarthome.Core.Providers.Gui;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 import com.sm.smarthome.Core.Engine;
 import eu.hansolo.tilesfx.*;
+import eu.hansolo.tilesfx.chart.ChartData;
 import eu.hansolo.tilesfx.chart.TilesFXSeries;
 import eu.hansolo.tilesfx.tools.Helper;
 import javafx.application.Platform;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.geometry.Insets;
 import javafx.scene.chart.XYChart;
 import javafx.scene.paint.Color;
@@ -35,14 +44,14 @@ public class TilesProvider {
         return clockTile;
     }
 
-    public Tile getProcentageTile(String title, String description, double maxValue, SimpleDoubleProperty value){
+    public Tile getProcentageTile(String title, SimpleStringProperty description, SimpleDoubleProperty max, SimpleDoubleProperty value){
 
         Tile tile = TileBuilder.create()
                 .skinType(Tile.SkinType.PERCENTAGE)
                 .title(title)
                 .unit(Helper.PERCENTAGE)
-                .description(description)
-                .maxValue(maxValue)
+                .description(description.getValue())
+                .maxValue(max.doubleValue())
                 .value(value.doubleValue())
                 .padding(insets)
                 .barColor(engine.GuiService.AccentColor.getValue())
@@ -50,6 +59,9 @@ public class TilesProvider {
 
         value.addListener((observable, oldValue, newValue) -> tile.setValue(newValue.doubleValue()));
         engine.GuiService.AccentColor.addListener((observable, oldValue, newValue) -> tile.setBarColor(newValue));
+        max.addListener((observableValue, number, t1) -> tile.setMaxValue(t1.doubleValue()));
+        description.addListener((observableValue, s, t1) -> tile.setDescription(t1));
+
 
         return tile;
     }
@@ -89,27 +101,85 @@ public class TilesProvider {
 
         return tile;
     }
-    public Tile geSmoothedChartTile(String title, XYChart.Series<String, Number> series){
+    public Tile getPlusMinusTile(String title, String unit, SimpleStringProperty text, SimpleStringProperty description, SimpleDoubleProperty min, SimpleDoubleProperty max, SimpleDoubleProperty valueOut){
+
+        Tile tile = TileBuilder.create()
+                .skinType(Tile.SkinType.PLUS_MINUS)
+                .maxValue(max.doubleValue())
+                .minValue(min.doubleValue())
+                .title(title)
+                .text(text.getValue())
+                .description(description.getValue())
+                .padding(insets)
+                .unit(unit)
+                .valueColor(engine.GuiService.AccentColor.getValue())
+                .unitColor(engine.GuiService.AccentColor.getValue())
+                .value(valueOut.doubleValue())
+                .build();
+
+        tile.valueProperty().addListener((observableValue, number, t1) -> valueOut.setValue(t1.doubleValue()));
+
+        min.addListener((observableValue, number, t1) -> tile.setMinValue(t1.doubleValue()));
+        max.addListener((observableValue, number, t1) -> tile.setMaxValue(t1.doubleValue()));
+        text.addListener((observableValue, s, t1) -> tile.setText(t1));
+        description.addListener((observableValue, s, t1) -> tile.setText(t1));
+
+        engine.GuiService.AccentColor.addListener((observable, oldValue, newValue) -> Platform.runLater(() -> {
+            tile.setUnitColor(newValue);
+            tile.setValueColor(newValue);
+        }));
+
+        return tile;
+    }
+    public Tile getSliderTile (String title, String unit, SimpleStringProperty text, SimpleStringProperty description, SimpleDoubleProperty valueOut){
 
 
         Tile tile = TileBuilder.create()
-                .skinType(Tile.SkinType.SMOOTHED_CHART)
+                .skinType(Tile.SkinType.SLIDER)
                 .title(title)
-                .chartType(Tile.ChartType.AREA)
-                .barColor(Color.GOLD)
-                .animated(true)
-                .smoothing(true)
+                .text(text.getValue())
+                .description(description.getValue())
+                .unit(unit)
+                .barColor(engine.GuiService.AccentColor.getValue())
+                .value(valueOut.doubleValue())
                 .padding(insets)
-                .tooltipTimeout(1000)
-                .tilesFxSeries(new TilesFXSeries<>(series,
-                        Tile.DARK_BLUE,
-                        new LinearGradient(0, 0, 0, 1,
-                                true, CycleMethod.NO_CYCLE,
-                                new Stop(0, Color.BLUE),
-                                new Stop(1, Color.YELLOW))))
                 .build();
 
-        engine.GuiService.AccentColor.addListener((observable, oldValue, newValue) -> Platform.runLater(() -> tile.setValueColor(newValue)));
+        tile.valueProperty().addListener((observableValue, number, t1) -> valueOut.setValue(t1.doubleValue()));
+        text.addListener((observableValue, s, t1) -> tile.setText(t1));
+        description.addListener((observableValue, s, t1) -> tile.setText(t1));
+        engine.GuiService.AccentColor.addListener((observable, oldValue, newValue) -> Platform.runLater(() -> tile.setBarColor(newValue)));
+
+        return tile;
+    }
+    public Tile getSwitchTile  (String title, SimpleStringProperty text, SimpleStringProperty description, SimpleBooleanProperty valueOut){
+
+
+        Tile tile = TileBuilder.create()
+                .skinType(Tile.SkinType.SWITCH)
+                .title(title)
+                .text(text.getValue())
+                .description(description.getValue())
+                .padding(insets)
+                .build();
+
+        tile.setOnSwitchPressed(e -> valueOut.setValue(true));
+        tile.setOnSwitchReleased(e -> valueOut.setValue(false));
+
+        text.addListener((observableValue, s, t1) -> tile.setText(t1));
+        description.addListener((observableValue, s, t1) -> tile.setText(t1));
+        engine.GuiService.AccentColor.addListener((observable, oldValue, newValue) -> Platform.runLater(() -> tile.setBarColor(newValue)));
+
+        return tile;
+    }
+    public Tile geCalendarTile(List<ChartData> calendarData){
+
+        Tile tile = TileBuilder.create()
+                .skinType(Tile.SkinType.CALENDAR)
+                .padding(insets)
+                .chartData(calendarData)
+                .locale(engine.SystemService.Language.Locale)
+                .build();
 
         return tile;
     }

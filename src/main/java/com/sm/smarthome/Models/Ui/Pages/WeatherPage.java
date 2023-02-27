@@ -1,5 +1,6 @@
 package com.sm.smarthome.Models.Ui.Pages;
 
+import com.jfoenix.controls.JFXButton;
 import com.sm.smarthome.Core.Engine;
 import com.sm.smarthome.Enums.Actions.ButtonAction;
 import com.sm.smarthome.Enums.Other.UserPermissions;
@@ -8,7 +9,10 @@ import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
 import com.sm.smarthome.Enums.Ui.Pages.PageType;
 import com.sm.smarthome.Models.Ui.Buttons.MarkButton;
 import javafx.application.Platform;
+import javafx.geometry.Insets;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
 
@@ -25,7 +29,15 @@ public class WeatherPage extends PageBase{
         Platform.runLater(() -> {
             WebView webView = new WebView();
             webView.getEngine().load(Address2);
-            this.BodyInstance = webView;
+
+            StackPane pane = new StackPane();
+            pane.getChildren().add(webView);
+            pane.setPrefWidth(1062);
+            pane.setPrefHeight(768);
+            pane.setPadding(new Insets(4, 10, 10, 20));
+            pane.setStyle("-fx-background-radius: 10px");
+
+            this.BodyInstance = pane;
         });
 
         this.Button = new MarkButton(MaterialDesign.MDI_WEATHER_LIGHTNING_RAINY, DisplayName, null, ButtonAction.ActionWeatherPage, ButtonSize.Big, ButtonWidthType.Widthx2, engine, UserPermissions.Guest);

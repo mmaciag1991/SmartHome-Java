@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.Style;
 
+import java.lang.reflect.Field;
+import java.util.Optional;
+
 public class GuiService {
 
 
@@ -52,6 +55,20 @@ public class GuiService {
     }
     public String GetRgbaColorToStyleFx(Color color, double alpha){
         return "rgba(%s, %s, %s, %s);".formatted(color.getRed() * 255, color.getGreen() * 255, color.getBlue() * 255, alpha);
+    }
+
+    public Optional<String> colorName(Color c) {
+        for (Field f : Color.class.getDeclaredFields()) {
+            //we want to test only fields of type Color
+            if (f.getType().equals(Color.class))
+                try {
+                    if (f.get(null).equals(c))
+                        return Optional.of(f.getName().toLowerCase());
+                } catch (IllegalArgumentException | IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+        }
+        return Optional.empty();
     }
 
 }

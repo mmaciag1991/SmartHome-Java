@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c1e5f1c-a948-4557-88a6-2252bf242bb9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/SplashScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/Pages/HomePageViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/Pages/HomePageViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TilesProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TilesProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TopBarProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TopBarProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/GuiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/GuiService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Skins/circular-progress-indicator.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Skins/circular-progress-indicator.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/WeatherPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/WeatherPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Views/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Views/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Views/Pages/HomePageView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Views/Pages/HomePageView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677279979659</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Dalsza implementacja sm tiles">
+      <created>1677321657385</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1677321657385</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -229,6 +237,7 @@
     <MESSAGE value="Poprawka do poprzedniego commita przywrócenie trzech class" />
     <MESSAGE value="Poprawki colorpickera dla koloru akcentu" />
     <MESSAGE value="Dalsza implementacja sm preloader" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dalsza implementacja sm preloader" />
+    <MESSAGE value="Dalsza implementacja sm tiles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dalsza implementacja sm tiles" />
   </component>
 </project>
