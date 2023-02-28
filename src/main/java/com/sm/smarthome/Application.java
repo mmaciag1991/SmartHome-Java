@@ -34,8 +34,8 @@ public class Application extends javafx.application.Application {
         stage.getIcons().add(new Image(Application.class.getResourceAsStream("Media/Icons/icon.png")));
         engine.GuiService.SetTheme(Style.DARK);
 
-        stage.setFullScreen(true);
-        stage.initStyle(StageStyle.UTILITY);
+        //stage.setFullScreen(true);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
 

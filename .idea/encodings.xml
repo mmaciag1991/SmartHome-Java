@@ -22,6 +22,10 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/ToggleSwitch Sample.fxml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/default-skin.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/toggleswitch-sample.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/sm/smarthome/CustomControls/HanSolo/TimeControl/Fonts/Roboto-Light.ttf" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/sm/smarthome/CustomControls/HanSolo/TimeControl/Fonts/Roboto-Light.ttf" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/sm/smarthome/CustomControls/HanSolo/TimeControl/Fonts/Roboto-Regular.ttf" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/sm/smarthome/CustomControls/HanSolo/TimeControl/Fonts/Roboto-Regular.ttf" charset="windows-1250" />
     <file url="file://$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Skins/fx-skins.css" charset="UTF-8" />
   </component>
 </project>

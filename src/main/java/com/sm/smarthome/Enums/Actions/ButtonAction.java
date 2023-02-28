@@ -7,6 +7,11 @@ public enum ButtonAction {
     ActionWeatherPage,
     ActionSetupPage,
 
+    /**HomePageBottom3Buttons**/
+    ActionLeftSubHomePage,
+    ActionCenterSubHomePage,
+    ActionRightSubHomePage,
+
     /**Top buttonbar actions**/
     ActionThemeDark,
     ActionThemeLight,

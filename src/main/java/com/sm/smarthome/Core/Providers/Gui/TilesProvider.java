@@ -2,12 +2,15 @@ package com.sm.smarthome.Core.Providers.Gui;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 import com.sm.smarthome.Core.Engine;
+import com.sm.smarthome.CustomControls.HanSolo.TimeControl.TimeControl;
 import eu.hansolo.tilesfx.*;
 import eu.hansolo.tilesfx.chart.ChartData;
 import eu.hansolo.tilesfx.chart.TilesFXSeries;
@@ -19,6 +22,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.geometry.Insets;
 import javafx.scene.chart.XYChart;
+import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
@@ -160,6 +164,7 @@ public class TilesProvider {
                 .title(title)
                 .text(text.getValue())
                 .description(description.getValue())
+                .activeColor(engine.GuiService.AccentColor.getValue())
                 .padding(insets)
                 .build();
 
@@ -168,7 +173,7 @@ public class TilesProvider {
 
         text.addListener((observableValue, s, t1) -> tile.setText(t1));
         description.addListener((observableValue, s, t1) -> tile.setText(t1));
-        engine.GuiService.AccentColor.addListener((observable, oldValue, newValue) -> Platform.runLater(() -> tile.setBarColor(newValue)));
+        engine.GuiService.AccentColor.addListener((observable, oldValue, newValue) -> Platform.runLater(() -> tile.setActiveColor(newValue)));
 
         return tile;
     }
@@ -179,7 +184,90 @@ public class TilesProvider {
                 .padding(insets)
                 .chartData(calendarData)
                 .locale(engine.SystemService.Language.Locale)
+                .trackColor(Tile.TileColor.LIGHT_GREEN)
                 .build();
+
+        return tile;
+    }
+    public Tile getTimeControlTile(SimpleObjectProperty<Duration> duration){
+
+        TimeControl timeControl = new TimeControl();
+        timeControl.setBarColor(engine.GuiService.AccentColor.getValue());
+        timeControl.setBackgroundColor(Color.TRANSPARENT);
+        timeControl.setStartTime(LocalTime.of(0, 0));
+        timeControl.setStopTime(LocalTime.of(15, 0));
+
+
+        Tile tile = TileBuilder.create()
+                .skinType(Tile.SkinType.CUSTOM)
+                .graphic(timeControl)
+                .padding(insets)
+                .build();
+
+
+        engine.GuiService.AccentColor.addListener((observable, oldValue, newValue) -> Platform.runLater(() -> timeControl.setBarColor(newValue)));
+        timeControl.durationProperty().addListener(o -> {
+            System.out.println(timeControl.getDuration());
+            duration.set(timeControl.getDuration());
+        });
+
+
+        return tile;
+    }
+    public Tile getFluidTile(String title, String text, String unit, SimpleDoubleProperty value, double threshold){
+
+        Tile tile = TileBuilder.create().skinType(Tile.SkinType.FLUID)
+                .title(title)
+                .text(text)
+                .unit(unit)
+                .barColor(engine.GuiService.AccentColor.getValue())
+                .threshold(threshold) // triggers the fire and smoke effect
+                .value(value.doubleValue())
+                .decimals(0)
+                .animated(true)
+                .build();
+        engine.GuiService.AccentColor.addListener((observable, oldValue, newValue) -> Platform.runLater(() -> tile.setBarColor(newValue)));
+        value.addListener((observable, oldValue, newValue) -> Platform.runLater(() -> tile.setValue(newValue.doubleValue())));
+
+        return tile;
+    }
+
+    public Tile getTimerControlTile(String title, String text, SimpleBooleanProperty running){
+
+        Tile tile = TileBuilder.create()
+                .skinType(Tile.SkinType.TIMER_CONTROL)
+                .title(title)
+                .text(text)
+                .barColor(engine.GuiService.AccentColor.getValue())
+                .secondsVisible(true)
+                .dateVisible(true)
+                .build();
+
+        engine.GuiService.AccentColor.addListener((observable, oldValue, newValue) -> Platform.runLater(() -> tile.setBarColor(newValue)));
+        running.addListener((observable, oldValue, newValue) -> Platform.runLater(() -> tile.setRunning(newValue)));
+
+        return tile;
+    }
+    public Tile getTimerCountDownTile(String title, String text, SimpleStringProperty description, SimpleObjectProperty<Duration> duration,SimpleBooleanProperty running){
+
+        Tile tile = TileBuilder.create()
+                .skinType(Tile.SkinType.COUNTDOWN_TIMER)
+                .title(title)
+                .description(description.getValue())
+                .text(text)
+                .barColor(engine.GuiService.AccentColor.getValue())
+                .timePeriod(duration.getValue())
+                .running(running.getValue())
+                .build();
+
+        tile.setOnAlarmEvt(e -> tile.setBarColor(Color.FIREBRICK));
+
+        description.addListener((observableValue, s, t1) -> tile.setDescription(t1));
+        engine.GuiService.AccentColor.addListener((observable, oldValue, newValue) -> Platform.runLater(() -> tile.setBarColor(newValue)));
+        running.addListener((observable, oldValue, newValue) -> Platform.runLater(() -> {
+            tile.setTimePeriod(duration.getValue());
+            tile.setRunning(newValue);
+        }));
 
         return tile;
     }

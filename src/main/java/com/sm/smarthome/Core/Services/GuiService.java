@@ -18,7 +18,7 @@ public class GuiService {
     public Stage MainStage;
     public JMetro JMetroThemeManager = new JMetro(Style.DARK);
     public SimpleObjectProperty<Color> FontColor = new SimpleObjectProperty<Color>(Color.TRANSPARENT);
-    public SimpleObjectProperty<Color> AccentColor = new SimpleObjectProperty<Color>(Color.RED);
+    public SimpleObjectProperty<Color> AccentColor = new SimpleObjectProperty<Color>(Color.rgb(46,71,153));
 
 
     public GuiService(Engine engine, Stage mainStage){

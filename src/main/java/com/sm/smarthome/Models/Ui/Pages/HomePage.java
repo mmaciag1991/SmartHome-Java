@@ -9,9 +9,14 @@ import com.sm.smarthome.Enums.Ui.Bottons.ButtonSize;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
 import com.sm.smarthome.Enums.Ui.Pages.PageType;
 import com.sm.smarthome.Models.Ui.Buttons.MarkButton;
+import com.sm.smarthome.Models.Ui.Buttons.RadiusButton;
+import eu.hansolo.tilesfx.Tile;
+import eu.hansolo.tilesfx.TimeSection;
+import eu.hansolo.tilesfx.TimeSectionBuilder;
 import eu.hansolo.tilesfx.chart.ChartData;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -22,12 +27,16 @@ import jfxtras.styles.jmetro.JMetroStyleClass;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
 
 import java.io.IOException;
+import java.time.Duration;
+import java.time.LocalTime;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage extends PageBase{
     private Engine engine;
+    private Parent parent;
+    private HomePageViewController homePageViewController;
     public HomePage(Engine engine){
         this.engine = engine;
         this.Index = 0;
@@ -50,12 +59,35 @@ public class HomePage extends PageBase{
         parent.getStyleClass().add(JMetroStyleClass.BACKGROUND);
         HomePageViewController homePageViewController = fxmlLoader.getController();
 
-        InitializeTiles(homePageViewController, parent);
+        this.parent = parent;
+        this.homePageViewController = homePageViewController;
+
+        InitializeButtons(homePageViewController);
+
+        InitializeTiles();
 
         return parent;
     }
 
-    private void InitializeTiles(HomePageViewController homePageViewController, Parent parent){
+    private void InitializeButtons(HomePageViewController homePageViewController){
+        homePageViewController.getButtonsBox().getChildren().addAll(new RadiusButton(ButtonAction.ActionLeftSubHomePage, engine, UserPermissions.Guest), new RadiusButton(ButtonAction.ActionCenterSubHomePage, engine, UserPermissions.Guest), new RadiusButton(ButtonAction.ActionRightSubHomePage, engine, UserPermissions.Guest));
+    }
+
+    public void SetLeftSubPage(){
+        homePageViewController.slide(parent);
+        homePageViewController.getTilesGrid().getChildren().clear();
+    }
+    public void SetCenterSubPage(){
+        homePageViewController.slide(parent);
+        homePageViewController.getTilesGrid().getChildren().clear();
+        InitializeTiles();
+    }
+    public void SetRightSubPage(){
+        homePageViewController.slide(parent);
+        homePageViewController.getTilesGrid().getChildren().clear();
+    }
+
+    private void InitializeTiles(){
         SimpleDoubleProperty val1 = new SimpleDoubleProperty(26);
         SimpleDoubleProperty val2 = new SimpleDoubleProperty(26);
         SimpleDoubleProperty val3 = new SimpleDoubleProperty(26);
@@ -85,6 +117,7 @@ public class HomePage extends PageBase{
         calendarData.add(new ChartData("Item 9", now.toInstant()));
         calendarData.add(new ChartData("Item 10", now.toInstant()));
 
+
         Thread thread = new Thread(() -> {
           while (true){
               val1.set(Math.random() * 99 + 1);
@@ -101,21 +134,22 @@ public class HomePage extends PageBase{
         });
         thread.start();
 
-        GridPane tilesGridPane = homePageViewController.getGridPane();
+        GridPane tilesGridPane = homePageViewController.getTilesGrid();
 
-        tilesGridPane.add(engine.TilesProvider.getClockTile(), 0, 0, 1, 1);
+        //tilesGridPane.add(engine.TilesProvider.getClockTile(), 0, 0, 1, 1);
+        //tilesGridPane.add(engine.TilesProvider.getFluidTile("Fluid", "Text", "Unit", val1, 40), 0, 0, 1, 1);
+        //tilesGridPane.add(engine.TilesProvider.getTimerControlTile("Timer", "Text", new SimpleBooleanProperty(true)), 0, 0, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.getTimerCountDownTile("Timer countdown", "Text", new SimpleStringProperty("description"), new SimpleObjectProperty<Duration>(Duration.ofSeconds(90)), new SimpleBooleanProperty(true)), 0, 0, 1, 1);
+
         tilesGridPane.add(engine.TilesProvider.getProcentageTile("Wilgotność", new SimpleStringProperty("Kuchnia"), new SimpleDoubleProperty(100), val1), 1, 0, 2, 1);
         tilesGridPane.add(engine.TilesProvider.getGuageTile("Temperatura", "℃", val2, val3), 3, 0, 1, 1);
         tilesGridPane.add(engine.TilesProvider.getClockTile(), 0, 1, 2, 1);
         tilesGridPane.add(engine.TilesProvider.geSparkLineTile("SparkLine", "mb", val2), 2, 1, 1, 1);
         tilesGridPane.add(engine.TilesProvider.getSwitchTile("Switch", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleBooleanProperty()), 3, 1, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getPlusMinusTile("PlusMinusTile", "g", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleDoubleProperty(0), new SimpleDoubleProperty(10), new SimpleDoubleProperty(5)), 0, 2, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.getTimeControlTile(new SimpleObjectProperty<>()), 0, 2, 1, 2);
+        tilesGridPane.add(engine.TilesProvider.getPlusMinusTile("PlusMinusTile", "g", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleDoubleProperty(0), new SimpleDoubleProperty(10), new SimpleDoubleProperty(5)), 1, 3, 1, 1);
         tilesGridPane.add(engine.TilesProvider.getSliderTile("SliderTile", "%", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleDoubleProperty(23)), 1, 2, 1, 1);
         tilesGridPane.add(engine.TilesProvider.geCalendarTile(calendarData), 2, 2, 2, 2);
-
-        tilesGridPane.setOnMouseClicked(mouseEvent -> {
-            homePageViewController.slide(parent);
-        });
 
     }
 }

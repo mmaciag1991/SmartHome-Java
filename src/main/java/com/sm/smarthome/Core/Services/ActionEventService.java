@@ -8,6 +8,7 @@ import com.sm.smarthome.Enums.Other.UserPermissions;
 import com.sm.smarthome.Events.ButtonEvent;
 import com.sm.smarthome.Events.SmEventHandler;
 import com.sm.smarthome.Models.Data.UserModel;
+import com.sm.smarthome.Models.Ui.Pages.HomePage;
 import javafx.application.Platform;
 import javafx.scene.shape.Line;
 import jfxtras.styles.jmetro.JMetro;
@@ -30,6 +31,10 @@ public class ActionEventService extends Line {
                     case ActionHomePage -> SetHomePage();
                     case ActionWeatherPage -> SetWeatherPage();
                     case ActionSetupPage -> SetSetupPage();
+                    //HomePage subpages buttons actions
+                    case ActionLeftSubHomePage -> ((HomePage)engine.PagesProvider.HomePage).SetLeftSubPage();
+                    case ActionCenterSubHomePage -> ((HomePage)engine.PagesProvider.HomePage).SetCenterSubPage();
+                    case ActionRightSubHomePage -> ((HomePage)engine.PagesProvider.HomePage).SetRightSubPage();
                     //Top bar actions
                     case ActionWifiOn, ActionWifiOff -> WifiAction(action);
                     case ActionLogin, ActionLogoff -> ChangeUserAction(action);
@@ -80,7 +85,9 @@ public class ActionEventService extends Line {
             jfxCustomColorPickerDialog.setCurrentColor(engine.GuiService.AccentColor.getValue());
             jfxCustomColorPickerDialog.getStyleClass().add(JMetroStyleClass.BACKGROUND);
             jfxCustomColorPickerDialog.setOnSave(() -> {});
-            jfxCustomColorPickerDialog.ActualColorProperty.addListener((observable, oldValue, newValue) -> {engine.GuiService.AccentColor.setValue(newValue);});
+            jfxCustomColorPickerDialog.ActualColorProperty.addListener((observable, oldValue, newValue) -> {
+                engine.GuiService.AccentColor.setValue(newValue);
+            });
             JMetro JMetroThemeManager = new JMetro(Style.DARK);
             JMetroThemeManager.setScene(jfxCustomColorPickerDialog.customScene);
             JMetroThemeManager.setStyle(Style.DARK);
