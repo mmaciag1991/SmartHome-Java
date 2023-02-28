@@ -6,6 +6,7 @@ import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.concurrent.Task;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -24,6 +25,17 @@ public class SystemService {
 
     }
 
+    public void RunProcess(String cmd){
+        Process proc = null;
+        try {
+            proc = Runtime.getRuntime().exec(cmd);
+            proc.waitFor();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     private Task mainSystemThreadTask(){
         while (mainSystemThread.isAlive()){
             Platform.runLater(() -> SystemDate.set(new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(Calendar.getInstance().getTime())));

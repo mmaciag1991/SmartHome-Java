@@ -35,7 +35,7 @@ public class Application extends javafx.application.Application {
         engine.GuiService.SetTheme(Style.DARK);
 
         stage.setFullScreen(true);
-        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.UTILITY);
         stage.show();
     }
 

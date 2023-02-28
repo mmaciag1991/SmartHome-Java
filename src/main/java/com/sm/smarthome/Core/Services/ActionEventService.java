@@ -58,7 +58,12 @@ public class ActionEventService extends Line {
 
         engine.PagesProvider.SetActivePageByIndex(2);
     }
-    private void WifiAction(ButtonAction action){}
+    private void WifiAction(ButtonAction action){
+        switch (action){
+            case ActionWifiOn -> engine.SystemService.RunProcess("sudo ifconfig wlan0 on");
+            case ActionWifiOff -> engine.SystemService.RunProcess("sudo ifconfig wlan0 down");
+        }
+    }
     private void ChangeUserAction(ButtonAction action){
 
         if (action == ButtonAction.ActionLogin){

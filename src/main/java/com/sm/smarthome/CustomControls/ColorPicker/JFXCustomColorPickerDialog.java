@@ -76,7 +76,7 @@ public class JFXCustomColorPickerDialog extends StackPane {
             dialog.initOwner(owner);
         }
         dialog.initModality(Modality.APPLICATION_MODAL);
-        dialog.initStyle(StageStyle.TRANSPARENT);
+        dialog.initStyle(StageStyle.UTILITY);
         dialog.setResizable(false);
 
         // create JFX Decorator
