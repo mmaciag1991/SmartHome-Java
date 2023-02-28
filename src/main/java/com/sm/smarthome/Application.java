@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 
@@ -33,6 +34,7 @@ public class Application extends javafx.application.Application {
         stage.getIcons().add(new Image(Application.class.getResourceAsStream("Media/Icons/icon.png")));
         engine.GuiService.SetTheme(Style.DARK);
 
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
 
