@@ -43,7 +43,7 @@ public class SplashScreen extends Stage {
         Scene scene = new Scene(stackPane, 1200, 800);
         JMetroThemeManager.setScene(scene);
         this.initStyle(StageStyle.UTILITY);
-        this.setFullScreen(true);
+        //this.setFullScreen(true);
         this.setTitle("Initializing");
         this.setScene(scene);
     }

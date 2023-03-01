@@ -10,9 +10,6 @@ import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
 import com.sm.smarthome.Enums.Ui.Pages.PageType;
 import com.sm.smarthome.Models.Ui.Buttons.MarkButton;
 import com.sm.smarthome.Models.Ui.Buttons.RadiusButton;
-import eu.hansolo.tilesfx.Tile;
-import eu.hansolo.tilesfx.TimeSection;
-import eu.hansolo.tilesfx.TimeSectionBuilder;
 import eu.hansolo.tilesfx.chart.ChartData;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -28,7 +25,7 @@ import org.kordamp.ikonli.materialdesign.MaterialDesign;
 
 import java.io.IOException;
 import java.time.Duration;
-import java.time.LocalTime;
+import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +61,7 @@ public class HomePage extends PageBase{
 
         InitializeButtons(homePageViewController);
 
-        InitializeTiles();
+        InitializeTilesCenter();
 
         return parent;
     }
@@ -76,18 +73,19 @@ public class HomePage extends PageBase{
     public void SetLeftSubPage(){
         homePageViewController.slide(parent);
         homePageViewController.getTilesGrid().getChildren().clear();
+        InitializeTilesLeft();
     }
     public void SetCenterSubPage(){
         homePageViewController.slide(parent);
         homePageViewController.getTilesGrid().getChildren().clear();
-        InitializeTiles();
+        InitializeTilesCenter();
     }
     public void SetRightSubPage(){
         homePageViewController.slide(parent);
         homePageViewController.getTilesGrid().getChildren().clear();
     }
 
-    private void InitializeTiles(){
+    private void InitializeTilesCenter(){
         SimpleDoubleProperty val1 = new SimpleDoubleProperty(26);
         SimpleDoubleProperty val2 = new SimpleDoubleProperty(26);
         SimpleDoubleProperty val3 = new SimpleDoubleProperty(26);
@@ -136,9 +134,7 @@ public class HomePage extends PageBase{
 
         GridPane tilesGridPane = homePageViewController.getTilesGrid();
 
-        //tilesGridPane.add(engine.TilesProvider.getClockTile(), 0, 0, 1, 1);
-        //tilesGridPane.add(engine.TilesProvider.getFluidTile("Fluid", "Text", "Unit", val1, 40), 0, 0, 1, 1);
-        //tilesGridPane.add(engine.TilesProvider.getTimerControlTile("Timer", "Text", new SimpleBooleanProperty(true)), 0, 0, 1, 1);
+
         tilesGridPane.add(engine.TilesProvider.getTimerCountDownTile("Timer countdown", "Text", new SimpleStringProperty("description"), new SimpleObjectProperty<Duration>(Duration.ofSeconds(90)), new SimpleBooleanProperty(true)), 0, 0, 1, 1);
 
         tilesGridPane.add(engine.TilesProvider.getProcentageTile("Wilgotność", new SimpleStringProperty("Kuchnia"), new SimpleDoubleProperty(100), val1), 1, 0, 2, 1);
@@ -151,5 +147,43 @@ public class HomePage extends PageBase{
         tilesGridPane.add(engine.TilesProvider.getSliderTile("SliderTile", "%", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleDoubleProperty(23)), 1, 2, 1, 1);
         tilesGridPane.add(engine.TilesProvider.geCalendarTile(calendarData), 2, 2, 2, 2);
 
+    }
+    private void InitializeTilesLeft(){
+        SimpleDoubleProperty val1 = new SimpleDoubleProperty(26);
+        SimpleDoubleProperty val2 = new SimpleDoubleProperty(26);
+        SimpleDoubleProperty val3 = new SimpleDoubleProperty(26);
+        SimpleObjectProperty<ChartData> chartDataSimpleObjectProperty = new SimpleObjectProperty<ChartData>();
+
+
+        Thread thread = new Thread(() -> {
+          while (true){
+              chartDataSimpleObjectProperty.set(new ChartData("", Math.random() * 300 + 50, Instant.now()));
+              val1.set(Math.random() * 99 + 1);
+              val2.set(Math.random() * 99 + 1);
+              val3.set(Math.random() * 89 + 1);
+              try {
+                  Thread.sleep(1900);
+              } catch (InterruptedException e) {
+                  throw new RuntimeException(e);
+              }
+          }
+
+        });
+        thread.start();
+
+        List<ChartData> glucoseData = new ArrayList<>();
+        for (int i = 0 ; i < 288; i++) {
+            glucoseData.add(new ChartData("", Math.random() * 300 + 50));
+        }
+
+        GridPane tilesGridPane = homePageViewController.getTilesGrid();
+
+        // grid.add(node, col, row, colSpan, rowSpan)
+
+        tilesGridPane.add(engine.TilesProvider.getClockTile(), 0, 0, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.getFluidTile("Fluid", "Text", "Unit", val1, 40), 1, 0, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.getTimerControlTile("Timer", "Text", new SimpleBooleanProperty(true)), 2, 0, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.getTimelineTile("Timeline", "dl/mg", new SimpleDoubleProperty(0), new SimpleDoubleProperty(350), new SimpleDoubleProperty(70), new SimpleDoubleProperty(240), chartDataSimpleObjectProperty), 3, 0, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.getRadialDistributionTile("RadialChart", "Text", new SimpleStringProperty("Discr"), new SimpleDoubleProperty(0), new SimpleDoubleProperty(400), new SimpleDoubleProperty(70), new SimpleDoubleProperty(140), glucoseData), 1, 1, 2, 2);
     }
 }
