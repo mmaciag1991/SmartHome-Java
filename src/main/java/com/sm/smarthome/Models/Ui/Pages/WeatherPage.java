@@ -8,6 +8,8 @@ import com.sm.smarthome.Enums.Ui.Bottons.ButtonSize;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
 import com.sm.smarthome.Enums.Ui.Pages.PageType;
 import com.sm.smarthome.Models.Ui.Buttons.MarkButton;
+import eu.hansolo.tilesfx.Tile;
+import eu.hansolo.tilesfx.TileBuilder;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.control.TextArea;
@@ -30,14 +32,11 @@ public class WeatherPage extends PageBase{
             WebView webView = new WebView();
             webView.getEngine().load(Address2);
 
-            StackPane pane = new StackPane();
-            pane.getChildren().add(webView);
-            pane.setPrefWidth(1062);
-            pane.setPrefHeight(768);
-            pane.setPadding(new Insets(4, 10, 10, 20));
-            pane.setStyle("-fx-background-radius: 10px");
-
-            this.BodyInstance = pane;
+            this.BodyInstance = TileBuilder.create()
+                    .skinType(Tile.SkinType.CUSTOM)
+                    .graphic(webView)
+                    .padding(new Insets(5,-10,5,-10))
+                    .build();
         });
 
         this.Button = new MarkButton(MaterialDesign.MDI_WEATHER_LIGHTNING_RAINY, DisplayName, null, ButtonAction.ActionWeatherPage, ButtonSize.Big, ButtonWidthType.Widthx2, engine, UserPermissions.Guest);

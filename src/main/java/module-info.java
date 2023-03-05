@@ -20,8 +20,10 @@ module com.sm.smarthome {
     requires eu.hansolo.toolboxfx;
     requires eu.hansolo.toolbox;
     requires org.apache.commons.lang3;
+    requires jdk.management;
+    requires json.simple;
 
-    opens com.sm.smarthome to javafx.fxml;
+    opens com.sm.smarthome to javafx.fxml,javafx.graphics;
     exports com.sm.smarthome;
     exports com.sm.smarthome.Interfaces;
     opens com.sm.smarthome.Interfaces to javafx.fxml;

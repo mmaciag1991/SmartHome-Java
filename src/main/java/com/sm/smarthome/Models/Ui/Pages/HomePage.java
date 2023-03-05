@@ -10,7 +10,10 @@ import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
 import com.sm.smarthome.Enums.Ui.Pages.PageType;
 import com.sm.smarthome.Models.Ui.Buttons.MarkButton;
 import com.sm.smarthome.Models.Ui.Buttons.RadiusButton;
+import eu.hansolo.tilesfx.Tile;
 import eu.hansolo.tilesfx.chart.ChartData;
+import eu.hansolo.tilesfx.skins.BarChartItem;
+import eu.hansolo.tilesfx.tools.Helper;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -22,6 +25,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.layout.GridPane;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
+import com.sun.management.OperatingSystemMXBean;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -29,6 +33,7 @@ import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class HomePage extends PageBase{
     private Engine engine;
@@ -83,6 +88,7 @@ public class HomePage extends PageBase{
     public void SetRightSubPage(){
         homePageViewController.slide(parent);
         homePageViewController.getTilesGrid().getChildren().clear();
+        InitializeRightTiles();
     }
 
     private void InitializeTilesCenter(){
@@ -103,18 +109,21 @@ public class HomePage extends PageBase{
 
         //calendar
         ZonedDateTime now          = ZonedDateTime.now();
-        List<ChartData> calendarData = new ArrayList<>(10);
-        calendarData.add(new ChartData("Item 1", now.minusDays(1).toInstant()));
-        calendarData.add(new ChartData("Item 2", now.plusDays(2).toInstant()));
-        calendarData.add(new ChartData("Item 3", now.plusDays(10).toInstant()));
-        calendarData.add(new ChartData("Item 4", now.plusDays(15).toInstant()));
-        calendarData.add(new ChartData("Item 5", now.plusDays(15).toInstant()));
-        calendarData.add(new ChartData("Item 6", now.plusDays(20).toInstant()));
-        calendarData.add(new ChartData("Item 7", now.plusDays(7).toInstant()));
-        calendarData.add(new ChartData("Item 8", now.minusDays(1).toInstant()));
-        calendarData.add(new ChartData("Item 9", now.toInstant()));
-        calendarData.add(new ChartData("Item 10", now.toInstant()));
+        SimpleObjectProperty<List<ChartData>> calendarData = new SimpleObjectProperty<List<ChartData>>();
 
+        ArrayList<ChartData> calendarDataList =   new ArrayList<>(10);
+        calendarDataList.add(new ChartData("Item 1", now.minusDays(1).toInstant()));
+        calendarDataList.add(new ChartData("Item 2", now.plusDays(2).toInstant()));
+        calendarDataList.add(new ChartData("Item 3", now.plusDays(10).toInstant()));
+        calendarDataList.add(new ChartData("Item 4", now.plusDays(15).toInstant()));
+        calendarDataList.add(new ChartData("Item 5", now.plusDays(15).toInstant()));
+        calendarDataList.add(new ChartData("Item 6", now.plusDays(20).toInstant()));
+        calendarDataList.add(new ChartData("Item 7", now.plusDays(7).toInstant()));
+        calendarDataList.add(new ChartData("Item 8", now.minusDays(1).toInstant()));
+        calendarDataList.add(new ChartData("Item 9", now.toInstant()));
+        calendarDataList.add(new ChartData("Item 10", now.toInstant()));
+
+        calendarData.set(calendarDataList);
 
         Thread thread = new Thread(() -> {
           while (true){
@@ -135,7 +144,7 @@ public class HomePage extends PageBase{
         GridPane tilesGridPane = homePageViewController.getTilesGrid();
 
 
-        tilesGridPane.add(engine.TilesProvider.getTimerCountDownTile("Timer countdown", "Text", new SimpleStringProperty("description"), new SimpleObjectProperty<Duration>(Duration.ofSeconds(90)), new SimpleBooleanProperty(true)), 0, 0, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.getTimerCountDownTile("Timer countdown", "Text", new SimpleStringProperty("description"), new SimpleObjectProperty<Duration>(Duration.ofSeconds(10)), new SimpleBooleanProperty(true)), 0, 0, 1, 1);
 
         tilesGridPane.add(engine.TilesProvider.getProcentageTile("Wilgotność", new SimpleStringProperty("Kuchnia"), new SimpleDoubleProperty(100), val1), 1, 0, 2, 1);
         tilesGridPane.add(engine.TilesProvider.getGuageTile("Temperatura", "℃", val2, val3), 3, 0, 1, 1);
@@ -153,11 +162,22 @@ public class HomePage extends PageBase{
         SimpleDoubleProperty val2 = new SimpleDoubleProperty(26);
         SimpleDoubleProperty val3 = new SimpleDoubleProperty(26);
         SimpleObjectProperty<ChartData> chartDataSimpleObjectProperty = new SimpleObjectProperty<ChartData>();
+        SimpleObjectProperty<List<ChartData>> chartDataListSimpleObjectProperty = new SimpleObjectProperty<List<ChartData>>();
+        SimpleStringProperty flipText = new SimpleStringProperty();
 
 
         Thread thread = new Thread(() -> {
           while (true){
+              flipText.setValue(Helper.TIME_00_TO_59[(int)(Math.random() * Helper.TIME_00_TO_59.length - 1)]);
               chartDataSimpleObjectProperty.set(new ChartData("", Math.random() * 300 + 50, Instant.now()));
+              ArrayList<ChartData> chartDataArrayList = new ArrayList<ChartData>();
+              chartDataArrayList.add(new ChartData("1", Math.random() * 98));
+              chartDataArrayList.add(new ChartData("2", Math.random() * 98));
+              chartDataArrayList.add(new ChartData("3", Math.random() * 98));
+              chartDataArrayList.add(new ChartData("4", Math.random() * 98));
+              chartDataArrayList.add(new ChartData("5", Math.random() * 98));
+              chartDataArrayList.add(new ChartData("6", Math.random() * 98));
+              chartDataListSimpleObjectProperty.set(chartDataArrayList);
               val1.set(Math.random() * 99 + 1);
               val2.set(Math.random() * 99 + 1);
               val3.set(Math.random() * 89 + 1);
@@ -184,6 +204,52 @@ public class HomePage extends PageBase{
         tilesGridPane.add(engine.TilesProvider.getFluidTile("Fluid", "Text", "Unit", val1, 40), 1, 0, 1, 1);
         tilesGridPane.add(engine.TilesProvider.getTimerControlTile("Timer", "Text", new SimpleBooleanProperty(true)), 2, 0, 1, 1);
         tilesGridPane.add(engine.TilesProvider.getTimelineTile("Timeline", "dl/mg", new SimpleDoubleProperty(0), new SimpleDoubleProperty(350), new SimpleDoubleProperty(70), new SimpleDoubleProperty(240), chartDataSimpleObjectProperty), 3, 0, 1, 1);
+
+        tilesGridPane.add(engine.TilesProvider.getBarGaugeTile("BarGauge", "txt", "F", val3, new SimpleDoubleProperty(0), new SimpleDoubleProperty(350), new SimpleDoubleProperty(70)), 0, 1, 1, 1);
         tilesGridPane.add(engine.TilesProvider.getRadialDistributionTile("RadialChart", "Text", new SimpleStringProperty("Discr"), new SimpleDoubleProperty(0), new SimpleDoubleProperty(400), new SimpleDoubleProperty(70), new SimpleDoubleProperty(140), glucoseData), 1, 1, 2, 2);
+        tilesGridPane.add(engine.TilesProvider.getRadialPercentageTile("Radial Percentage", "txt", chartDataListSimpleObjectProperty), 3, 1, 1, 1);
+
+        tilesGridPane.add(engine.TilesProvider.getDateTile(), 0, 2, 1, 2);
+        tilesGridPane.add(engine.TilesProvider.getFlipTile(flipText, 1000, Helper.TIME_00_TO_59), 3, 2, 1, 1);
+
+        tilesGridPane.add(engine.TilesProvider.getSmoothAreaChartTile("Smooth Area Chart", "g", "txt", new SimpleDoubleProperty(0), new SimpleDoubleProperty(200), chartDataListSimpleObjectProperty), 1, 3, 3, 1);
+
+
+    }
+
+    public void InitializeRightTiles(){
+        SimpleDoubleProperty ramUsage = new SimpleDoubleProperty();
+        engine.SystemService.SystemInfoProvider.RamUsage.addListener((observableValue, memoryValue, t1) -> {ramUsage.setValue(t1.getValue());});
+
+        BarChartItem barChartItem1 = new BarChartItem("Kitchen", 47, Tile.BLUE);
+        BarChartItem barChartItem2 = new BarChartItem("Room", 43, Tile.RED);
+        SimpleObjectProperty<List<BarChartItem>> listSimpleObjectProperty = new SimpleObjectProperty<List<BarChartItem>>();
+        ArrayList<BarChartItem> chartData = new ArrayList<BarChartItem>();
+        chartData.add(barChartItem1);
+        chartData.add(barChartItem2);
+        listSimpleObjectProperty.set(chartData);
+
+        ChartData chartData1 = new ChartData("Item 1", 24.0, Tile.GREEN);
+        ChartData chartData2 = new ChartData("Item 2", 10.0, Tile.BLUE);
+        ChartData chartData3 = new ChartData("Item 3", 12.0, Tile.RED);
+        ChartData chartData4 = new ChartData("Item 4", 13.0, Tile.YELLOW_ORANGE);
+        SimpleObjectProperty<List<ChartData>> listSimpleObjectPropertya = new SimpleObjectProperty<List<ChartData>>();
+        ArrayList<ChartData> chartDataa = new ArrayList<ChartData>();
+        chartDataa.add(chartData1);
+        chartDataa.add(chartData2);
+        chartDataa.add(chartData3);
+        chartDataa.add(chartData4);
+        listSimpleObjectPropertya.set(chartDataa);
+
+        GridPane tilesGridPane = homePageViewController.getTilesGrid();
+
+        // grid.add(node, col, row, colSpan, rowSpan)
+
+        tilesGridPane.add(engine.TilesProvider.getSparkLineTile("CPU", "%", engine.SystemService.SystemInfoProvider.CpuLoad), 0, 0, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.getStockTile("RAM (%s)".formatted(engine.SystemService.SystemInfoProvider.RamTotal.getValue().getUnit().toString()), new SimpleDoubleProperty(0), new SimpleDoubleProperty(engine.SystemService.SystemInfoProvider.RamTotal.getValue().getValue()), ramUsage), 1, 0, 2, 1);
+        tilesGridPane.add(engine.TilesProvider.getDonutChartTile("Donut chart", "text", listSimpleObjectPropertya), 3, 0, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.getBarChartTile("Bar chart", "text", listSimpleObjectProperty), 0, 1, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.getWeather1Tile("Starachowice"), 1, 1, 2, 1);
+        tilesGridPane.add(engine.TilesProvider.getWeather2Tile("Ephemeris"), 1, 2, 2, 1);
     }
 }

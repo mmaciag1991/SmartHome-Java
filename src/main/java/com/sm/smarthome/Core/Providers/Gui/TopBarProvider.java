@@ -52,7 +52,7 @@ public class TopBarProvider {
         TwoStateButton themeButton = new TwoStateButton(MaterialDesign.MDI_THEME_LIGHT_DARK, MaterialDesign.MDI_THEME_LIGHT_DARK, "Dark","Light",  ButtonAction.ActionThemeDark,  ButtonAction.ActionThemeLight, ButtonSize.Small, ButtonWidthType.Widthx2_5, engine, true, ButtonState.Active, UserPermissions.User);
 
         SimpleButton dateTimeButton = new SimpleButton(MaterialDesign.MDI_TIMER, "Time",null, ButtonAction.ActionDateTimeSetup,  ButtonSize.Small, ButtonWidthType.Widthx5, engine, UserPermissions.Administrator);
-        engine.SystemService.SystemDate.addListener((observableValue, s, t1) -> dateTimeButton.setDisplayText(s));
+        engine.SystemService.SystemInfoProvider.SystemDate.addListener((observableValue, s, t1) -> Platform.runLater(() -> dateTimeButton.setDisplayText(t1)));
 
         Buttons.addAll(colorAccentButton, cameraButton, keyboardButton, volumeButton, wifiButton, themeButton, dateTimeButton);
     }

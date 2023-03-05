@@ -4,31 +4,20 @@ import com.sm.smarthome.Core.Providers.ControlersProvider;
 import com.sm.smarthome.Core.Providers.Gui.PagesProvider;
 import com.sm.smarthome.Core.Providers.Gui.TilesProvider;
 import com.sm.smarthome.Core.Providers.Gui.TopBarProvider;
+import com.sm.smarthome.Core.Providers.Gui.WindowManager;
 import com.sm.smarthome.Core.Services.ActionEventService;
 import com.sm.smarthome.Core.Services.GuiService;
 import com.sm.smarthome.Core.Services.SystemService;
-import com.sm.smarthome.CustomControls.Indicators.CircularProgressIndicator;
 import com.sm.smarthome.Models.Data.UserModel;
 import javafx.application.Platform;
-import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.ObservableList;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import jfxtras.styles.jmetro.JMetro;
-import jfxtras.styles.jmetro.Style;
 import org.apache.commons.lang3.time.StopWatch;
-
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Engine {
 
     public SystemService SystemService = new SystemService();
+    public WindowManager SetupPageWindowManager = new WindowManager();
     public SimpleObjectProperty<UserModel> CurrentUser = new SimpleObjectProperty<UserModel>();
     public GuiService GuiService;
     public PagesProvider PagesProvider;
@@ -50,6 +39,8 @@ public class Engine {
                 Platform.runLater(() ->  splashScreen.close());
         }).start();
         splashScreen.showAndWait();
+
+
     }
     private void InitializeActionEventService()  {
 

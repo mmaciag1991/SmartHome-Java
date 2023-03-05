@@ -6,7 +6,7 @@ import com.sm.smarthome.Enums.Actions.ApplicationAction;
 import com.sm.smarthome.Enums.Actions.ButtonAction;
 import com.sm.smarthome.Enums.Other.UserPermissions;
 import com.sm.smarthome.Events.ButtonEvent;
-import com.sm.smarthome.Events.SmEventHandler;
+import com.sm.smarthome.Events.ButtonEventHandler;
 import com.sm.smarthome.Models.Data.UserModel;
 import com.sm.smarthome.Models.Ui.Pages.HomePage;
 import javafx.application.Platform;
@@ -21,7 +21,7 @@ public class ActionEventService extends Line {
     public ActionEventService(Engine engine) {
 
         this.engine = engine;
-        addEventHandler(ButtonEvent.BUTTON_ACTION_EVENT_TYPE, new SmEventHandler() {
+        addEventHandler(ButtonEvent.BUTTON_ACTION_EVENT_TYPE, new ButtonEventHandler() {
 
             @Override
             public void onButtonActionEvent(ButtonAction action) {

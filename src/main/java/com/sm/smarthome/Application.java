@@ -2,27 +2,16 @@ package com.sm.smarthome;
 
 import com.sm.smarthome.Controllers.MainViewController;
 import com.sm.smarthome.Core.Engine;
-import eu.hansolo.tilesfx.Section;
-import eu.hansolo.tilesfx.Tile;
-import eu.hansolo.tilesfx.TileBuilder;
-import eu.hansolo.tilesfx.colors.Bright;
-import eu.hansolo.tilesfx.colors.Dark;
-import eu.hansolo.tilesfx.tools.Helper;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Stop;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 
 import java.io.IOException;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 
 public class Application extends javafx.application.Application {
 
@@ -33,44 +22,27 @@ public class Application extends javafx.application.Application {
 //        Pane p = new Pane();
 //
 //        Tile tile = TileBuilder.create()
-//                .skinType(Tile.SkinType.TIMELINE)
-//                .title("Timeline Tile")
-//                .unit("mg/dl")
+//                .skinType(Tile.SkinType.BAR_GAUGE)
 //                .minValue(0)
-//                .maxValue(350)
-//                .smoothing(true)
-//                .lowerThreshold(70)
-//                .lowerThresholdColor(Tile.TileColor.RED.color)
-//                .threshold(240)
-//                .thresholdColor(Tile.TileColor.RED.color)
+//                .maxValue(100)
+//                .startFromZero(true)
+//                .threshold(80)
 //                .thresholdVisible(true)
-//                .tickLabelColor(Helper.getColorWithOpacity(Tile.FOREGROUND, 0.5))
-//                .sections(new Section(0, 70, "Low", Helper.getColorWithOpacity(Dark.RED, 0.1)),
-//                        new Section(70, 140, "Ok", Helper.getColorWithOpacity(Bright.GREEN, 0.15)),
-//                        new Section(140, 350, "High", Helper.getColorWithOpacity(Dark.RED, 0.1)))
-//                .highlightSections(true)
-//                .sectionsVisible(true)
-//                .textAlignment(TextAlignment.CENTER)
-//                .timePeriod(java.time.Duration.ofMinutes(1))
-//                .maxTimePeriod(java.time.Duration.ofMinutes(1))
-//                .timePeriodResolution(TimeUnit.SECONDS)
-//                .numberOfValuesForTrendCalculation(5)
-//                .trendVisible(true)
-//                .maxTimePeriod(java.time.Duration.ofSeconds(60))
-//                .gradientStops(new Stop(0, Dark.RED),
-//                        new Stop(0.15, Dark.RED),
-//                        new Stop(0.2, Bright.YELLOW_ORANGE),
-//                        new Stop(0.25, Bright.GREEN),
-//                        new Stop(0.3, Bright.GREEN),
-//                        new Stop(0.35, Bright.GREEN),
-//                        new Stop(0.45, Bright.YELLOW_ORANGE),
-//                        new Stop(0.5, Bright.ORANGE),
-//                        new Stop(0.685, Dark.RED),
+//                .title("BarGauge Tile")
+//                .unit("F")
+//                .text("Whatever text")
+//                .gradientStops(new Stop(0, Bright.BLUE),
+//                        new Stop(0.1, Bright.BLUE_GREEN),
+//                        new Stop(0.2, Bright.GREEN),
+//                        new Stop(0.3, Bright.GREEN_YELLOW),
+//                        new Stop(0.4, Bright.YELLOW),
+//                        new Stop(0.5, Bright.YELLOW_ORANGE),
+//                        new Stop(0.6, Bright.ORANGE),
+//                        new Stop(0.7, Bright.ORANGE_RED),
+//                        new Stop(0.8, Bright.RED),
 //                        new Stop(1.0, Dark.RED))
 //                .strokeWithGradient(true)
-//                .averageVisible(true)
-//                .averagingPeriod(60)
-//                .timeoutMs(60000)
+//                .animated(true)
 //                .build();
 //
 //        p.getChildren().add(tile);

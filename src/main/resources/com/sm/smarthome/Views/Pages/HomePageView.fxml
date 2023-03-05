@@ -4,12 +4,12 @@
 
 <AnchorPane prefHeight="758.0" prefWidth="1062.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sm.smarthome.Controllers.Pages.HomePageViewController">
    <children>
-      <GridPane fx:id="tilesGrid" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="0.0">
+      <GridPane fx:id="tilesGrid" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="250.0" prefWidth="250.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="250.0" prefWidth="250.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="250.0" prefWidth="250.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="250.0" prefWidth="250.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="200.0" minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />

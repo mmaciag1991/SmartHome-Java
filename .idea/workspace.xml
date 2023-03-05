@@ -5,11 +5,72 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c1e5f1c-a948-4557-88a6-2252bf242bb9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/WindowManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/SystemInfoProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/WeatherService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Utils/MemoryHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Enums/Ui/Catalog/CatalogAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/Catalog/CatalogActionEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/Catalog/CatalogEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/Catalog/CatalogEventHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/SmEventType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Interfaces/ICatalog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Interfaces/IRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Interfaces/IRecordButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/CatalogButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Menu/Catalog/StdCatalog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hansolo/tilesfxweather/ConditionAndIcon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hansolo/tilesfxweather/DarkSky.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hansolo/tilesfxweather/DataPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hansolo/tilesfxweather/Demo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hansolo/tilesfxweather/DemoLauncher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hansolo/tilesfxweather/EphemerisTileSkin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hansolo/tilesfxweather/Exclude.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hansolo/tilesfxweather/Language.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hansolo/tilesfxweather/PrecipType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hansolo/tilesfxweather/Unit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hansolo/tilesfxweather/WeatherSymbol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hansolo/tilesfxweather/WeatherTileSkin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/eu/hansolo/tilesfxweather/tilesfxweather.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/commons-lang3-3.12.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/countries-17.0.22.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/heatmap-17.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ikonli-core-12.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ikonli-fluentui-pack-12.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-base-17.0.2-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-base-17.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-controls-17.0.2-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-controls-17.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-graphics-17.0.2-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-graphics-17.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-swing-17.0.2-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-swing-17.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/jfoenix-9.0.10-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/jfoenix-9.0.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/jmetro-11.6.16.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/toolbox-17.0.22.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/toolbox-17.0.26.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/toolboxfx-17.0.28.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/toolboxfx-17.0.33.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TilesProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TilesProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/SplashScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TopBarProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TopBarProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/ActionEventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/ActionEventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/SystemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/SystemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/ButtonEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/ButtonEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/SmActionEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/SmActionEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/SmEventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Events/ButtonEventHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/PageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/PageBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/SetupPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/SetupPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/WeatherPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/WeatherPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Views/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Views/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Views/Pages/HomePageView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Views/Pages/HomePageView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,10 +80,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -54,7 +115,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2LdOZ48cFsDqyNPySXzP4rvudMZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -71,7 +132,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Mateusz/Desktop/vnc_android_library-master/eclipse_projects/SmartHome/src/main/resources/com/sm/smarthome/CustomControls/HanSolo.TimeControl.Fonts&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Mateusz/Desktop/vnc_android_library-master/eclipse_projects/SmartHome/src/main/java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.40804598&quot;,
@@ -83,10 +144,11 @@
       <recent name="com.sm.smarthome.Interfaces" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\java" />
+      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources" />
+      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\lib" />
       <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\CustomControls\HanSolo.TimeControl.Fonts" />
       <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\Skins" />
-      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\Media\Icons" />
-      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\Liblaries\Design" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\CustomControls\HanSolo\TimeControl\Fonts" />
@@ -96,6 +158,8 @@
       <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\Media\Icons" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sm.smarthome.Events.Catalog" />
+      <recent name="com.sm.smarthome.Events" />
       <recent name="com.sm.smarthome.Models.Ui.Pages" />
       <recent name="com.sm.smarthome.Models.Ui" />
     </key>
@@ -235,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677619117888</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Dalsza implementacja sm tiles">
+      <created>1677707308644</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1677707308644</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -275,5 +346,9 @@
     <MESSAGE value="Dalsza implementacja sm wifi" />
     <MESSAGE value="Dalsza implementacja sm tiles" />
     <option name="LAST_COMMIT_MESSAGE" value="Dalsza implementacja sm tiles" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

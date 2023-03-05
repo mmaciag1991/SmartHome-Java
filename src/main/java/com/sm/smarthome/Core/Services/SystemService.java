@@ -1,5 +1,6 @@
 package com.sm.smarthome.Core.Services;
 
+import com.sm.smarthome.Core.Providers.SystemInfoProvider;
 import com.sm.smarthome.Enums.Other.LanguageE;
 import com.sm.smarthome.Models.Data.LanguageModel;
 import javafx.application.Platform;
@@ -14,8 +15,9 @@ import java.util.Locale;
 
 public class SystemService {
 
+    public WeatherService weatherService = new WeatherService();
+    public SystemInfoProvider SystemInfoProvider = new SystemInfoProvider();
     public LanguageModel Language = new LanguageModel();
-    public SimpleStringProperty SystemDate = new SimpleStringProperty();
     Thread mainSystemThread = new Thread(() -> mainSystemThreadTask());
     public SystemService(){
 
@@ -38,8 +40,8 @@ public class SystemService {
     }
     private Task mainSystemThreadTask(){
         while (mainSystemThread.isAlive()){
-            Platform.runLater(() -> SystemDate.set(new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(Calendar.getInstance().getTime())));
 
+            weatherService.AskDataPoint();
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

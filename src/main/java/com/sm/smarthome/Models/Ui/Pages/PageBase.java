@@ -5,7 +5,7 @@ import com.sm.smarthome.Models.Ui.Buttons.MarkButton;
 import javafx.scene.Node;
 import javafx.scene.control.Control;
 
-public class PageBase {
+public abstract class PageBase {
     public int Index;
     public String Name;
     public String DisplayName;

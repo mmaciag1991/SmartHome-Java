@@ -13,12 +13,12 @@
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <VBox fx:id="LeftButtonsBox" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" style="-fx-border-width: 0;" styleClass="split-menu-button" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <VBox fx:id="LeftButtonsBox" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" style="-fx-border-width: 0; -fx-border-radius: 0 10 10 0; -fx-background-radius: 0 10 10 0;" styleClass="split-menu-button" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
          <GridPane.margin>
-            <Insets top="10.0" />
+            <Insets bottom="5.0" top="15.0" />
          </GridPane.margin></VBox>
       <StackPane fx:id="PagePane" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
