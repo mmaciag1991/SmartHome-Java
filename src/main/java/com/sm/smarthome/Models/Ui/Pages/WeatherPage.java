@@ -37,6 +37,7 @@ public class WeatherPage extends PageBase{
                     .graphic(webView)
                     .padding(new Insets(5,-10,5,-10))
                     .build();
+            //FXVK.attach(webView);
         });
 
         this.Button = new MarkButton(MaterialDesign.MDI_WEATHER_LIGHTNING_RAINY, DisplayName, null, ButtonAction.ActionWeatherPage, ButtonSize.Big, ButtonWidthType.Widthx2, engine, UserPermissions.Guest);

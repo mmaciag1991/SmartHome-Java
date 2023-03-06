@@ -61,7 +61,10 @@ public class Application extends javafx.application.Application {
         MainViewController mainViewController = fxmlLoader.getController();
         engine.ControlersProvider.MainViewController = mainViewController;
         mainViewController.Initialize(engine);
-        Scene scene = new Scene(parent, 1200, 800);
+        //Scene scene = new Scene(parent, 1200, 800);
+        engine.GuiService.KeyboardPane.setContent(parent);
+        Scene scene = new Scene(engine.GuiService.KeyboardPane, 1200, 800);
+
         engine.GuiService.JMetroThemeManager.setScene(scene);
         stage.setTitle("Smart Home App");
         stage.setScene(scene);
@@ -71,7 +74,9 @@ public class Application extends javafx.application.Application {
         //stage.setFullScreen(true);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
+
     }
+
 
     public static void main(String[] args) {
         launch();

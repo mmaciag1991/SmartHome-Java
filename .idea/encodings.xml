@@ -11,6 +11,16 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/FXToggleButtonSkin.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/FXToggleSwitchSkin.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/PointsProgressBarSkin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Keyboard/AsciiBoard.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Keyboard/EmailBoard.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Keyboard/FXRobotHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Keyboard/SymbolBoard.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Keyboard/VKDemo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Keyboard/VirtualKeyboard.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Keyboard/VirtualKeyboardSkin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Keyboard/css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/VirtualKeyboard.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/VirtualKeyboardExample.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/eu" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/Button Sample.fxml" charset="UTF-8" />

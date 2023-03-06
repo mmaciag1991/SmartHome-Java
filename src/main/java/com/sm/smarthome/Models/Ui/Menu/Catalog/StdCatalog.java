@@ -21,6 +21,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import org.kordamp.ikonli.Ikon;
@@ -28,9 +29,9 @@ import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
 
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class StdCatalog extends BorderPane implements ICatalog {
-
     private IRecordButton CatalogButton;
     private final JFXTextField searchTextField = new JFXTextField();
     private final GridPane topBar = new GridPane();
@@ -56,27 +57,28 @@ public class StdCatalog extends BorderPane implements ICatalog {
         InitializeCatalogButton();
     }
     private void InitializeCatalogActionButtons(){
-        searchTextField.setStyle("-jfx-focus-color: #00BCD4;\n" +
-                "    -jfx-unfocus-color: #BDBDBD;\n" +
-                "    -jfx-label-float: true;\n" +
-                "    -fx-font-size: 16px;\n" +
-                "    -fx-background-color: transparent;\n" +
-                "    -fx-border-color: transparent;\n" +
-                "    -fx-border-radius: 2px;\n" +
-                "    -fx-padding: 8px;");
+        searchTextField.setStyle(GetSearchFliedStyle());
         searchTextField.textProperty().addListener((observableValue, s, t1) -> {
+            searchTextField.setStyle(GetSearchFliedStyle());
+            AtomicBoolean found = new AtomicBoolean(false);
             catalogContent.getChildren().forEach(node -> {
                 if (node instanceof IRecordButton) {
                     var buttonDisplayText = ((IRecordButton) node).getDisplayText();
                     if (buttonDisplayText.toLowerCase().contains(t1.toLowerCase())) {
                         node.setVisible(true);
                         node.setManaged(true);
+                        found.set(true);
                     }else {
                         node.setVisible(false);
                         node.setManaged(false);
                     }
                 }
             });
+            if (found.get()) {
+                searchTextField.setFocusColor(Color.FORESTGREEN);
+            }else {
+                searchTextField.setFocusColor(Color.FIREBRICK);
+            }
         });
         this.actionButtonBar.getChildren().add(searchTextField);
         searchTextField.setVisible(false);
@@ -93,6 +95,18 @@ public class StdCatalog extends BorderPane implements ICatalog {
         this.topBar.add(actionButtonBar, 1, 0);
     }
 
+    private String GetSearchFliedStyle(){
+        return "-fx-text-fill: "+ engine.GuiService.GetRgbaColorToStyleFx(engine.GuiService.FontColor.getValue(), 1) +";\n" +
+                "    -jfx-focus-color: "+ engine.GuiService.GetRgbaColorToStyleFx(engine.GuiService.AccentColor.getValue(),.7) +";\n" +
+                "    -jfx-unfocus-color: #BDBDBD;\n" +
+                "    -jfx-label-float: true;\n" +
+                "    -fx-font-size: 19px;\n" +
+                "    -fx-background-color: transparent;\n" +
+                "    -fx-border-color: transparent;\n" +
+                "    -fx-border-radius: 2px;\n" +
+                "    -fx-padding: 8px;";
+    }
+
     private void Initialize(){
 
         ColumnConstraints column0 = new ColumnConstraints();
@@ -107,8 +121,8 @@ public class StdCatalog extends BorderPane implements ICatalog {
         this.setTop(topBar);
 
         catalogContent.setPadding(new Insets(30, 0, 0, 0));
-        catalogContent.setHgap(10);
-        catalogContent.setHgap(10);
+        catalogContent.setHgap(22);
+        catalogContent.setVgap(22);
         this.setCenter(catalogContent);
 
         this.addEventFilter(CatalogEvent.CATALOG_ACTION_EVENT_TYPE, new CatalogEventHandler() {

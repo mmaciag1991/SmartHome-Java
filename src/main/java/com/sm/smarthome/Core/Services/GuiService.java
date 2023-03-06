@@ -1,20 +1,26 @@
 package com.sm.smarthome.Core.Services;
 
+import com.sm.smarthome.CustomControls.Keyboard.Keyboard;
+import com.sm.smarthome.CustomControls.Keyboard.KeyboardPane;
 import com.sm.smarthome.Core.Engine;
+import com.sm.smarthome.CustomControls.Keyboard.KeyboardView;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetro;
+import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 
+import javax.xml.bind.JAXBException;
 import java.lang.reflect.Field;
 import java.util.Optional;
 
 public class GuiService {
 
 
+    public KeyboardPane KeyboardPane = new KeyboardPane();
     public Stage MainStage;
     public JMetro JMetroThemeManager = new JMetro(Style.DARK);
     public SimpleObjectProperty<Color> FontColor = new SimpleObjectProperty<Color>(Color.TRANSPARENT);
@@ -24,15 +30,19 @@ public class GuiService {
     public GuiService(Engine engine, Stage mainStage){
         this.MainStage = mainStage;
         SetTheme(Style.LIGHT);
+        KeyboardPane.getKeyboardView().loadKeyboard(engine.SystemService.Language.Locale);
+
     }
 
     public void SetTheme(Style style){
         switch (style){
             case LIGHT -> {
                 FontColor.setValue(Color.BLACK);
+                KeyboardPane.getKeyboardView().SetTheme(false);
             }
             case DARK -> {
                 FontColor.setValue(Color.WHITE);
+                KeyboardPane.getKeyboardView().SetTheme(true);
             }
         }
         JMetroThemeManager.setStyle(style);
