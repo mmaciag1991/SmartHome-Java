@@ -40,6 +40,7 @@ public class WeatherPage extends PageBase{
             //FXVK.attach(webView);
         });
 
-        this.Button = new MarkButton(MaterialDesign.MDI_WEATHER_LIGHTNING_RAINY, DisplayName, null, ButtonAction.ActionWeatherPage, ButtonSize.Big, ButtonWidthType.Widthx2, engine, UserPermissions.Guest);
+        this.Button = new MarkButton(MaterialDesign.MDI_WEATHER_LIGHTNING_RAINY, DisplayName, null, ButtonAction.ActionWeatherPage, ButtonSize.Big, ButtonWidthType.Widthx3, engine, UserPermissions.Guest);
+        this.Button.setDisableVisualFocus(true);
     }
 }

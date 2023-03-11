@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import org.apache.commons.lang3.StringUtils;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -31,6 +32,8 @@ import java.util.logging.Logger;
 public class KeyboardView extends Control {
 
     private static final Logger LOG = Logger.getLogger(KeyboardView.class.getName());
+    private Color accentColor = Color.ORANGE;
+    private String accentColorCss;
 
     /**
      * Constructs a new keyboard view.
@@ -118,6 +121,23 @@ public class KeyboardView extends Control {
         } else {
             getStylesheets().remove(KeyboardView.class.getResource("keyboard-dark.css").toExternalForm());
         }
+    }
+
+    public void setAccentColor(Color accentColor) {
+        this.accentColor = accentColor;
+        accentColorCss = GetRgbaColorToStyleFx(accentColor, 1);
+    }
+
+    public Color getAccentColor() {
+        return accentColor;
+    }
+
+    public String getAccentColorCss() {
+        return accentColorCss;
+    }
+
+    public String GetRgbaColorToStyleFx(Color color, double alpha){
+        return "rgba(%s, %s, %s, %s) ".formatted(color.getRed() * 255, color.getGreen() * 255, color.getBlue() * 255, alpha);
     }
 
     @Override

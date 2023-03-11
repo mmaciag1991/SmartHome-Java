@@ -13,6 +13,9 @@ import jfxtras.styles.jmetro.Style;
 
 import java.io.IOException;
 
+import static com.sm.smarthome.Core.Utils.Helpers.AppHeight;
+import static com.sm.smarthome.Core.Utils.Helpers.AppWidth;
+
 public class Application extends javafx.application.Application {
 
     @Override
@@ -63,7 +66,7 @@ public class Application extends javafx.application.Application {
         mainViewController.Initialize(engine);
         //Scene scene = new Scene(parent, 1200, 800);
         engine.GuiService.KeyboardPane.setContent(parent);
-        Scene scene = new Scene(engine.GuiService.KeyboardPane, 1200, 800);
+        Scene scene = new Scene(engine.GuiService.KeyboardPane, AppWidth, AppHeight);
 
         engine.GuiService.JMetroThemeManager.setScene(scene);
         stage.setTitle("Smart Home App");

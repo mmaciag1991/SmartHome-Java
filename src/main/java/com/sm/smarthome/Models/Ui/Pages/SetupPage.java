@@ -22,65 +22,113 @@ public class SetupPage extends PageBase{
 
         windowManager = new WindowManager();
 
-        this.Index = 2;
+        this.Index = 3;
         this.Name = "Setup Page";
         this.DisplayName = "Setup";
         this.Type = PageType.Main;
         //wytgląd jak tiles oraz jakis window menager888
 
-        this.BodyInstance = engine.SetupPageWindowManager.GetManagerWindowNode();
-        StdCatalog setupCatalog = new StdCatalog(MaterialDesign.MDI_SETTINGS, DisplayName, UserPermissions.Guest,engine);
+        this.BodyInstance = windowManager.GetManagerWindowNode();
+        StdCatalog setupCatalog = new StdCatalog(MaterialDesign.MDI_SETTINGS, DisplayName, UserPermissions.Guest, engine ,windowManager);
         setupCatalog.addEventFilter(CatalogEvent.CATALOG_ACTION_EVENT_TYPE, new CatalogEventHandler() {
             @Override
             public void onCatalogActionEvent(CatalogAction action) {
                 switch (action) {
                     case Open -> {
 
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine));
-                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_QRCODE, "Qr Code", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_WIFI, "Wifi", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CROWN, "Crown", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_CONSOLE, "Console", UserPermissions.Administrator, engine, windowManager));
+                        setupCatalog.Add(new StdCatalog(MaterialDesign.MDI_ANDROID, "Android", UserPermissions.Administrator, engine, windowManager));
                     }
                 }
             }
@@ -88,7 +136,7 @@ public class SetupPage extends PageBase{
         Platform.runLater(setupCatalog::Open);
 
 
-        this.Button = new MarkButton(MaterialDesign.MDI_SETTINGS, DisplayName,null, ButtonAction.ActionSetupPage,  ButtonSize.Big, ButtonWidthType.Widthx2, engine, UserPermissions.Guest);
-
+        this.Button = new MarkButton(MaterialDesign.MDI_SETTINGS, DisplayName,null, ButtonAction.ActionSetupPage,  ButtonSize.Big, ButtonWidthType.Widthx3, engine, UserPermissions.Guest);
+        this.Button.setDisableVisualFocus(true);
     }
 }

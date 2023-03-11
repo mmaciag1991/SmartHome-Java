@@ -17,7 +17,7 @@ import org.apache.commons.lang3.time.StopWatch;
 public class Engine {
 
     public SystemService SystemService = new SystemService();
-    public WindowManager SetupPageWindowManager = new WindowManager();
+    //public WindowManager SetupPageWindowManager = new WindowManager();
     public SimpleObjectProperty<UserModel> CurrentUser = new SimpleObjectProperty<UserModel>();
     public GuiService GuiService;
     public PagesProvider PagesProvider;

@@ -1,17 +1,9 @@
 package com.sm.smarthome.Interfaces;
 
+import com.sm.smarthome.Core.Providers.Gui.WindowManager;
 import javafx.scene.Node;
 
 public interface IRecord {
-    IRecordButton getCatalogButton();
-    Node getNode();
+    IRecordButton getRecordButton();
     String getUUID();
-    void Add(IRecord record);
-    void Open();
-    void Exit();
-    void Edit();
-    void Delete();
-    void Reload();
-    void Search();
-
 }

@@ -18,6 +18,9 @@ import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 
+import static com.sm.smarthome.Core.Utils.Helpers.AppHeight;
+import static com.sm.smarthome.Core.Utils.Helpers.AppWidth;
+
 public class SplashScreen extends Stage {
     private Label loadingTextLabel = new Label();
     public SplashScreen(){
@@ -40,7 +43,7 @@ public class SplashScreen extends Stage {
         pane.setAlignment(Pos.CENTER);
         StackPane stackPane = new StackPane(pane);
         stackPane.getStyleClass().add(JMetroStyleClass.BACKGROUND);
-        Scene scene = new Scene(stackPane, 1200, 800);
+        Scene scene = new Scene(stackPane, AppWidth, AppHeight);
         JMetroThemeManager.setScene(scene);
         this.initStyle(StageStyle.UTILITY);
         //this.setFullScreen(true);

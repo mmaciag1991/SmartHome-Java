@@ -5,11 +5,17 @@ import com.sm.smarthome.CustomControls.Keyboard.KeyboardView;
 import com.sm.smarthome.CustomControls.Keyboard.KeyboardView.Mode;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -20,6 +26,7 @@ public class KeyView extends KeyViewBase<Key> {
 
     private final VBox vBox = new VBox();
     private String text;
+    private Background colorTemp;
 
     public KeyView(KeyboardView keyboardView, Key key) {
         super(keyboardView, key);
@@ -35,8 +42,57 @@ public class KeyView extends KeyViewBase<Key> {
 
         updateLabels();
 
-        setOnMousePressed(this::handlePressed);
-        setOnMouseReleased(this::handleReleased);
+        Platform.runLater(() -> colorTemp = getBackground());
+
+        setOnMousePressed(mouseEvent -> {
+            setStyle("-fx-background-color:" + keyboardView.getAccentColorCss() +"!important;");
+            if (text == null) {
+                if (showExtraKeysThread != null) {
+                    showExtraKeysThread.cancel();
+                }
+
+                showExtraKeysThread = new ShowExtraKeysThread();
+                showExtraKeysThread.start();
+            }
+        });
+        setOnMouseReleased(mouseEvent -> {
+            if (showExtraKeysThread != null) {
+                showExtraKeysThread.cancel();
+            }
+
+            if (showingPopOver) {
+                showingPopOver = false;
+                return;
+            }
+
+            final boolean shiftDown = getKeyboardView().getMode().equals(Mode.SHIFT) || getKeyboardView().getMode().equals(Mode.CAPS);
+
+            KeyEvent ke = new KeyEvent(
+                    KeyEvent.KEY_TYPED,
+                    text == null ? getCharacter() : text,
+                    text == null ? getCharacter() : text,
+                    null,
+                    shiftDown,
+                    false,
+                    false,
+                    false);
+
+            final Node focusOwner = getKeyboardView().getScene().getFocusOwner();
+            if (focusOwner != null) {
+                focusOwner.fireEvent(ke);
+            }
+
+            if (text != null) {
+                hidePopover();
+            }
+
+            if (getKeyboardView().getMode().equals(Mode.SHIFT)) {
+                getKeyboardView().setMode(Mode.STANDARD);
+            }
+
+            var f = colorTemp.getFills().get(0).getFill();
+            setStyle("-fx-background-color:" + f.toString() + "!important;");
+        });
     }
 
     public KeyView(KeyboardView keyboardView, Key key, String text) {
@@ -157,53 +213,6 @@ public class KeyView extends KeyViewBase<Key> {
     }
 
     private ShowExtraKeysThread showExtraKeysThread;
-
-    private void handlePressed(MouseEvent evt) {
-        if (text == null) {
-            if (showExtraKeysThread != null) {
-                showExtraKeysThread.cancel();
-            }
-
-            showExtraKeysThread = new ShowExtraKeysThread();
-            showExtraKeysThread.start();
-        }
-    }
-
-    private void handleReleased(MouseEvent evt) {
-        if (showExtraKeysThread != null) {
-            showExtraKeysThread.cancel();
-        }
-
-        if (showingPopOver) {
-            showingPopOver = false;
-            return;
-        }
-
-        final boolean shiftDown = getKeyboardView().getMode().equals(Mode.SHIFT) || getKeyboardView().getMode().equals(Mode.CAPS);
-
-        KeyEvent ke = new KeyEvent(
-                KeyEvent.KEY_TYPED,
-                text == null ? getCharacter() : text,
-                text == null ? getCharacter() : text,
-                null,
-                shiftDown,
-                false,
-                false,
-                false);
-
-        final Node focusOwner = getKeyboardView().getScene().getFocusOwner();
-        if (focusOwner != null) {
-            focusOwner.fireEvent(ke);
-        }
-
-        if (text != null) {
-            hidePopover();
-        }
-
-        if (getKeyboardView().getMode().equals(Mode.SHIFT)) {
-            getKeyboardView().setMode(Mode.STANDARD);
-        }
-    }
 
     private String getCharacter() {
         switch (getKeyboardView().getMode()) {

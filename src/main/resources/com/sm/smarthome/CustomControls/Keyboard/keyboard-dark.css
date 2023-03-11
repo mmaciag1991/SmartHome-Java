@@ -1,5 +1,5 @@
 .keyboard {
-    -fx-background-color: rgb(20,20,20);
+    -fx-background-color: rgba(20,20,20,.9);
     -fx-padding: 5;
 }
 
@@ -8,16 +8,16 @@
 }
 
 .keyboard .key {
-    -fx-background-color: grey;
+    -fx-background-color: derive(grey, -30%);
     -fx-background-insets: 0;
 }
 
 .keyboard .key:hover {
-    -fx-background-color: orange;
+    -fx-background-color: derive(grey, -30%);
 }
 
 .keyboard .key:pressed {
-    -fx-background-color: derive(orange, -30%);
+
 }
 
 .keyboard .key .label {
@@ -28,7 +28,7 @@
 }
 
 .keyboard .key.special {
-    -fx-background-color: derive(grey, -30%);
+    -fx-background-color: derive(grey, -50%);
 }
 
 .keyboard .key.special:disabled {
@@ -42,7 +42,7 @@
 }
 
 .keyboard .key.special:selected {
-    -fx-background-color: white;
+    -fx-background-color: derive(grey, -50%);
 }
 
 .keyboard .key.special:selected .ikonli-font-icon {
@@ -56,7 +56,7 @@
 }
 
 .keyboard .key.space {
-    -fx-background-color: grey;
+    -fx-background-color: derive(grey, -30%);
 }
 
 .keyboard .key.special.equals,
@@ -78,9 +78,11 @@
 }
 
 .keyboard .keyboard-selector {
+-fx-background-color: rgba(20,20,20,.7);
 }
 
 .keyboard .keyboard-selector .toggle-button {
+-fx-background-color: rgba(20,20,20,.7);
 }
 
 .keyboard .keyboard-selector .toggle-button:selected {

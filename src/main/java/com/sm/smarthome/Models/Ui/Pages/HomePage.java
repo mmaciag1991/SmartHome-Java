@@ -46,7 +46,8 @@ public class HomePage extends PageBase{
         this.DisplayName = "Home";
         this.Type = PageType.Main;
         this.BodyInstance = CreateBodyInstance();
-        this.Button = new MarkButton(MaterialDesign.MDI_HOME, DisplayName,null, ButtonAction.ActionHomePage, ButtonSize.Big, ButtonWidthType.Widthx2, engine, UserPermissions.Guest);
+        this.Button = new MarkButton(MaterialDesign.MDI_HOME, DisplayName,null, ButtonAction.ActionHomePage, ButtonSize.Big, ButtonWidthType.Widthx3, engine, UserPermissions.Guest);
+        this.Button.setDisableVisualFocus(true);
     }
 
     private Node CreateBodyInstance(){

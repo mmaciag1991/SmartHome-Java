@@ -5,7 +5,6 @@ import com.sm.smarthome.Core.Providers.SystemInfoProvider;
 import com.sm.smarthome.Enums.Other.LanguageE;
 import com.sm.smarthome.Models.Data.LanguageModel;
 import javafx.application.Platform;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.concurrent.Task;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -13,7 +12,6 @@ import javafx.stage.PopupWindow;
 import javafx.stage.Window;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class SystemService {

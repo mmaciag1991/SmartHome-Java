@@ -21,8 +21,9 @@ public class TwoStateButton extends SimpleButton implements ITwoStateButton {
     private final String displayTextActiveState, displayTextInactiveState;
     private final ButtonAction actionActiveState, actionInactiveState;
     private final boolean autoSize;
+    private final boolean clickable;
 
-    public TwoStateButton(Ikon iconCodeActiveState, Ikon iconCodeInactiveState, String displayTextActiveState, String displayTextInactiveState, ButtonAction actionActiveState, ButtonAction actionInactiveState, ButtonSize size, ButtonWidthType widthType, Engine engine, boolean autoSize, ButtonState initialState, UserPermissions permissions) {
+    public TwoStateButton(Ikon iconCodeActiveState, Ikon iconCodeInactiveState, String displayTextActiveState, String displayTextInactiveState, ButtonAction actionActiveState, ButtonAction actionInactiveState, ButtonSize size, ButtonWidthType widthType, Engine engine, boolean autoSize, ButtonState initialState, UserPermissions permissions, boolean clickable) {
         super( iconCodeActiveState, displayTextActiveState, null, actionActiveState, size, widthType, engine, permissions);
         this.iconCodeActiveState = iconCodeActiveState;
         this.iconCodeInactiveState = iconCodeInactiveState;
@@ -31,6 +32,7 @@ public class TwoStateButton extends SimpleButton implements ITwoStateButton {
         this.actionActiveState = actionActiveState;
         this.actionInactiveState = actionInactiveState;
         this.autoSize = autoSize;
+        this.clickable = clickable;
         SelectState(initialState);
         getStyleClass().add("check-box");
         this.setStyle("-fx-border-color: transparent; -fx-border-width: 0 0 0 0;");
@@ -42,12 +44,18 @@ public class TwoStateButton extends SimpleButton implements ITwoStateButton {
      */
     @Override
     public void InitializeFireEvent(ActionEventService actionEventNode){
-        Platform.runLater(() -> this.setOnAction(event -> {
-            if (CheckUserPermissions(this.permissions)) {
-                SelectState(state == ButtonState.Active ? ButtonState.Inactive : ButtonState.Active);
-                actionEventNode.fireEvent(new ButtonEvent(TwoStateButton.this.getAction()));
-            }
-        }));
+
+
+        Platform.runLater(() -> {
+                    if (clickable)
+                        this.setOnAction(event -> {
+                            if (CheckUserPermissions(this.permissions)) {
+                                SelectState(state == ButtonState.Active ? ButtonState.Inactive : ButtonState.Active);
+                                 actionEventNode.fireEvent(new ButtonEvent(TwoStateButton.this.getAction()));
+                            }
+                        });
+                    }
+        );
     }
 
     /**

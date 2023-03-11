@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<keyboard name="Polski">
+<keyboard name="Polski (Pl)">
     <row>
         <keys>
-            <key chars="^" shifts="~" symbols="`" show-shift="true"/>
+            <key chars="`" shifts="~" symbols="`" show-shift="true"/>
             <key chars="1" shifts="!" symbols="1" show-shift="true"/>
-            <key chars="2" shifts="@;" symbols="2" show-shift="true"/>
+            <key chars="2" shifts="@" symbols="2" show-shift="true"/>
             <key chars="3" shifts="#" symbols="3" show-shift="true"/>
             <key chars="4" shifts="$" symbols="4" show-shift="true"/>
             <key chars="5" shifts="%" symbols="5" show-shift="true"/>
@@ -23,50 +23,50 @@
             <special type="TAB" alignment="BOTTOM_LEFT" cols="6"/>
             <key chars="q" shifts="Q" symbols="["/>
             <key chars="w" shifts="W" symbols="]"/>
-            <key chars="e é è ê ë ė" shifts="E É È Ê Ë Ė" symbols="{"/>
+            <key chars="e ę" shifts="E Ę" symbols="{"/>
             <key chars="r" shifts="R" symbols="}"/>
             <key chars="t" shifts="T" symbols="#"/>
-            <key chars="z" shifts="Z" symbols="%"/>
-            <key chars="u ü û ù ú ū" shifts="U Ü Û Ù Ú Ū" symbols="^"/>
-            <key chars="i î ï í ī ì" shifts="I Î Ï Í Ī Ì" symbols="*"/>
-            <key chars="o ö ô ò ó õ œ ø ō" shifts="O Ö Ô Ò Ó Õ Œ Ø Ō" symbols="+"/>
+            <key chars="y" shifts="Y" symbols="%"/>
+            <key chars="u" shifts="U" symbols="€"/>
+            <key chars="i" shifts="I" symbols="*"/>
+            <key chars="o ó" shifts="O Ó" symbols="+"/>
             <key chars="p" shifts="P" symbols="="/>
-            <key chars="ü" shifts="Ü" symbols="\"/>~
-            <key chars="+" shifts="*" symbols="|" show-shift="true"/>
-            <key chars="#" shifts="'" symbols="~" show-shift="true"/>
+            <key chars="[" shifts="{" symbols="\" show-shift="true"/>
+            <key chars="]" shifts="}" symbols="|" show-shift="true"/>
+            <key chars="\" shifts="|" symbols="~" show-shift="true"/>
         </keys>
     </row>
     <row>
         <keys>
             <special type="CAPS" alignment="BOTTOM_LEFT" cols="7"/>
-            <key chars="a ä à á â ā æ ã å" shifts="A Ä À Á Â Ā Æ Ã Å" symbols="-"/>
-            <key chars="s ß ś š" shifts="S Ś Š" symbols="/"/>
+            <key chars="a ą" shifts="A Ą" symbols="-"/>
+            <key chars="s ś" shifts="S Ś" symbols="/"/>
             <key chars="d" shifts="D" symbols=":"/>
             <key chars="f" shifts="F" symbols=";"/>
             <key chars="g" shifts="G" symbols="("/>
             <key chars="h" shifts="H" symbols=")"/>
             <key chars="j" shifts="J" symbols="€"/>
             <key chars="k" shifts="K" symbols="&amp;"/>
-            <key chars="l" shifts="L" symbols="@"/>
-            <key chars="ö" shifts="Ö" symbols="£"/>
-            <key chars="ä" shifts="Ä" symbols="¥"/>
+            <key chars="l ł" shifts="L Ł" symbols="@"/>
+            <key chars=";" shifts=":" symbols="£" show-shift="true"/>
+            <key chars="," shifts="&quot;" symbols="¥" show-shift="true"/>
             <special type="ENTER" alignment="BOTTOM_RIGHT" cols="7"/>
         </keys>
     </row>
     <row>
         <keys>
             <special type="SHIFT" alignment="BOTTOM_LEFT" cols="5"/>
-            <key chars="&lt;" shifts="&gt;" show-shift="true"/>
-            <key chars="y ÿ" shifts="Y"/>
+            <key chars="`" shifts="~" symbols="" show-shift="true"/>
+            <key chars="z ź ż" shifts="Z Ź Ż"/>
             <key chars="x" shifts="X" symbols="..."/>
-            <key chars="c ç ć č" shifts="C Ç Ć Č" symbols="."/>
+            <key chars="c ć" shifts="C Ć" symbols="."/>
             <key chars="v" shifts="V" symbols=","/>
             <key chars="b" shifts="B" symbols="?"/>
-            <key chars="n ñ ń" shifts="N Ñ Ń" symbols="!"/>
+            <key chars="n ń" shifts="N Ń" symbols="!"/>
             <key chars="m" shifts="M" symbols="'"/>
-            <key chars="," shifts=";" symbols="&quot;" show-shift="true"/>
-            <key chars="." shifts=":" symbols="_" show-shift="true"/>
-            <key chars="-" shifts="_" symbols="$" show-shift="true"/>
+            <key chars="," shifts="&lt;" symbols="&quot;" show-shift="true"/>
+            <key chars="." shifts="&gt;" symbols="_" show-shift="true"/>
+            <key chars="/" shifts="?" symbols="$" show-shift="true"/>
             <special type="SHIFT" alignment="BOTTOM_RIGHT" cols="9"/>
         </keys>
     </row>
@@ -76,7 +76,7 @@
             <special type="SPECIAL_CHARACTERS" alignment="BOTTOM_LEFT" cols="5"/>
             <special type="MICROPHONE" alignment="BOTTOM_LEFT" cols="5"/>
             <special type="SPACE" cols="28"/>
-            <key chars="@" shifts="@" symbols="@" cols="5"/>
+            <key chars=".com" shifts=".COM" cols="5"/>
             <special type="SPECIAL_CHARACTERS" alignment="BOTTOM_RIGHT" cols="5"/>
             <special type="HIDE" alignment="BOTTOM_RIGHT" cols="5"/>
         </keys>

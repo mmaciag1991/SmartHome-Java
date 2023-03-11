@@ -1,6 +1,7 @@
 package com.sm.smarthome.Core.Providers;
 
 import com.sm.smarthome.Core.Utils.MemoryHelper;
+import com.sm.smarthome.Core.Utils.MemoryHelper.MemoryValue;
 import com.sun.management.OperatingSystemMXBean;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -15,9 +16,9 @@ public class SystemInfoProvider {
 
     Thread systemInfoThread = new Thread(() -> SystemInfoThreadTask());
     public SimpleDoubleProperty CpuLoad = new SimpleDoubleProperty(0);
-    public SimpleObjectProperty<MemoryHelper.MemoryValue> RamFree = new SimpleObjectProperty<MemoryHelper.MemoryValue>();
-    public SimpleObjectProperty<MemoryHelper.MemoryValue> RamUsage = new SimpleObjectProperty<MemoryHelper.MemoryValue>();
-    public SimpleObjectProperty<MemoryHelper.MemoryValue> RamTotal = new SimpleObjectProperty<MemoryHelper.MemoryValue>();
+    public SimpleObjectProperty<MemoryValue> RamFree = new SimpleObjectProperty<MemoryValue>();
+    public SimpleObjectProperty<MemoryValue> RamUsage = new SimpleObjectProperty<MemoryValue>();
+    public SimpleObjectProperty<MemoryValue> RamTotal = new SimpleObjectProperty<MemoryValue>();
     public SimpleStringProperty SystemDate = new SimpleStringProperty();
 
     public SystemInfoProvider(){

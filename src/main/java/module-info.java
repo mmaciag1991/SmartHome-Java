@@ -49,6 +49,8 @@ module com.sm.smarthome {
     opens com.sm.smarthome.Controllers.Pages to javafx.fxml;
     exports com.sm.smarthome.CustomControls.Keyboard;
     opens com.sm.smarthome.CustomControls.Keyboard;
+    exports com.sm.smarthome.CustomControls.HanSolo.Funmenu;
+    opens com.sm.smarthome.CustomControls.HanSolo.Funmenu;
 
 
 }

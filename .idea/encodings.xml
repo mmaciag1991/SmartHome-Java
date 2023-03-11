@@ -11,6 +11,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/FXToggleButtonSkin.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/FXToggleSwitchSkin.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/pixelduke/control/skin/PointsProgressBarSkin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/HanSolo/Funmenu" charset="windows-1250" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Keyboard/AsciiBoard.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Keyboard/EmailBoard.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Keyboard/FXRobotHandler.java" charset="UTF-8" />
@@ -33,6 +34,8 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/ToggleSwitch Sample.fxml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/default-skin.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/com/pixelduke/control/skin/toggleswitch-sample.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/sm/smarthome/CustomControls/HanSolo/Funmenu/funmenu.css" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/sm/smarthome/CustomControls/HanSolo/Funmenu/styles.css" charset="windows-1250" />
     <file url="file://$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Skins/fx-skins.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/eu" charset="UTF-8" />
   </component>

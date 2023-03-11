@@ -30,6 +30,7 @@ public class ActionEventService extends Line {
                     //Pages
                     case ActionHomePage -> SetHomePage();
                     case ActionWeatherPage -> SetWeatherPage();
+                    case ActionApplicationPage -> SetApplicationPage();
                     case ActionSetupPage -> SetSetupPage();
                     //HomePage subpages buttons actions
                     case ActionLeftSubHomePage -> ((HomePage)engine.PagesProvider.HomePage).SetLeftSubPage();
@@ -41,6 +42,7 @@ public class ActionEventService extends Line {
                     case ActionThemeDark -> engine.GuiService.SetTheme(Style.DARK);
                     case ActionThemeLight -> engine.GuiService.SetTheme(Style.LIGHT);
                     case ActionAccentColor -> ChangeColorAccent();
+                    case ActionKeyboardOn -> engine.GuiService.KeyboardPane.IsShowingKeyboard.setValue(true);
                 }
             }
 
@@ -59,9 +61,13 @@ public class ActionEventService extends Line {
 
         engine.PagesProvider.SetActivePageByIndex(1);
     }
-    private void SetSetupPage(){
+    private void SetApplicationPage(){
 
         engine.PagesProvider.SetActivePageByIndex(2);
+    }
+    private void SetSetupPage(){
+
+        engine.PagesProvider.SetActivePageByIndex(3);
     }
     private void WifiAction(ButtonAction action){
         switch (action){

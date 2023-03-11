@@ -2,6 +2,7 @@ package com.sm.smarthome.Models.Ui.Buttons;
 
 import com.sm.smarthome.Core.Engine;
 import com.sm.smarthome.Core.Services.ActionEventService;
+import com.sm.smarthome.Core.Utils.Helpers;
 import com.sm.smarthome.Enums.Actions.ButtonAction;
 import com.sm.smarthome.Enums.Other.UserPermissions;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonSize;
@@ -41,12 +42,12 @@ public class MarkButton extends SimpleButton {
             switch (state){
                     case Active -> {
                         this.setFocused(false);
-                        this.setStyle("-fx-border-color: "+ engine.GuiService.GetRgbaColorToStyleFx(color, .7) +" -fx-border-width: 0 3 0 0;");
-                        this.setEffect(engine.GuiService.GetShadow(engine.GuiService.AccentColor,1.3, 0, 30,0, false));
+                        this.setStyle("-fx-border-color: "+ Helpers.GetRgbaColorToStyleFx(color, .9) +" -fx-border-width: 0 5 0 0;");
+                        //this.setEffect(engine.GuiService.GetShadow(engine.GuiService.AccentColor,1.3, 0, 15,0, false));
                     }
                     case Inactive -> {
-                        this.setStyle("-fx-border-color: "+ engine.GuiService.GetRgbaColorToStyleFx(color, .4) +" -fx-border-width: 0 3 0 0;");
-                        this.setEffect(engine.GuiService.GetShadow(engine.GuiService.AccentColor,0, 0, 30, 0, false));
+                        this.setStyle("-fx-border-color: "+ Helpers.GetRgbaColorToStyleFx(color, .3) +" -fx-border-width: 0 5 0 0;");
+                        //this.setEffect(engine.GuiService.GetShadow(engine.GuiService.AccentColor,0, 0, 15, 0, false));
                     }
             }
         });

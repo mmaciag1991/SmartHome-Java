@@ -1,11 +1,11 @@
 @font-face {
     font-family: "Roboto Bold";
-    src: url('com/dlsc/keyboardfx/Roboto-Bold.ttf');
+    src: url('Roboto-Bold.ttf');
 }
 
 @font-face {
     font-family: "Roboto Regular";
-    src: url('com/dlsc/keyboardfx/Roboto-Regular.ttf');
+    src: url('Roboto-Regular.ttf');
 }
 
 .keyboard {
@@ -31,7 +31,7 @@
 }
 
 .keyboard .key:pressed {
-    -fx-background-color: linear-gradient(to bottom, derive(lightgrey, +20%), derive(lightgrey, -20%)), orange !important;
+    -fx-background-color: linear-gradient(to bottom, derive(lightgrey, +20%), derive(lightgrey, -20%)), orange;
 }
 
 .keyboard .key.dual {

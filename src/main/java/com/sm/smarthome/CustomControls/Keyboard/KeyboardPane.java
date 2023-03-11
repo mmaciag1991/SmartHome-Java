@@ -35,6 +35,7 @@ import java.util.Locale;
  */
 public class KeyboardPane extends Pane {
 
+    public SimpleBooleanProperty IsShowingKeyboard = new SimpleBooleanProperty(false);
     private final KeyboardView keyboardView = new KeyboardView();
 
     private final InvalidationListener focusListener = it -> maybeShowKeyboard();
@@ -50,6 +51,13 @@ public class KeyboardPane extends Pane {
          * Clipping as otherwise either content node or the keyboard might stick out
          * of the pane.
          */
+
+        IsShowingKeyboard.addListener((observableValue, aBoolean, t1) -> {
+            if (t1){
+                if (!isVisible())
+                    maybeShowKeyboard();
+             }
+        });
         Rectangle clip = new Rectangle();
         clip.widthProperty().bind(widthProperty());
         clip.heightProperty().bind(heightProperty());
@@ -94,9 +102,10 @@ public class KeyboardPane extends Pane {
             return null;
         });
 
-        getDefaultKeyboards().add(keyboardView.loadKeyboard(new Locale("fi", "FI")));
-        getDefaultKeyboards().add(keyboardView.loadKeyboard(Locale.GERMAN));
+        getDefaultKeyboards().add(keyboardView.loadKeyboard(new Locale("pl", "PL")));
         getDefaultKeyboards().add(keyboardView.loadKeyboard(Locale.US));
+        getDefaultKeyboards().add(keyboardView.loadKeyboard(Locale.GERMAN));
+        getDefaultKeyboards().add(keyboardView.loadKeyboard(new Locale("fi", "FI")));
     }
 
     private void hideKeyboard() {
@@ -218,6 +227,7 @@ public class KeyboardPane extends Pane {
                 keyboardView.getKeyboards().setAll(keyboards);
                 keyboardView.setVisible(true);
                 keyboardView.setManaged(true);
+                IsShowingKeyboard.setValue(true);
 
                 KeyValue visibility = new KeyValue(keyboardVisibility, 1, Interpolator.EASE_OUT);
                 KeyValue translate = new KeyValue(getContent().translateYProperty(), getTranslate(), Interpolator.EASE_OUT);
@@ -237,6 +247,7 @@ public class KeyboardPane extends Pane {
                     timeline.setOnFinished(it -> {
                         keyboardView.setManaged(false);
                         keyboardView.setVisible(false);
+                        IsShowingKeyboard.setValue(false);
                     });
                     timeline.play();
                 }

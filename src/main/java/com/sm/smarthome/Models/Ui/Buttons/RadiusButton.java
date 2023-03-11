@@ -2,6 +2,7 @@ package com.sm.smarthome.Models.Ui.Buttons;
 
 import com.sm.smarthome.Core.Engine;
 import com.sm.smarthome.Core.Services.ActionEventService;
+import com.sm.smarthome.Core.Utils.Helpers;
 import com.sm.smarthome.Enums.Actions.ButtonAction;
 import com.sm.smarthome.Enums.Other.UserPermissions;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonSize;
@@ -39,20 +40,20 @@ public class RadiusButton extends SimpleButton{
             switch (state){
                 case Active -> {
                     this.setFocused(false);
-                    this.setStyle("-fx-border-color: "+ engine.GuiService.GetRgbaColorToStyleFx(color, .7) +";"
+                    this.setStyle("-fx-border-color: "+ Helpers.GetRgbaColorToStyleFx(color, .7) +";"
                             + "-fx-border-style: solid;"
                             + "-fx-border-width: 7;"
-                            + "-fx-background-color:"+ engine.GuiService.GetRgbaColorToStyleFx(color, .1) +";"
+                            + "-fx-background-color:"+ Helpers.GetRgbaColorToStyleFx(color, .1) +";"
                             + "-fx-background-radius: 10 10 10 10;"
                             + "-fx-border-radius: 10 10 10 10;");
                     setWidth(80);
                     setHeight(24);
                 }
                 case Inactive -> {
-                    this.setStyle("-fx-border-color: "+ engine.GuiService.GetRgbaColorToStyleFx(color, .4) +";"
+                    this.setStyle("-fx-border-color: "+ Helpers.GetRgbaColorToStyleFx(color, .4) +";"
                             + "-fx-border-style: solid;"
                             + "-fx-border-width: 7;"
-                            + "-fx-background-color:"+ engine.GuiService.GetRgbaColorToStyleFx(color, .1) +";"
+                            + "-fx-background-color:"+ Helpers.GetRgbaColorToStyleFx(color, .1) +";"
                             + "-fx-background-radius: 10 10 10 10;"
                             + "-fx-border-radius: 10 10 10 10;");
                     setWidth(80);

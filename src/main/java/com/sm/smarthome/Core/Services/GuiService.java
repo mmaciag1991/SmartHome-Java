@@ -1,37 +1,42 @@
 package com.sm.smarthome.Core.Services;
 
-import com.sm.smarthome.CustomControls.Keyboard.Keyboard;
-import com.sm.smarthome.CustomControls.Keyboard.KeyboardPane;
 import com.sm.smarthome.Core.Engine;
-import com.sm.smarthome.CustomControls.Keyboard.KeyboardView;
+import com.sm.smarthome.CustomControls.HanSolo.Funmenu.FunMenu;
+import com.sm.smarthome.CustomControls.Keyboard.KeyboardPane;
+import com.sm.smarthome.Enums.Actions.ButtonAction;
+import com.sm.smarthome.Events.ButtonEvent;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.scene.effect.BlurType;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetro;
-import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
-
-import javax.xml.bind.JAXBException;
-import java.lang.reflect.Field;
-import java.util.Optional;
+import org.kordamp.ikonli.fluentui.FluentUiRegularMZ;
+import org.kordamp.ikonli.materialdesign.MaterialDesign;
 
 public class GuiService {
 
-
+    public FunMenu MainMenu;
     public KeyboardPane KeyboardPane = new KeyboardPane();
     public Stage MainStage;
     public JMetro JMetroThemeManager = new JMetro(Style.DARK);
     public SimpleObjectProperty<Color> FontColor = new SimpleObjectProperty<Color>(Color.TRANSPARENT);
-    public SimpleObjectProperty<Color> AccentColor = new SimpleObjectProperty<Color>(Color.rgb(46,71,153));
+    public SimpleObjectProperty<Color> AccentColor = new SimpleObjectProperty<Color>(Color.BLACK);
 
 
     public GuiService(Engine engine, Stage mainStage){
+        this.MainMenu = new FunMenu();
         this.MainStage = mainStage;
-        SetTheme(Style.LIGHT);
-        KeyboardPane.getKeyboardView().loadKeyboard(engine.SystemService.Language.Locale);
 
+        KeyboardPane.getKeyboardView().loadKeyboard(engine.SystemService.Language.Locale);
+        AccentColor.addListener((observableValue, color, t1) -> {
+            KeyboardPane.getKeyboardView().setAccentColor(t1);
+            MainMenu.setButtonColor(t1.darker());
+            MainMenu.setMenuColor(t1);
+        });
+        InitMainMenu(engine);
+
+        SetTheme(Style.LIGHT);
+        AccentColor.set(Color.rgb(46,71,153));
     }
 
     public void SetTheme(Style style){
@@ -47,38 +52,21 @@ public class GuiService {
         }
         JMetroThemeManager.setStyle(style);
     }
-    public DropShadow GetShadow(SimpleObjectProperty<Color> color, double offsetX, double offsetY, double width, double height, boolean ignoreAccentColor){
-        DropShadow shadow= new DropShadow();
-        shadow.setBlurType(BlurType.THREE_PASS_BOX);
-        shadow.setColor(color.getValue());
-        shadow.setSpread(0.2);
-        shadow.setWidth(width);
-        shadow.setHeight(height);
-        shadow.setOffsetX(offsetX);
-        shadow.setOffsetY(offsetY);
 
-        if (!ignoreAccentColor)
-            color.addListener((observable, oldValue, newValue) -> { shadow.setColor(newValue);});
+    private void InitMainMenu(Engine engine){
 
+        MainMenu.setPrefSize(400, 40);
+        MainMenu.setItem1IconCode(FluentUiRegularMZ.POWER_28);
+        MainMenu.setItem2IconCode(MaterialDesign.MDI_GROUP);
+        MainMenu.setItem3IconCode(MaterialDesign.MDI_GMAIL);
+        MainMenu.setItem4IconCode(MaterialDesign.MDI_ACCOUNT);
 
-        return shadow;
-    }
-    public String GetRgbaColorToStyleFx(Color color, double alpha){
-        return "rgba(%s, %s, %s, %s);".formatted(color.getRed() * 255, color.getGreen() * 255, color.getBlue() * 255, alpha);
-    }
+        MainMenu.setOnItem1MousePressed(e -> System.out.println("Icon 1 pressed"));
+        MainMenu.setOnItem2MousePressed(e -> System.out.println("Icon 2 pressed"));
+        MainMenu.setOnItem3MousePressed(e -> System.out.println("Icon 3 pressed"));
+        MainMenu.setOnItem4MousePressed(e -> engine.ActionEventService.fireEvent(new ButtonEvent(ButtonAction.ActionLogin)));
 
-    public Optional<String> colorName(Color c) {
-        for (Field f : Color.class.getDeclaredFields()) {
-            //we want to test only fields of type Color
-            if (f.getType().equals(Color.class))
-                try {
-                    if (f.get(null).equals(c))
-                        return Optional.of(f.getName().toLowerCase());
-                } catch (IllegalArgumentException | IllegalAccessException e) {
-                    e.printStackTrace();
-                }
-        }
-        return Optional.empty();
+        MainMenu.setIconColor(Color.WHITE);
     }
 
 }
