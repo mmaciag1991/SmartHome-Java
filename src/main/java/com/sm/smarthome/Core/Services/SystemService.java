@@ -53,7 +53,10 @@ public class SystemService {
 
             //weatherService.AskDataPoint();
             try {
-                Thread.sleep(1000);
+                Thread.sleep(3000);
+                Language.SetLanguage(LanguageE.EN);
+                Thread.sleep(3000);
+                Language.SetLanguage(LanguageE.PL);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

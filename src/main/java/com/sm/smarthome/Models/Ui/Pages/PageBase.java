@@ -11,5 +11,7 @@ public abstract class PageBase {
     public String DisplayName;
     public PageType Type;
     public Node BodyInstance;
+    public double Width = 1000;
+    public double Height = 800;
     public MarkButton Button;
 }

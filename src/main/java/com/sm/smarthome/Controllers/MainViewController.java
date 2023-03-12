@@ -3,17 +3,13 @@ package com.sm.smarthome.Controllers;
 import com.sm.smarthome.Core.Engine;
 import com.sm.smarthome.Core.Utils.Helpers;
 import com.sm.smarthome.Enums.Other.UserPermissions;
-import com.sm.smarthome.Enums.Ui.Bottons.ButtonState;
 import com.sm.smarthome.Interfaces.IButton;
 import com.sm.smarthome.Models.Data.UserModel;
 import com.sm.smarthome.Models.Ui.Buttons.MarkButton;
-import com.sm.smarthome.Models.Ui.Buttons.SimpleButton;
 import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.layout.*;
 import javafx.scene.shape.SVGPath;
@@ -38,27 +34,22 @@ public class MainViewController {
     @FXML
     private AnchorPane anchorPane;
 
-    private ObservableList<SimpleButton> topSimpleButtonObservableList = FXCollections.observableArrayList();
-
 
     public MainViewController(){}
 
 
     public void Initialize(Engine engine) {
 
-        engine.PagesProvider.ActivePage.addListener((observable, oldValue, newValue) -> {
-            Platform.runLater(() -> {
-                if (oldValue != null) oldValue.Button.setInactive();
-                newValue.Button.setState(ButtonState.Active);
-                engine.ControlersProvider.MainViewController.PagePane.getChildren().clear();
-                engine.ControlersProvider.MainViewController.PagePane.getChildren().add(newValue.BodyInstance);
-                try {
-                    anchorPane.getChildren().add(engine.GuiService.MainMenu);
-                }catch (Exception ignored){}
-            });
-            //engine.PagesProvider.Buttons.addAll( new MarkButton(MaterialDesign.MDI_HOME, "DisplayName",null, ButtonAction.ActionHomePage, ButtonSize.Big, ButtonWidthType.Widthx2, engine, UserPermissions.Guest));
+
+
+        try {
+            Platform.runLater(()->anchorPane.getChildren().add(engine.GuiService.MainMenu));
+
+        }catch (Exception ignored){}
+
+        engine.GuiService.MainMenu.widthProperty().addListener((observableValue, number, t1) -> {
+            Platform.runLater(() -> AnchorPane.setLeftAnchor(engine.GuiService.MainMenu, (anchorPane.getWidth() - t1.doubleValue()) / 2));
         });
-        engine.GuiService.MainMenu.widthProperty().addListener((observableValue, number, t1) -> Platform.runLater(() -> AnchorPane.setLeftAnchor(engine.GuiService.MainMenu, (anchorPane.getWidth() - t1.doubleValue()) / 2)));
 
 
         engine.PagesProvider.Buttons.addListener((ListChangeListener<MarkButton>) c -> {
@@ -115,19 +106,16 @@ public class MainViewController {
             engine.CurrentUser.set(new UserModel(-1,"Guest", UserPermissions.Guest));
 
 
-
             LeftButtonsBox.widthProperty().addListener((observableValue, number, t1) -> {
                 LeftButtonsBox.setTranslateX(-(t1.doubleValue() - 30));
                 LeftButtonsBoxHeader.setPrefWidth(t1.doubleValue());
             });
 
             LeftButtonsBoxHeader.widthProperty().addListener((observableValue, number, t1) -> LeftButtonsBoxHeader.setTranslateX(-(t1.doubleValue() - 30)));
-            LeftButtonsBoxHeader.setOnMouseClicked(mouseEvent -> toggleContentPane());
-            //anchorPane.setOnMouseClicked(mouseEvent -> toggleContentPane());
-
+            LeftButtonsBoxHeader.setOnMouseClicked(mouseEvent -> toggleLeftButtonsBox());
     }
 
-    private void toggleContentPane() {
+    private void toggleLeftButtonsBox() {
 
 
         TranslateTransition openNav = new TranslateTransition(new Duration(350), LeftButtonsBox);

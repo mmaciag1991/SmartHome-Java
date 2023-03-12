@@ -36,7 +36,7 @@
             </GridPane>
          </children>
       </GridPane>
-      <VBox fx:id="LeftButtonsBox" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="170.0" style="-fx-border-width: 0; -fx-border-radius: 0 0 10 0; -fx-background-radius: 0 0 10 0;" styleClass="split-menu-button" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="88.0">
+      <VBox fx:id="LeftButtonsBox" alignment="CENTER_LEFT" disable="true" prefHeight="200.0" prefWidth="170.0" style="-fx-border-width: 0; -fx-border-radius: 0 0 10 0; -fx-background-radius: 0 0 10 0;" styleClass="split-menu-button" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="88.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>

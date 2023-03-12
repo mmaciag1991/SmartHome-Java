@@ -1,5 +1,6 @@
 package com.sm.smarthome.Core.Providers.Gui;
 
+import com.sm.smarthome.Core.Engine;
 import com.sm.smarthome.Interfaces.ICatalog;
 import eu.hansolo.tilesfx.Tile;
 import eu.hansolo.tilesfx.TileBuilder;
@@ -19,7 +20,7 @@ public class WindowManager {
     ObservableList<ICatalog> catalogs = FXCollections.observableArrayList();
 
     public SimpleBooleanProperty ExitAvailableProperty = new SimpleBooleanProperty(false);
-    public WindowManager(){
+    public WindowManager(Engine engine){
         catalogWindow = TileBuilder.create()
                 .skinType(Tile.SkinType.CUSTOM)
                 .padding(new Insets(5,-10,5,-10))
@@ -32,7 +33,7 @@ public class WindowManager {
             try {
                 String url = "";
                 for (ICatalog catalog : catalogs) {
-                    url += catalog.getDisplayText() + "/";
+                    url += engine.SystemService.Language.Resources.getString(catalog.getDisplayText()) + "/";
                 }
                 UrlProperty.setValue(url);
                 catalogWindow.setGraphic(catalogs.get(catalogs.size() - 1).getNode());

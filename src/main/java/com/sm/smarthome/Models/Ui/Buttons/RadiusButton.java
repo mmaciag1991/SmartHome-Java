@@ -14,11 +14,13 @@ import javafx.scene.paint.Color;
 import org.kordamp.ikonli.Ikon;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
 
+import static com.sm.smarthome.Core.Utils.Helpers.CheckUserPermissions;
+
 public class RadiusButton extends SimpleButton{
 
     private ButtonState state = ButtonState.Inactive;
     public RadiusButton(ButtonAction action, Engine engine, UserPermissions permissions) {
-        super(MaterialDesign.MDI_BORDER_NONE, "", 0, action, ButtonSize.ExtraSmall, ButtonWidthType.Widthx3, engine, permissions);
+        super(MaterialDesign.MDI_BORDER_NONE, null, 0, action, ButtonSize.ExtraSmall, ButtonWidthType.Widthx3, engine, permissions);
         setGraphic(null);
         setDefaultButton(true);
         setState(state);
@@ -27,7 +29,7 @@ public class RadiusButton extends SimpleButton{
     @Override
     public void InitializeFireEvent(ActionEventService actionEventNode){
         this.setOnAction(event -> {
-            if (CheckUserPermissions(this.permissions)) {
+            if (CheckUserPermissions(this.permissions, engine, this.getNode())) {
                 actionEventNode.fireEvent(new ButtonEvent(RadiusButton.this.getAction()));
                 setState(ButtonState.Active);
             }

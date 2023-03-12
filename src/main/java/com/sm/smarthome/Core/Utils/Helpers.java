@@ -41,7 +41,7 @@ public class Helpers {
             }
             parent.getStyleClass().add(JMetroStyleClass.BACKGROUND);
             SimplePopupController mainViewController = fxmlLoader.getController();
-            mainViewController.Initialize("Brak uprawnień", PopupType.Error);
+            mainViewController.Initialize(engine.SystemService.Language.Resources.getString("general.message.AccessDenied"), PopupType.Error);
             Pane pane = new Pane(parent);
             jfxPopup.setPopupContent(pane);
             jfxPopup.show(ownerNode);

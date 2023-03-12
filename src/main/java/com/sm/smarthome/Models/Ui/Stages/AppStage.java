@@ -1,4 +1,4 @@
-package com.sm.smarthome.Models.Ui.Buttons;
+package com.sm.smarthome.Models.Ui.Stages;
 
 import com.sm.smarthome.Core.Engine;
 import com.sm.smarthome.CustomControls.Keyboard.KeyboardPane;
@@ -7,6 +7,7 @@ import com.sm.smarthome.Enums.Other.UserPermissions;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonSize;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonState;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
+import com.sm.smarthome.Models.Ui.Buttons.TwoStateButton;
 import javafx.application.Platform;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -40,7 +41,7 @@ public class AppStage extends Stage {
         this.setHeight(AppHeight);
         this.initStyle(StageStyle.UNDECORATED);
         VBox vBox = new VBox();
-        TwoStateButton closeButton = new TwoStateButton(MaterialDesign.MDI_CLOSE_BOX, MaterialDesign.MDI_CLOSE_BOX, "", "",  ButtonAction.None,  ButtonAction.None, ButtonSize.Small, ButtonWidthType.Normal, engine, false, ButtonState.Inactive, UserPermissions.Guest, false);
+        TwoStateButton closeButton = new TwoStateButton(MaterialDesign.MDI_CLOSE_BOX, MaterialDesign.MDI_CLOSE_BOX, null, null,  ButtonAction.None,  ButtonAction.None, ButtonSize.Small, ButtonWidthType.Normal, engine, false, ButtonState.Inactive, UserPermissions.Guest, false);
         closeButton.setOnAction(actionEvent -> Platform.runLater(this::close));
         Label label = new Label(title);
         GridPane gridPane = new GridPane();

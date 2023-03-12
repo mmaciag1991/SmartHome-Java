@@ -38,10 +38,10 @@ public class TilesProvider {
                 .title("Clock Tile")
                 .text("Whatever text")
                 .dateVisible(true)
-                .locale(engine.SystemService.Language.Locale)
                 .running(true)
                 .build();
         clockTile.setPadding(new Insets(4));
+        engine.SystemService.Language.Locale.addListener((observableValue, locale, t1) -> clockTile.setLocale(t1));
         return clockTile;
     }
 
@@ -180,10 +180,10 @@ public class TilesProvider {
                 .skinType(SkinType.CALENDAR)
                 .padding(insets)
                 .chartData(calendarData.get())
-                .locale(engine.SystemService.Language.Locale)
+                .locale(engine.SystemService.Language.Locale.get())
                 .trackColor(Tile.TileColor.LIGHT_GREEN)
                 .build();
-
+        engine.SystemService.Language.Locale.addListener((observableValue, locale, t1) -> tile.setLocale(t1));
         calendarData.addListener((observableValue, chartData, t1) -> {
             Platform.runLater(() -> {
                 tile.setChartData(t1);

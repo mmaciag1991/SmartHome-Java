@@ -1,6 +1,5 @@
 package com.sm.smarthome.Models.Ui.Pages;
 
-import com.jfoenix.controls.JFXButton;
 import com.sm.smarthome.Core.Engine;
 import com.sm.smarthome.Enums.Actions.ButtonAction;
 import com.sm.smarthome.Enums.Other.UserPermissions;
@@ -12,11 +11,10 @@ import eu.hansolo.tilesfx.Tile;
 import eu.hansolo.tilesfx.TileBuilder;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
+
+import java.util.TimerTask;
 
 public class WeatherPage extends PageBase{
     public String Address = "https://embed.windy.com";
@@ -24,21 +22,27 @@ public class WeatherPage extends PageBase{
     public WeatherPage(Engine engine){
         this.Index = 1;
         this.Name = "Weather Page";
-        this.DisplayName = "Weather";
+        this.DisplayName = "leftButtonsPanel.weatherButton";
         this.Type = PageType.Main;
 
+        TimerTask task = new TimerTask() {
+            public void run() {
+                Platform.runLater(() -> {
+                    WebView webView = new WebView();
+                    webView.getEngine().load(Address2);
+                    BodyInstance = TileBuilder.create()
+                            .skinType(Tile.SkinType.CUSTOM)
+                            .graphic(webView)
+                            .padding(new Insets(5,-10,5,-10))
+                            .build();
+                    //FXVK.attach(webView);
+                });
+            }
+        };
+      task.run();
 
-        Platform.runLater(() -> {
-            WebView webView = new WebView();
-            webView.getEngine().load(Address2);
 
-            this.BodyInstance = TileBuilder.create()
-                    .skinType(Tile.SkinType.CUSTOM)
-                    .graphic(webView)
-                    .padding(new Insets(5,-10,5,-10))
-                    .build();
-            //FXVK.attach(webView);
-        });
+
 
         this.Button = new MarkButton(MaterialDesign.MDI_WEATHER_LIGHTNING_RAINY, DisplayName, null, ButtonAction.ActionWeatherPage, ButtonSize.Big, ButtonWidthType.Widthx3, engine, UserPermissions.Guest);
         this.Button.setDisableVisualFocus(true);

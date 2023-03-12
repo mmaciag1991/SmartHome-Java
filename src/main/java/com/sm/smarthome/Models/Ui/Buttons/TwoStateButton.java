@@ -2,6 +2,7 @@ package com.sm.smarthome.Models.Ui.Buttons;
 
 import com.sm.smarthome.Core.Engine;
 import com.sm.smarthome.Core.Services.ActionEventService;
+import com.sm.smarthome.Core.Utils.Helpers;
 import com.sm.smarthome.Enums.Actions.ButtonAction;
 import com.sm.smarthome.Enums.Other.UserPermissions;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonSize;
@@ -49,7 +50,7 @@ public class TwoStateButton extends SimpleButton implements ITwoStateButton {
         Platform.runLater(() -> {
                     if (clickable)
                         this.setOnAction(event -> {
-                            if (CheckUserPermissions(this.permissions)) {
+                            if (Helpers.CheckUserPermissions(this.permissions, engine, this.getNode())) {
                                 SelectState(state == ButtonState.Active ? ButtonState.Inactive : ButtonState.Active);
                                  actionEventNode.fireEvent(new ButtonEvent(TwoStateButton.this.getAction()));
                             }
@@ -63,21 +64,45 @@ public class TwoStateButton extends SimpleButton implements ITwoStateButton {
      * @param state Status przycisku aktywny lub nieaktywny
      */
     public void SelectState(@NotNull ButtonState state){
-        if (state == ButtonState.Active) {
-            setIconCode(iconCodeActiveState);
-            setDisplayText(displayTextActiveState);
-            setAction(actionActiveState);
-        } else {
-            setIconCode(iconCodeInactiveState);
-            setDisplayText(displayTextInactiveState);
-            setAction(actionInactiveState);
+        try {
+            if (state == ButtonState.Active) {
+                setIconCode(iconCodeActiveState);
+                setDisplayText(displayTextActiveState);
+                setAction(actionActiveState);
+            } else {
+                setIconCode(iconCodeInactiveState);
+                setDisplayText(displayTextInactiveState);
+                setAction(actionInactiveState);
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
+
         this.state = state;
         Repaint();
         preformAutoSize();
         setValue(state);
 
             fontIcon.setIconColor(engine.GuiService.FontColor.getValue());
+    }
+    @Override
+    public void setDisplayText(String displayText) {
+        Platform.runLater(() -> {
+            try {
+                if (state == ButtonState.Active) {
+                    if (displayTextActiveState != null)
+                        setText(engine.SystemService.Language.Resources.getString(displayTextActiveState));
+                } else {
+                    if (displayTextInactiveState != null)
+                        setText(engine.SystemService.Language.Resources.getString(displayTextInactiveState));
+                }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+
+            Repaint();
+            preformAutoSize();
+        });
     }
 
     /**

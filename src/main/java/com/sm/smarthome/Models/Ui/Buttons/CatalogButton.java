@@ -19,8 +19,14 @@ public class CatalogButton extends JFXButton implements IRecordButton {
         FontIcon fontIcon = new FontIcon(iconCode);
         setGraphic(fontIcon);
         setText(displayText);
-        setWidth(64);
-        setHeight(64);
+        setWidth(106);
+        setHeight(82);
+
+        setMinWidth(106);
+        setMinHeight(82);
+
+        setMaxWidth(106);
+        setMaxHeight(82);
         fontIcon.setIconSize(48);
         setAlignment(Pos.CENTER);
         setContentDisplay(ContentDisplay.TOP);
@@ -43,5 +49,10 @@ public class CatalogButton extends JFXButton implements IRecordButton {
     @Override
     public String getDisplayText() {
         return getText();
+    }
+
+    @Override
+    public void setDisplayText(String text) {
+        setText(text);
     }
 }

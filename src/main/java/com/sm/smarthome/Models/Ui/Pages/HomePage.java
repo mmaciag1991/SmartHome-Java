@@ -14,10 +14,8 @@ import eu.hansolo.tilesfx.Tile;
 import eu.hansolo.tilesfx.chart.ChartData;
 import eu.hansolo.tilesfx.skins.BarChartItem;
 import eu.hansolo.tilesfx.tools.Helper;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
+import javafx.animation.TranslateTransition;
+import javafx.beans.property.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -25,7 +23,6 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.layout.GridPane;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
-import com.sun.management.OperatingSystemMXBean;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -36,14 +33,19 @@ import java.util.List;
 
 
 public class HomePage extends PageBase{
-    private Engine engine;
-    private Parent parent;
-    private HomePageViewController homePageViewController;
+    private final Engine engine;
+    private GridPane tilesGridLeft;
+    private GridPane tilesGridCenter;
+    private GridPane tilesGridRight;
+
+    private final SimpleObjectProperty<GridPane> currentSubPage = new SimpleObjectProperty<GridPane>();
+
+
     public HomePage(Engine engine){
         this.engine = engine;
         this.Index = 0;
         this.Name = "Home Page";
-        this.DisplayName = "Home";
+        this.DisplayName = "leftButtonsPanel.homeButton";
         this.Type = PageType.Main;
         this.BodyInstance = CreateBodyInstance();
         this.Button = new MarkButton(MaterialDesign.MDI_HOME, DisplayName,null, ButtonAction.ActionHomePage, ButtonSize.Big, ButtonWidthType.Widthx3, engine, UserPermissions.Guest);
@@ -62,12 +64,21 @@ public class HomePage extends PageBase{
         parent.getStyleClass().add(JMetroStyleClass.BACKGROUND);
         HomePageViewController homePageViewController = fxmlLoader.getController();
 
-        this.parent = parent;
-        this.homePageViewController = homePageViewController;
+        this.tilesGridLeft = homePageViewController.getTilesGridLeft();
+        this.tilesGridCenter = homePageViewController.getTilesGridCenter();
+        this.tilesGridRight= homePageViewController.getTilesGridRight();
 
         InitializeButtons(homePageViewController);
 
-        InitializeTilesCenter();
+        currentSubPage.setValue(tilesGridCenter);
+        InitializeTilesLeft(tilesGridLeft);tilesGridLeft.setVisible(false);
+        InitializeTilesCenter(tilesGridCenter);tilesGridCenter.setVisible(true);
+        InitializeRightTiles(tilesGridRight);tilesGridRight.setVisible(false);
+
+        currentSubPage.addListener((observable, oldValue, newValue) -> {
+            Slide(oldValue, newValue);
+        });
+
 
         return parent;
     }
@@ -77,88 +88,43 @@ public class HomePage extends PageBase{
     }
 
     public void SetLeftSubPage(){
-        homePageViewController.slide(parent);
-        homePageViewController.getTilesGrid().getChildren().clear();
-        InitializeTilesLeft();
+        currentSubPage.setValue(tilesGridLeft);
     }
     public void SetCenterSubPage(){
-        homePageViewController.slide(parent);
-        homePageViewController.getTilesGrid().getChildren().clear();
-        InitializeTilesCenter();
+        currentSubPage.setValue(tilesGridCenter);
     }
     public void SetRightSubPage(){
-        homePageViewController.slide(parent);
-        homePageViewController.getTilesGrid().getChildren().clear();
-        InitializeRightTiles();
+        currentSubPage.setValue(tilesGridRight);
     }
 
-    private void InitializeTilesCenter(){
-        SimpleDoubleProperty val1 = new SimpleDoubleProperty(26);
-        SimpleDoubleProperty val2 = new SimpleDoubleProperty(26);
-        SimpleDoubleProperty val3 = new SimpleDoubleProperty(26);
+    private void Slide(GridPane oldValue, GridPane newValue){
 
-        // AreaChart Data
-        XYChart.Series<String, Number> series1 = new XYChart.Series();
-        series1.setName("Whatever");
-        series1.getData().add(new XYChart.Data("MO", 23));
-        series1.getData().add(new XYChart.Data("TU", 21));
-        series1.getData().add(new XYChart.Data("WE", 20));
-        series1.getData().add(new XYChart.Data("TH", 22));
-        series1.getData().add(new XYChart.Data("FR", 24));
-        series1.getData().add(new XYChart.Data("SA", 22));
-        series1.getData().add(new XYChart.Data("SU", 20));
+        newValue.setVisible(true);
 
-        //calendar
-        ZonedDateTime now          = ZonedDateTime.now();
-        SimpleObjectProperty<List<ChartData>> calendarData = new SimpleObjectProperty<List<ChartData>>();
+        TranslateTransition slideOldContent = new TranslateTransition(new javafx.util.Duration(500), oldValue);
 
-        ArrayList<ChartData> calendarDataList =   new ArrayList<>(10);
-        calendarDataList.add(new ChartData("Item 1", now.minusDays(1).toInstant()));
-        calendarDataList.add(new ChartData("Item 2", now.plusDays(2).toInstant()));
-        calendarDataList.add(new ChartData("Item 3", now.plusDays(10).toInstant()));
-        calendarDataList.add(new ChartData("Item 4", now.plusDays(15).toInstant()));
-        calendarDataList.add(new ChartData("Item 5", now.plusDays(15).toInstant()));
-        calendarDataList.add(new ChartData("Item 6", now.plusDays(20).toInstant()));
-        calendarDataList.add(new ChartData("Item 7", now.plusDays(7).toInstant()));
-        calendarDataList.add(new ChartData("Item 8", now.minusDays(1).toInstant()));
-        calendarDataList.add(new ChartData("Item 9", now.toInstant()));
-        calendarDataList.add(new ChartData("Item 10", now.toInstant()));
+        TranslateTransition slideNewContent = new TranslateTransition(new javafx.util.Duration(500), newValue);
+        slideNewContent.setToX(0);
+        slideOldContent.setFromX(0);
 
-        calendarData.set(calendarDataList);
+        if (Integer.parseInt(oldValue.getAccessibleRoleDescription()) > Integer.parseInt(newValue.getAccessibleRoleDescription())) {
+            slideOldContent.setToX(oldValue.getWidth());
+            slideNewContent.setFromX(-oldValue.getWidth());
+        }else{
+            slideOldContent.setToX(-oldValue.getWidth());
+            slideNewContent.setFromX(oldValue.getWidth());
+        }
 
-        Thread thread = new Thread(() -> {
-          while (true){
-              val1.set(Math.random() * 99 + 1);
-              val2.set(Math.random() * 99 + 1);
-              val3.set(Math.random() * 89 + 1);
-              series1.getData().forEach(data -> data.setYValue(Math.random() * 99 + 1));
-              try {
-                  Thread.sleep(1900);
-              } catch (InterruptedException e) {
-                  throw new RuntimeException(e);
-              }
-          }
-
-        });
-        thread.start();
-
-        GridPane tilesGridPane = homePageViewController.getTilesGrid();
-
-
-        tilesGridPane.add(engine.TilesProvider.getTimerCountDownTile("Timer countdown", "Text", new SimpleStringProperty("description"), new SimpleObjectProperty<Duration>(Duration.ofSeconds(10)), new SimpleBooleanProperty(true)), 0, 0, 1, 1);
-
-        tilesGridPane.add(engine.TilesProvider.getProcentageTile("Wilgotność", new SimpleStringProperty("Kuchnia"), new SimpleDoubleProperty(100), val1), 1, 0, 2, 1);
-        tilesGridPane.add(engine.TilesProvider.getGuageTile("Temperatura", "℃", val2, val3), 3, 0, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getClockTile(), 0, 1, 2, 1);
-        tilesGridPane.add(engine.TilesProvider.geSparkLineTile("SparkLine", "mb", val2), 2, 1, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getSwitchTile("Switch", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleBooleanProperty()), 3, 1, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getTimeControlTile(new SimpleObjectProperty<>()), 0, 2, 1, 2);
-        tilesGridPane.add(engine.TilesProvider.getPlusMinusTile("PlusMinusTile", "g", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleDoubleProperty(0), new SimpleDoubleProperty(10), new SimpleDoubleProperty(5)), 1, 3, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getSliderTile("SliderTile", "%", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleDoubleProperty(23)), 1, 2, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.geCalendarTile(calendarData), 2, 2, 2, 2);
-
+        slideOldContent.play();
+        slideNewContent.setOnFinished(actionEvent -> oldValue.setVisible(false));
+        slideNewContent.setToX(0);
+        slideNewContent.play();
     }
-    private void InitializeTilesLeft(){
+
+    private void InitializeTilesLeft(GridPane tilesGridPane){
+        tilesGridPane.setAccessibleRoleDescription("0");
+
+
         SimpleDoubleProperty val1 = new SimpleDoubleProperty(26);
         SimpleDoubleProperty val2 = new SimpleDoubleProperty(26);
         SimpleDoubleProperty val3 = new SimpleDoubleProperty(26);
@@ -197,7 +163,6 @@ public class HomePage extends PageBase{
             glucoseData.add(new ChartData("", Math.random() * 300 + 50));
         }
 
-        GridPane tilesGridPane = homePageViewController.getTilesGrid();
 
         // grid.add(node, col, row, colSpan, rowSpan)
 
@@ -217,8 +182,75 @@ public class HomePage extends PageBase{
 
 
     }
+    private void InitializeTilesCenter(GridPane tilesGridPane){
+        tilesGridPane.setAccessibleRoleDescription("1");
 
-    public void InitializeRightTiles(){
+        SimpleDoubleProperty val1 = new SimpleDoubleProperty(26);
+        SimpleDoubleProperty val2 = new SimpleDoubleProperty(26);
+        SimpleDoubleProperty val3 = new SimpleDoubleProperty(26);
+
+        // AreaChart Data
+        XYChart.Series<String, Number> series1 = new XYChart.Series();
+        series1.setName("Whatever");
+        series1.getData().add(new XYChart.Data("MO", 23));
+        series1.getData().add(new XYChart.Data("TU", 21));
+        series1.getData().add(new XYChart.Data("WE", 20));
+        series1.getData().add(new XYChart.Data("TH", 22));
+        series1.getData().add(new XYChart.Data("FR", 24));
+        series1.getData().add(new XYChart.Data("SA", 22));
+        series1.getData().add(new XYChart.Data("SU", 20));
+
+        //calendar
+        ZonedDateTime now          = ZonedDateTime.now();
+        SimpleObjectProperty<List<ChartData>> calendarData = new SimpleObjectProperty<List<ChartData>>();
+
+        ArrayList<ChartData> calendarDataList =   new ArrayList<>(10);
+        calendarDataList.add(new ChartData("Item 1", now.minusDays(1).toInstant()));
+        calendarDataList.add(new ChartData("Item 2", now.plusDays(2).toInstant()));
+        calendarDataList.add(new ChartData("Item 3", now.plusDays(10).toInstant()));
+        calendarDataList.add(new ChartData("Item 4", now.plusDays(15).toInstant()));
+        calendarDataList.add(new ChartData("Item 5", now.plusDays(15).toInstant()));
+        calendarDataList.add(new ChartData("Item 6", now.plusDays(20).toInstant()));
+        calendarDataList.add(new ChartData("Item 7", now.plusDays(7).toInstant()));
+        calendarDataList.add(new ChartData("Item 8", now.minusDays(1).toInstant()));
+        calendarDataList.add(new ChartData("Item 9", now.toInstant()));
+        calendarDataList.add(new ChartData("Item 10", now.toInstant()));
+
+        calendarData.set(calendarDataList);
+
+        Thread thread = new Thread(() -> {
+            while (true){
+                val1.set(Math.random() * 99 + 1);
+                val2.set(Math.random() * 99 + 1);
+                val3.set(Math.random() * 89 + 1);
+                series1.getData().forEach(data -> data.setYValue(Math.random() * 99 + 1));
+                try {
+                    Thread.sleep(1900);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+        });
+        thread.start();
+
+
+        tilesGridPane.add(engine.TilesProvider.getTimerCountDownTile("Timer countdown", "Text", new SimpleStringProperty("description"), new SimpleObjectProperty<Duration>(Duration.ofSeconds(10)), new SimpleBooleanProperty(true)), 0, 0, 1, 1);
+
+        tilesGridPane.add(engine.TilesProvider.getProcentageTile("Wilgotność", new SimpleStringProperty("Kuchnia"), new SimpleDoubleProperty(100), val1), 1, 0, 2, 1);
+        tilesGridPane.add(engine.TilesProvider.getGuageTile("Temperatura", "℃", val2, val3), 3, 0, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.getClockTile(), 0, 1, 2, 1);
+        tilesGridPane.add(engine.TilesProvider.geSparkLineTile("SparkLine", "mb", val2), 2, 1, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.getSwitchTile("Switch", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleBooleanProperty()), 3, 1, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.getTimeControlTile(new SimpleObjectProperty<>()), 0, 2, 1, 2);
+        tilesGridPane.add(engine.TilesProvider.getPlusMinusTile("PlusMinusTile", "g", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleDoubleProperty(0), new SimpleDoubleProperty(10), new SimpleDoubleProperty(5)), 1, 3, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.getSliderTile("SliderTile", "%", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleDoubleProperty(23)), 1, 2, 1, 1);
+        tilesGridPane.add(engine.TilesProvider.geCalendarTile(calendarData), 2, 2, 2, 2);
+
+    }
+    public void InitializeRightTiles(GridPane tilesGridPane){
+        tilesGridPane.setAccessibleRoleDescription("2");
+
         SimpleDoubleProperty ramUsage = new SimpleDoubleProperty();
         engine.SystemService.SystemInfoProvider.RamUsage.addListener((observableValue, memoryValue, t1) -> {ramUsage.setValue(t1.getValue());});
 
@@ -242,7 +274,6 @@ public class HomePage extends PageBase{
         chartDataa.add(chartData4);
         listSimpleObjectPropertya.set(chartDataa);
 
-        GridPane tilesGridPane = homePageViewController.getTilesGrid();
 
         // grid.add(node, col, row, colSpan, rowSpan)
 

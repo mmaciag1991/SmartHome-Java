@@ -7,6 +7,7 @@ import com.sm.smarthome.Controllers.MainViewController;
 import com.sm.smarthome.Controllers.OtherControls.SimplePopupController;
 import com.sm.smarthome.Core.Engine;
 import com.sm.smarthome.Core.Services.ActionEventService;
+import com.sm.smarthome.Core.Utils.Helpers;
 import com.sm.smarthome.Enums.Actions.ButtonAction;
 import com.sm.smarthome.Enums.Other.UserPermissions;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonNodeType;
@@ -15,6 +16,8 @@ import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
 import com.sm.smarthome.Enums.Ui.Otthers.PopupType;
 import com.sm.smarthome.Events.ButtonEvent;
 import com.sm.smarthome.Interfaces.IButton;
+import javafx.application.Platform;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -51,7 +54,15 @@ public class SimpleButton extends JFXButton implements IButton {
 
         this.engine = engine;
         setIconCode(iconCode);
-        setDisplayText(displayText);
+
+        if (displayText!= null) {
+            try {
+                engine.SystemService.Language.Locale.addListener((observableValue, locale, t1) -> setDisplayText(engine.SystemService.Language.Resources.getString(displayText)));
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+            }
+
         setValue(value);
         setAction(action);
         setWidthType(widthType);
@@ -66,34 +77,9 @@ public class SimpleButton extends JFXButton implements IButton {
 
     public void InitializeFireEvent(ActionEventService actionEventNode){
         this.setOnAction(event -> {
-            if (CheckUserPermissions(this.permissions))
-            actionEventNode.fireEvent(new ButtonEvent(SimpleButton.this.getAction()));
+            if (Helpers.CheckUserPermissions(this.permissions, engine, this.getNode() ))
+                actionEventNode.fireEvent(new ButtonEvent(SimpleButton.this.getAction()));
         });
-    }
-
-    protected boolean CheckUserPermissions(UserPermissions permissions){
-
-        boolean hasPermissions = engine.CurrentUser.getValue().UserPermission.getValue().getValue() >= permissions.getValue();
-
-        if (!hasPermissions)
-        {
-            JFXPopup jfxPopup = new JFXPopup();
-            jfxPopup.getStyleClass().add("background");
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Views/OtherControls/SimplePopup.fxml"));
-            Parent parent = null;
-            try {
-                parent = fxmlLoader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            parent.getStyleClass().add(JMetroStyleClass.BACKGROUND);
-            SimplePopupController mainViewController = fxmlLoader.getController();
-            mainViewController.Initialize("Brak uprawnień", PopupType.Error);
-            Pane pane = new Pane(parent);
-            jfxPopup.setPopupContent(pane);
-            jfxPopup.show(this);
-        }
-        return hasPermissions;
     }
 
     public void Repaint(){
@@ -122,7 +108,7 @@ public class SimpleButton extends JFXButton implements IButton {
     }
     public void setDisplayText(String text) {
         displayText = text;
-        setText(displayText);
+        Platform.runLater(() -> setText(displayText));
     }
 
     public Object getValue(){

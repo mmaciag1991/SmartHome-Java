@@ -1,38 +1,29 @@
 package com.sm.smarthome.Models.Ui.Menu.Catalog;
 
-import com.jfoenix.controls.JFXPopup;
-import com.jfoenix.controls.JFXScrollPane;
 import com.jfoenix.controls.JFXTextField;
-import com.sm.smarthome.Application;
-import com.sm.smarthome.Controllers.OtherControls.SimplePopupController;
 import com.sm.smarthome.Core.Engine;
 import com.sm.smarthome.Core.Providers.Gui.WindowManager;
 import com.sm.smarthome.Core.Utils.Helpers;
 import com.sm.smarthome.Enums.Other.UserPermissions;
 import com.sm.smarthome.Enums.Ui.Catalog.CatalogAction;
-import com.sm.smarthome.Enums.Ui.Otthers.PopupType;
 import com.sm.smarthome.Events.Catalog.CatalogEvent;
 import com.sm.smarthome.Events.Catalog.CatalogEventHandler;
 import com.sm.smarthome.Interfaces.ICatalog;
 import com.sm.smarthome.Interfaces.IRecord;
 import com.sm.smarthome.Interfaces.IRecordButton;
 import com.sm.smarthome.Models.Ui.Buttons.CatalogButton;
-import javafx.fxml.FXMLLoader;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import jfxtras.styles.jmetro.JMetroStyleClass;
 import org.kordamp.ikonli.Ikon;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
-
-import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static com.sm.smarthome.Core.Utils.Helpers.CheckUserPermissions;
@@ -46,18 +37,36 @@ public class StdCatalog extends BorderPane implements ICatalog {
 
     private final String UUID = java.util.UUID.randomUUID().toString();
 
-    private final String displayText;
+    private String displayText;
     private Ikon iconCode;
     private FontIcon fontIcon;
     private final Engine engine;
     private final WindowManager windowManager;
     private final UserPermissions permissions;
+
+    Label displayTextLabel = new Label(this.displayText);
     public StdCatalog(Ikon iconCode, String displayText, UserPermissions permissions, Engine engine, WindowManager windowManager){
         this.iconCode = iconCode;
         this.displayText = displayText;
         this.permissions = permissions;
         this.engine = engine;
         this.windowManager = windowManager;
+        this.displayTextLabel.setText(displayText);
+
+        if (displayText!= null) {
+            try {
+                engine.SystemService.Language.Locale.addListener((observableValue, locale, t1) -> {
+
+                    Platform.runLater(() -> {
+                        String text = engine.SystemService.Language.Resources.getString(this.displayText);
+                        this.CatalogButton.setDisplayText(text);
+                        this.displayTextLabel.setText(text);
+                    });
+                });
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
 
         InitializeCatalogActionButtons();
         InitializeIconLabel();
@@ -175,7 +184,7 @@ public class StdCatalog extends BorderPane implements ICatalog {
             this.fontIcon.setIconColor(newValue);
         });
 
-        Label displayTextLabel = new Label(this.displayText);
+
         displayTextLabel.setFont(new Font(48));
 
         HBox leftTopBar = new HBox(fontIcon, displayTextLabel);

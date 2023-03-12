@@ -33,28 +33,28 @@ public class InternetApp extends VBox {
         textFieldAddress.setPrefWidth(700);
         textFieldAddress.setPrefHeight(64);
 
-        TwoStateButton buttonBack = new TwoStateButton(FluentUiFilledAL.ARROW_PREVIOUS_24, FluentUiFilledAL.ARROW_PREVIOUS_24, "", "",  ButtonAction.None,  ButtonAction.None, ButtonSize.Medium, ButtonWidthType.Normal, engine, false, ButtonState.Inactive, UserPermissions.Guest, false);
+        TwoStateButton buttonBack = new TwoStateButton(FluentUiFilledAL.ARROW_PREVIOUS_24, FluentUiFilledAL.ARROW_PREVIOUS_24, null, null,  ButtonAction.None,  ButtonAction.None, ButtonSize.Medium, ButtonWidthType.Normal, engine, false, ButtonState.Inactive, UserPermissions.Guest, false);
         buttonBack.setOnAction(actionEvent ->
                 Platform.runLater(() -> {
                     webView.getEngine().executeScript("history.back()");
                     textFieldAddress.setText(webView.getEngine().getLocation());
                 }));
 
-        TwoStateButton buttonNext = new TwoStateButton(FluentUiFilledAL.ARROW_NEXT_24, FluentUiFilledAL.ARROW_NEXT_24, "", "",  ButtonAction.None,  ButtonAction.None, ButtonSize.Medium, ButtonWidthType.Normal, engine, false, ButtonState.Inactive, UserPermissions.Guest, false);
+        TwoStateButton buttonNext = new TwoStateButton(FluentUiFilledAL.ARROW_NEXT_24, FluentUiFilledAL.ARROW_NEXT_24, null, null,  ButtonAction.None,  ButtonAction.None, ButtonSize.Medium, ButtonWidthType.Normal, engine, false, ButtonState.Inactive, UserPermissions.Guest, false);
         buttonNext.setOnAction(actionEvent ->
                 Platform.runLater(() -> {
                     webView.getEngine().executeScript("history.forward()");
                     textFieldAddress.setText(webView.getEngine().getLocation());
                 }));
 
-        TwoStateButton buttonReload = new TwoStateButton(MaterialDesignR.RELOAD, MaterialDesignR.RELOAD, "", "",  ButtonAction.None,  ButtonAction.None, ButtonSize.Medium, ButtonWidthType.Normal, engine, false, ButtonState.Inactive, UserPermissions.Guest, false);
+        TwoStateButton buttonReload = new TwoStateButton(MaterialDesignR.RELOAD, MaterialDesignR.RELOAD, null, null,  ButtonAction.None,  ButtonAction.None, ButtonSize.Medium, ButtonWidthType.Normal, engine, false, ButtonState.Inactive, UserPermissions.Guest, false);
         buttonReload.setOnAction(actionEvent ->
                 Platform.runLater(() -> {
                     webView.getEngine().reload();
                     textFieldAddress.setText(webView.getEngine().getLocation());
                 }));
 
-        TwoStateButton buttonEnter = new TwoStateButton(FluentUiFilledAL.ARROW_ENTER_24, FluentUiFilledAL.ARROW_ENTER_24, "", "",  ButtonAction.None,  ButtonAction.None, ButtonSize.Medium, ButtonWidthType.Normal, engine, false, ButtonState.Inactive, UserPermissions.Guest, false);
+        TwoStateButton buttonEnter = new TwoStateButton(FluentUiFilledAL.ARROW_ENTER_24, FluentUiFilledAL.ARROW_ENTER_24, null, null,  ButtonAction.None,  ButtonAction.None, ButtonSize.Medium, ButtonWidthType.Normal, engine, false, ButtonState.Inactive, UserPermissions.Guest, false);
         buttonEnter.setOnAction(actionEvent ->
                 Platform.runLater(() -> {
                     webView.getEngine().load(textFieldAddress.getText());

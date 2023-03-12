@@ -11,7 +11,12 @@ import javafx.stage.StageStyle;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 
 import static com.sm.smarthome.Core.Utils.Helpers.AppHeight;
 import static com.sm.smarthome.Core.Utils.Helpers.AppWidth;
@@ -20,40 +25,6 @@ public class Application extends javafx.application.Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-
-
-//        Pane p = new Pane();
-//
-//        Tile tile = TileBuilder.create()
-//                .skinType(Tile.SkinType.BAR_GAUGE)
-//                .minValue(0)
-//                .maxValue(100)
-//                .startFromZero(true)
-//                .threshold(80)
-//                .thresholdVisible(true)
-//                .title("BarGauge Tile")
-//                .unit("F")
-//                .text("Whatever text")
-//                .gradientStops(new Stop(0, Bright.BLUE),
-//                        new Stop(0.1, Bright.BLUE_GREEN),
-//                        new Stop(0.2, Bright.GREEN),
-//                        new Stop(0.3, Bright.GREEN_YELLOW),
-//                        new Stop(0.4, Bright.YELLOW),
-//                        new Stop(0.5, Bright.YELLOW_ORANGE),
-//                        new Stop(0.6, Bright.ORANGE),
-//                        new Stop(0.7, Bright.ORANGE_RED),
-//                        new Stop(0.8, Bright.RED),
-//                        new Stop(1.0, Dark.RED))
-//                .strokeWithGradient(true)
-//                .animated(true)
-//                .build();
-//
-//        p.getChildren().add(tile);
-//
-//        Scene sc2 = new Scene(p);
-//        stage.setScene(sc2);
-//        stage.show();
-
 
 
         Engine engine = new Engine(stage);

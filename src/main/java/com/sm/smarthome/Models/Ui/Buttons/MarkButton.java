@@ -10,7 +10,6 @@ import com.sm.smarthome.Enums.Ui.Bottons.ButtonState;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
 import com.sm.smarthome.Events.ButtonEvent;
 import javafx.application.Platform;
-import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import org.kordamp.ikonli.Ikon;
 
@@ -27,7 +26,7 @@ public class MarkButton extends SimpleButton {
     @Override
     public void InitializeFireEvent(ActionEventService actionEventNode){
         this.setOnAction(event -> {
-            if (CheckUserPermissions(this.permissions)) {
+            if (Helpers.CheckUserPermissions(this.permissions, engine, this.getNode())) {
                 actionEventNode.fireEvent(new ButtonEvent(MarkButton.this.getAction()));
                 setState(ButtonState.Active);
             }

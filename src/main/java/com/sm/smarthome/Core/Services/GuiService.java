@@ -27,7 +27,8 @@ public class GuiService {
         this.MainMenu = new FunMenu();
         this.MainStage = mainStage;
 
-        KeyboardPane.getKeyboardView().loadKeyboard(engine.SystemService.Language.Locale);
+        engine.SystemService.Language.Locale.addListener((observableValue, locale, t1) -> KeyboardPane.getKeyboardView().loadKeyboard(t1));
+
         AccentColor.addListener((observableValue, color, t1) -> {
             KeyboardPane.getKeyboardView().setAccentColor(t1);
             MainMenu.setButtonColor(t1.darker());

@@ -14,29 +14,23 @@ import com.sm.smarthome.Events.Catalog.CatalogEvent;
 import com.sm.smarthome.Events.Catalog.CatalogEventHandler;
 import com.sm.smarthome.Events.Record.RecordEvent;
 import com.sm.smarthome.Events.Record.RecordEventHandler;
-import com.sm.smarthome.Models.Ui.Buttons.AppStage;
+import com.sm.smarthome.Models.Ui.Stages.AppStage;
 import com.sm.smarthome.Models.Ui.Buttons.MarkButton;
 import com.sm.smarthome.Models.Ui.Menu.Catalog.StdCatalog;
 import com.sm.smarthome.Models.Ui.Menu.Record;
 import javafx.application.Platform;
-import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
-import javafx.scene.web.WebView;
-import javafx.stage.Stage;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
-
-import java.util.Objects;
 
 public class ApplicationsPage extends PageBase{
 
     WindowManager windowManager;
     public ApplicationsPage(Engine engine){
 
-        windowManager = new WindowManager();
+        windowManager = new WindowManager(engine);
 
         this.Index = 2;
         this.Name = "Applications Page";
-        this.DisplayName = "Applications";
+        this.DisplayName = "leftButtonsPanel.applicationsButton";
         this.Type = PageType.Main;
         //wytgląd jak tiles oraz jakis window menager888
 
