@@ -108,7 +108,7 @@ public class KeyboardPane extends Pane {
         getDefaultKeyboards().add(keyboardView.loadKeyboard(new Locale("fi", "FI")));
     }
 
-    private void hideKeyboard() {
+    public void hideKeyboard() {
         requestFocus();
     }
 
@@ -204,7 +204,7 @@ public class KeyboardPane extends Pane {
         return focusOwner.getReadOnlyProperty();
     }
 
-    private void maybeShowKeyboard() {
+    public void maybeShowKeyboard() {
         final Scene scene = getScene();
 
         if (scene != null) {

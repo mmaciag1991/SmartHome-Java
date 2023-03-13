@@ -61,7 +61,7 @@ public class SimpleButton extends JFXButton implements IButton {
             }catch (Exception e){
                 System.out.println(e.getMessage());
             }
-            }
+        }
 
         setValue(value);
         setAction(action);

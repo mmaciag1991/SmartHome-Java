@@ -12,6 +12,7 @@ import com.sm.smarthome.Models.Ui.Buttons.TwoStateButton;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import jfxtras.styles.jmetro.Style;
 import org.kordamp.ikonli.fluentui.FluentUiFilledAL;
 import org.kordamp.ikonli.fluentui.FluentUiFilledMZ;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
@@ -57,6 +58,11 @@ public class TopBarProvider {
         TwoStateButton volumeButton = new TwoStateButton(MaterialDesign.MDI_VOLUME_HIGH, MaterialDesign.MDI_VOLUME_OFF, null,null,  ButtonAction.ActionVolumeOn,  ButtonAction.ActionVolumeOff, ButtonSize.Small, ButtonWidthType.Normal, engine, false, ButtonState.Active, UserPermissions.User, true);
         TwoStateButton wifiButton = new TwoStateButton(MaterialDesign.MDI_WIFI, MaterialDesign.MDI_WIFI_OFF, "topButtonsPanel.On","topButtonsPanel.Off",  ButtonAction.ActionWifiOn,  ButtonAction.ActionWifiOff, ButtonSize.Small, ButtonWidthType.Widthx2_5, engine, false, ButtonState.Active, UserPermissions.User, true);
         TwoStateButton themeButton = new TwoStateButton(MaterialDesign.MDI_THEME_LIGHT_DARK, MaterialDesign.MDI_THEME_LIGHT_DARK, "topButtonsPanel.Dark","topButtonsPanel.Light",  ButtonAction.ActionThemeDark,  ButtonAction.ActionThemeLight, ButtonSize.Small, ButtonWidthType.Widthx2_5, engine, true, ButtonState.Active, UserPermissions.User, true);
+        if (engine.SettingsProvider.Settings.getGlobalSettings().getTheme() == Style.DARK){
+            themeButton.SelectState(ButtonState.Active);
+        }else {
+            themeButton.SelectState(ButtonState.Inactive);
+        }
 
         SimpleButton dateTimeButton = new SimpleButton(MaterialDesign.MDI_TIMER, null,null, ButtonAction.ActionDateTimeSetup,  ButtonSize.Small, ButtonWidthType.Widthx5, engine, UserPermissions.Administrator);
         engine.SystemService.SystemInfoProvider.SystemDate.addListener((observableValue, s, t1) -> Platform.runLater(() -> dateTimeButton.setText(t1)));

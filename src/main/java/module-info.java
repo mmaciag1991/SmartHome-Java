@@ -25,9 +25,10 @@ module com.sm.smarthome {
     requires json.simple;
     requires java.xml.bind;
     requires java.logging;
+    requires jdk.jsobject;
 
 
-    opens com.sm.smarthome to javafx.fxml;
+    opens com.sm.smarthome to javafx.fxml, javafx.controls;
     exports com.sm.smarthome;
     exports com.sm.smarthome.Interfaces;
     opens com.sm.smarthome.Interfaces to javafx.fxml;
@@ -51,6 +52,9 @@ module com.sm.smarthome {
     opens com.sm.smarthome.CustomControls.Keyboard;
     exports com.sm.smarthome.CustomControls.HanSolo.Funmenu;
     opens com.sm.smarthome.CustomControls.HanSolo.Funmenu;
+    exports com.sm.smarthome.EmbededApps;
+    opens com.sm.smarthome.EmbededApps to javafx.web;
+
 
 
 }

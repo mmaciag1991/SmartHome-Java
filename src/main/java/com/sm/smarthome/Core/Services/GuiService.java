@@ -4,7 +4,9 @@ import com.sm.smarthome.Core.Engine;
 import com.sm.smarthome.CustomControls.HanSolo.Funmenu.FunMenu;
 import com.sm.smarthome.CustomControls.Keyboard.KeyboardPane;
 import com.sm.smarthome.Enums.Actions.ButtonAction;
+import com.sm.smarthome.Enums.Ui.Bottons.ButtonState;
 import com.sm.smarthome.Events.ButtonEvent;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -36,8 +38,14 @@ public class GuiService {
         });
         InitMainMenu(engine);
 
-        SetTheme(Style.LIGHT);
-        AccentColor.set(Color.rgb(46,71,153));
+        Platform.runLater(() -> {
+            SetTheme(engine.SettingsProvider.Settings.getGlobalSettings().getTheme());
+        });
+
+        AccentColor.set(engine.SettingsProvider.Settings.getGlobalSettings().getAccentColor());
+        AccentColor.addListener((observableValue, color, t1) -> {
+            engine.SettingsProvider.Settings.getGlobalSettings().setAccentColor(t1);
+        });
     }
 
     public void SetTheme(Style style){

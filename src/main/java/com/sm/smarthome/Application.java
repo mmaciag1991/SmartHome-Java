@@ -9,15 +9,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import jfxtras.styles.jmetro.JMetroStyleClass;
-import jfxtras.styles.jmetro.Style;
-
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.Properties;
-
 import static com.sm.smarthome.Core.Utils.Helpers.AppHeight;
 import static com.sm.smarthome.Core.Utils.Helpers.AppWidth;
 
@@ -43,11 +35,13 @@ public class Application extends javafx.application.Application {
         stage.setTitle("Smart Home App");
         stage.setScene(scene);
         stage.getIcons().add(new Image(Application.class.getResourceAsStream("Media/Icons/icon.png")));
-        engine.GuiService.SetTheme(Style.DARK);
+        //engine.GuiService.SetTheme(Style.DARK);
 
         //stage.setFullScreen(true);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
+        engine.isInitialized = true;
+
 
     }
 

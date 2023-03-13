@@ -10,21 +10,17 @@ import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
 import com.sm.smarthome.Models.Ui.Buttons.TwoStateButton;
 import javafx.application.Platform;
 import javafx.geometry.HPos;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
-import org.kordamp.ikonli.fluentui.FluentUiFilledAL;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
 
 import static com.sm.smarthome.Core.Utils.Helpers.AppHeight;
@@ -32,6 +28,7 @@ import static com.sm.smarthome.Core.Utils.Helpers.AppWidth;
 
 public class AppStage extends Stage {
 
+    public KeyboardPane KeyboardPane = new KeyboardPane();
     public AppStage(String title, Parent bodyInstance, Engine engine) {
 
 
@@ -55,9 +52,9 @@ public class AppStage extends Stage {
         //gridPane.prefWidthProperty().bind(this.widthProperty());
         vBox.getChildren().addAll(gridPane,bodyInstance);
 
-        KeyboardPane keyboardPane = new KeyboardPane();
-        keyboardPane.setContent(vBox);
-        Scene scene = new Scene(keyboardPane, AppWidth, AppHeight);
+
+        KeyboardPane.setContent(vBox);
+        Scene scene = new Scene(KeyboardPane, AppWidth, AppHeight);
         this.setScene(scene);
         JMetro JMetroThemeManager = new JMetro(Style.DARK);
         JMetroThemeManager.setScene(scene);

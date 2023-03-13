@@ -39,8 +39,14 @@ public class ActionEventService extends Line {
                     //Top bar actions
                     case ActionWifiOn, ActionWifiOff -> WifiAction(action);
                     case ActionLogin, ActionLogoff -> ChangeUserAction(action);
-                    case ActionThemeDark -> engine.GuiService.SetTheme(Style.DARK);
-                    case ActionThemeLight -> engine.GuiService.SetTheme(Style.LIGHT);
+                    case ActionThemeDark -> {
+                        engine.SettingsProvider.Settings.getGlobalSettings().setTheme(Style.DARK);
+                        engine.GuiService.SetTheme(Style.DARK);
+                    }
+                    case ActionThemeLight -> {
+                        engine.SettingsProvider.Settings.getGlobalSettings().setTheme(Style.LIGHT);
+                        engine.GuiService.SetTheme(Style.LIGHT);
+                    }
                     case ActionAccentColor -> ChangeColorAccent();
                     case ActionKeyboardOn -> engine.GuiService.KeyboardPane.IsShowingKeyboard.setValue(true);
                 }
