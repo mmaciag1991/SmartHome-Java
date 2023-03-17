@@ -54,7 +54,11 @@ module com.sm.smarthome {
     opens com.sm.smarthome.CustomControls.HanSolo.Funmenu;
     exports com.sm.smarthome.EmbededApps;
     opens com.sm.smarthome.EmbededApps to javafx.web;
+    exports com.sm.smarthome.Core.SplashScreen;
+    opens com.sm.smarthome.Core.SplashScreen to javafx.fxml;
 
+    exports com.sm.smarthome.Models.Data;
+    exports com.sm.smarthome.Enums.Other;
 
 
 }

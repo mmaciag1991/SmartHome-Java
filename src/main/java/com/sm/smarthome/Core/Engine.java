@@ -8,7 +8,9 @@ import com.sm.smarthome.Core.Providers.SettingsProvider;
 import com.sm.smarthome.Core.Services.ActionEventService;
 import com.sm.smarthome.Core.Services.GuiService;
 import com.sm.smarthome.Core.Services.SystemService;
+import com.sm.smarthome.Core.SplashScreen.SplashScreen;
 import com.sm.smarthome.Models.Data.UserModel;
+import com.sm.smarthome.Utils.DisintegrationLogo;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.stage.Stage;
@@ -20,33 +22,43 @@ public class Engine {
 
     public boolean isInitialized = false;
     public SettingsProvider SettingsProvider;
-    public SystemService SystemService;// = new SystemService();
-    //public WindowManager SetupPageWindowManager = new WindowManager();
+    public SystemService SystemService;
+
     public SimpleObjectProperty<UserModel> CurrentUser = new SimpleObjectProperty<UserModel>();
     public GuiService GuiService;
-    public PagesProvider PagesProvider;
-    public TopBarProvider TopBarProvider;
-    public TilesProvider TilesProvider;
     public ActionEventService ActionEventService;
     public ControlersProvider ControlersProvider = new ControlersProvider();
 
-    private SplashScreen splashScreen = new SplashScreen();
+    private final SplashScreen splashScreen = new SplashScreen();
 
     public Engine(Stage mainStage){
-        Thread initThread = new Thread(this::initializationWaiter);
-        initThread.setDaemon(true);
-        initThread.start();
+//        Thread initThread = new Thread(this::initializationWaiter);
+//        initThread.setDaemon(true);
+//        initThread.start();
+        splashScreen.show();
+
         InitializeSettingsProvider();
         SystemService = new SystemService(this);
+
         new Thread(() -> {
                 InitializeActionEventService();
                 InitializeGuiService(mainStage);
                 InitializeTilesProvider();
                 InitializePagesProvider();
                 InitializeTopBarProvider();
-                Platform.runLater(() ->  splashScreen.close());
+
+            SystemService.Language.Locale.setValue(Locale.ROOT);
+            SystemService.Language.SetLanguage(SettingsProvider.Settings.getGlobalSettings().getLanguage());
+            isInitialized = true;
+
+                Platform.runLater(() -> {
+                    splashScreen.close();
+                    DisintegrationLogo disintegration = new DisintegrationLogo();
+                    disintegration.start();
+                });
         }).start();
-        splashScreen.showAndWait();
+
+
 
     }
     private void InitializeActionEventService()  {
@@ -101,7 +113,7 @@ public class Engine {
         watch.start();
         System.out.println(text);
         {
-            PagesProvider = new PagesProvider(this);
+            GuiService.PagesProvider = new PagesProvider(this);
         }
         watch.stop();
         System.out.println("Initialized future (" + watch.getTime() + " ms): PagesProvider");
@@ -115,7 +127,7 @@ public class Engine {
         watch.start();
         System.out.println(text);
         {
-            TopBarProvider = new TopBarProvider(this);
+            GuiService.TopBarProvider = new TopBarProvider(this);
         }
         watch.stop();
         System.out.println("Initialized future (" + watch.getTime() + " ms): TopBarProvider");
@@ -129,7 +141,7 @@ public class Engine {
         watch.start();
         System.out.println(text);
         {
-            TilesProvider = new TilesProvider(this);
+            GuiService.TilesProvider = new TilesProvider(this);
         }
         watch.stop();
         System.out.println("Initialized future (" + watch.getTime() + " ms): TilesProvider");

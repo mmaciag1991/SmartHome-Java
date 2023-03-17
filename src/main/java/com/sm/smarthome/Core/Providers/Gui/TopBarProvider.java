@@ -37,8 +37,8 @@ public class TopBarProvider {
                     userButton.SelectState(ButtonState.Inactive);
                     userButton.setText(newValue.Name.getValue());
                 }else{
-                    engine.TopBarProvider.userButton.SelectState(ButtonState.Active);
-                    engine.TopBarProvider.userButton.setText(newValue.Name.getValue());
+                    engine.GuiService.TopBarProvider.userButton.SelectState(ButtonState.Active);
+                    engine.GuiService.TopBarProvider.userButton.setText(newValue.Name.getValue());
                 }
             });
         });

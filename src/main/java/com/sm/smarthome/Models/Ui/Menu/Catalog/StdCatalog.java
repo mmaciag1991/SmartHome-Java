@@ -115,8 +115,8 @@ public class StdCatalog extends BorderPane implements ICatalog {
     }
 
     private String GetSearchFliedStyle(){
-        return "-fx-text-fill: "+ Helpers.GetRgbaColorToStyleFx(engine.GuiService.FontColor.getValue(), 1) +";\n" +
-                "    -jfx-focus-color: "+ Helpers.GetRgbaColorToStyleFx(engine.GuiService.AccentColor.getValue(),.7) +";\n" +
+        return "-fx-text-fill: "+ Helpers.getRgbaColorToStyleFx(engine.GuiService.FontColor.getValue(), 1) +";\n" +
+                "    -jfx-focus-color: "+ Helpers.getRgbaColorToStyleFx(engine.GuiService.AccentColor.getValue(),.7) +";\n" +
                 "    -jfx-unfocus-color: #BDBDBD;\n" +
                 "    -jfx-label-float: true;\n" +
                 "    -fx-font-size: 19px;\n" +
@@ -136,7 +136,7 @@ public class StdCatalog extends BorderPane implements ICatalog {
         topBar.getColumnConstraints().add(column1);
 
 
-        topBar.setStyle("-fx-border-color: "+ Helpers.GetRgbaColorToStyleFx(engine.GuiService.AccentColor.getValue(), .7) +" -fx-border-width: 0 0 3 0;");
+        topBar.setStyle("-fx-border-color: "+ Helpers.getRgbaColorToStyleFx(engine.GuiService.AccentColor.getValue(), .7) +" -fx-border-width: 0 0 3 0;");
         this.setTop(topBar);
 
         catalogContent.setPadding(new Insets(30, 0, 0, 45));

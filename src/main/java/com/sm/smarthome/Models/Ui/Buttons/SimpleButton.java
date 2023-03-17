@@ -1,10 +1,6 @@
 package com.sm.smarthome.Models.Ui.Buttons;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXPopup;
-import com.sm.smarthome.Application;
-import com.sm.smarthome.Controllers.MainViewController;
-import com.sm.smarthome.Controllers.OtherControls.SimplePopupController;
 import com.sm.smarthome.Core.Engine;
 import com.sm.smarthome.Core.Services.ActionEventService;
 import com.sm.smarthome.Core.Utils.Helpers;
@@ -13,24 +9,14 @@ import com.sm.smarthome.Enums.Other.UserPermissions;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonNodeType;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonSize;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
-import com.sm.smarthome.Enums.Ui.Otthers.PopupType;
 import com.sm.smarthome.Events.ButtonEvent;
 import com.sm.smarthome.Interfaces.IButton;
 import javafx.application.Platform;
-import javafx.beans.property.StringProperty;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
-import jfxtras.styles.jmetro.JMetroStyleClass;
 import org.kordamp.ikonli.Ikon;
 import org.kordamp.ikonli.javafx.FontIcon;
-
-import java.io.IOException;
 
 public class SimpleButton extends JFXButton implements IButton {
 

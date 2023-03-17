@@ -4,26 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c1e5f1c-a948-4557-88a6-2252bf242bb9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/SettingsProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Data/Settings/GlobalSettings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Data/Settings/SettingsModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="7c1e5f1c-a948-4557-88a6-2252bf242bb9" name="Changes" comment="Animacja startowa i animacja zamykania systemu">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/PowerProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Utils/DisintegrationLogo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Utils/Particle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Utils/SnowAnimation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Media/Images/smarthomeLogo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Controllers/MainViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Engine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TopBarProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Providers/Gui/TopBarProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/ActionEventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/ActionEventService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/GuiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/GuiService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/SystemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/SystemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Keyboard/KeyboardPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/CustomControls/Keyboard/KeyboardPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/WeatherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Services/WeatherProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/SplashScreen/SplashScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Utils/Helpers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Core/Utils/Helpers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/EmbededApps/InternetApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/EmbededApps/InternetApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Data/LanguageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Data/LanguageModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/MarkButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/MarkButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/RadiusButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/RadiusButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/SimpleButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Buttons/SimpleButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Stages/AppStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Stages/AppStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Menu/Catalog/StdCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Menu/Catalog/StdCatalog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Menu/Record.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Menu/Record.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sm/smarthome/Models/Ui/Pages/HomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Translations/_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Translations/Bundle_en_EN.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Translations/_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sm/smarthome/Translations/Bundle_pl_PL.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,49 +84,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Mateusz/Desktop/vnc_android_library-master/eclipse_projects/SmartHome/src/main/resources/com/sm/smarthome/Translations/Bundle_pl_PL.properties",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.40804598",
-    "settings.editor.selected.configurable": "File.Encoding"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Mateusz/Desktop/vnc_android_library-master/eclipse_projects/SmartHome/src/main/resources/com/sm/smarthome/Media/Images&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.40804598&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.sm.smarthome.Interfaces" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\Media\Images" />
+      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\java\com\sm\smarthome" />
       <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\CustomControls\HanSolo\Funmenu" />
       <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\java\com\sm\smarthome\CustomControls\HanSolo" />
       <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\java\com\sm\smarthome\Events" />
-      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\CustomControls\Keyboard" />
-      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\java\com\sm\smarthome\CustomControls\Keyboard" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\Media\Images" />
+      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\java\com\sm\smarthome\Utils" />
       <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\Keyboard" />
       <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\lib" />
       <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\CustomControls\HanSolo\TimeControl\Fonts" />
-      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\CustomControls\HanSolo\TimeControl" />
-      <recent name="C:\Users\Mateusz\Desktop\vnc_android_library-master\eclipse_projects\SmartHome\src\main\resources\com\sm\smarthome\CustomControls\HanSolo.TimeControl" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.sm.smarthome" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sm.smarthome.Utils" />
       <recent name="com.sm.smarthome.Events.Record" />
       <recent name="com.sm.smarthome.Models.Ui.Pages" />
       <recent name="com.sm.smarthome.CustomControls.Keyboard" />
       <recent name="com.sm.smarthome.Events.Catalog" />
-      <recent name="com.sm.smarthome.Events" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Application">
@@ -141,7 +146,7 @@
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.sm.smarthome.Application" />
       <module name="SmartHome" />
-      <option name="VM_PARAMETERS" value="--add-exports javafx.graphics/com.sun.javafx.scene=com.jfoenix --add-exports javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix --add-exports javafx.controls/com.sun.javafx.scene.control=com.jfoenix --add-exports javafx.base/com.sun.javafx.binding=com.jfoenix --add-exports javafx.base/com.sun.javafx.event=com.jfoenix --add-exports javafx.graphics/com.sun.javafx.stage=com.jfoenix --add-opens=java.base/java.lang.reflect=com.jfoenix -Dcom.sun.javafx.isEmbedded=true -Dcom.sun.javafx.touch=true" />
+      <option name="VM_PARAMETERS" value="--add-exports javafx.graphics/com.sun.javafx.scene=com.jfoenix --add-exports javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix --add-exports javafx.controls/com.sun.javafx.scene.control=com.jfoenix --add-exports javafx.base/com.sun.javafx.binding=com.jfoenix --add-exports javafx.base/com.sun.javafx.event=com.jfoenix --add-exports javafx.graphics/com.sun.javafx.stage=com.jfoenix --add-opens=java.base/java.lang.reflect=com.jfoenix -Dcom.sun.javafx.isEmbedded=true -Dcom.sun.javafx.touch=true -Dprism.order=sw" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.sm.smarthome.Interfaces.*" />
@@ -152,12 +157,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.sm.smarthome.CustomControls.HanSolo.Funmenu.Demo" />
+    <configuration name="DisintegrationApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sm.smarthome.DisintegrationApp" />
       <module name="SmartHome" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sm.smarthome.CustomControls.HanSolo.Funmenu.*" />
+          <option name="PATTERN" value="com.sm.smarthome.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -178,12 +183,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VKDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.sm.smarthome.CustomControls.Keyboard.VKDemo" />
+    <configuration name="SnowAnimation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sm.smarthome.Utils.SnowAnimation" />
       <module name="SmartHome" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sm.smarthome.CustomControls.Keyboard.*" />
+          <option name="PATTERN" value="com.sm.smarthome.Utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -194,10 +199,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
-        <item itemvalue="Application.SettingsProvider" />
+        <item itemvalue="Application.SnowAnimation" />
+        <item itemvalue="Application.DisintegrationApp" />
         <item itemvalue="Application.Animacja" />
-        <item itemvalue="Application.Demo" />
-        <item itemvalue="Application.VKDemo" />
+        <item itemvalue="Application.SettingsProvider" />
       </list>
     </recent_temporary>
   </component>
@@ -350,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678658264410</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Dalsza implementacja sm">
+      <created>1678741814847</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1678741814847</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -391,9 +403,9 @@
     <MESSAGE value="Dalsza implementacja sm tiles" />
     <MESSAGE value="Dalsza implementacja sm katalog" />
     <MESSAGE value="Dalsza implementacja sm katalog i klawiatura" />
-    <MESSAGE value="Dalsza implementacja sm" />
     <MESSAGE value="Dalsza implementacja sm animacje i translacja" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dalsza implementacja sm animacje i translacja" />
+    <MESSAGE value="Dalsza implementacja sm" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dalsza implementacja sm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

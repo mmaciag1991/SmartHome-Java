@@ -52,7 +52,7 @@ public class MainViewController {
         });
 
 
-        engine.PagesProvider.Buttons.addListener((ListChangeListener<MarkButton>) c -> {
+        engine.GuiService.PagesProvider.Buttons.addListener((ListChangeListener<MarkButton>) c -> {
             while (c.next()) {
                 LeftButtonsBox.getChildren().clear();
                 LeftButtonsBox.getChildren().addAll(c.getList());
@@ -61,11 +61,11 @@ public class MainViewController {
                 }
             }
         });
-        LeftButtonsBox.getChildren().addAll(engine.PagesProvider.Buttons);
+        LeftButtonsBox.getChildren().addAll(engine.GuiService.PagesProvider.Buttons);
 
 
 
-        engine.PagesProvider.SetActivePageByIndex(0);
+        engine.GuiService.PagesProvider.SetActivePageByIndex(0);
 
 //            engine.ActionEventService.addEventHandler(ButtonEvent.BUTTON_ACTION_EVENT_TYPE, new SmEventHandler() {
 //                @Override
@@ -74,7 +74,7 @@ public class MainViewController {
 //                public void onApplicationActionEvent(ApplicationAction action) {}
 //            });
 
-        engine.TopBarProvider.Buttons.addListener((ListChangeListener<IButton>) c -> {
+        engine.GuiService.TopBarProvider.Buttons.addListener((ListChangeListener<IButton>) c -> {
             while (c.next()) {
                 LeftButtonsBox.getChildren().clear();
                 for (IButton iButton : c.getList()) {
@@ -85,7 +85,7 @@ public class MainViewController {
                 }
             }
         });
-        for (IButton button : engine.TopBarProvider.Buttons) {
+        for (IButton button : engine.GuiService.TopBarProvider.Buttons) {
             topButtonsBox.getChildren().add(button.getNode());
         }
 
@@ -102,7 +102,7 @@ public class MainViewController {
                     }
                 });
             });
-            userPane.getChildren().add(engine.TopBarProvider.userButton);
+            userPane.getChildren().add(engine.GuiService.TopBarProvider.userButton);
             engine.CurrentUser.set(new UserModel(-1,"Guest", UserPermissions.Guest));
 
 

@@ -33,9 +33,9 @@ public class ActionEventService extends Line {
                     case ActionApplicationPage -> SetApplicationPage();
                     case ActionSetupPage -> SetSetupPage();
                     //HomePage subpages buttons actions
-                    case ActionLeftSubHomePage -> ((HomePage)engine.PagesProvider.HomePage).SetLeftSubPage();
-                    case ActionCenterSubHomePage -> ((HomePage)engine.PagesProvider.HomePage).SetCenterSubPage();
-                    case ActionRightSubHomePage -> ((HomePage)engine.PagesProvider.HomePage).SetRightSubPage();
+                    case ActionLeftSubHomePage -> ((HomePage)engine.GuiService.PagesProvider.HomePage).SetLeftSubPage();
+                    case ActionCenterSubHomePage -> ((HomePage)engine.GuiService.PagesProvider.HomePage).SetCenterSubPage();
+                    case ActionRightSubHomePage -> ((HomePage)engine.GuiService.PagesProvider.HomePage).SetRightSubPage();
                     //Top bar actions
                     case ActionWifiOn, ActionWifiOff -> WifiAction(action);
                     case ActionLogin, ActionLogoff -> ChangeUserAction(action);
@@ -61,19 +61,19 @@ public class ActionEventService extends Line {
 
 
     private void SetHomePage(){
-        engine.PagesProvider.SetActivePageByIndex(0);
+        engine.GuiService.PagesProvider.SetActivePageByIndex(0);
     }
     private void SetWeatherPage(){
 
-        engine.PagesProvider.SetActivePageByIndex(1);
+        engine.GuiService.PagesProvider.SetActivePageByIndex(1);
     }
     private void SetApplicationPage(){
 
-        engine.PagesProvider.SetActivePageByIndex(2);
+        engine.GuiService.PagesProvider.SetActivePageByIndex(2);
     }
     private void SetSetupPage(){
 
-        engine.PagesProvider.SetActivePageByIndex(3);
+        engine.GuiService.PagesProvider.SetActivePageByIndex(3);
     }
     private void WifiAction(ButtonAction action){
         switch (action){

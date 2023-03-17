@@ -38,21 +38,39 @@ public class InternetApp extends VBox {
 
 
         WebEngine engineW = webView.getEngine();
-        engineW.getLoadWorker().stateProperty().addListener(
-                (observable, oldState, newState) -> {
-                    if (newState == Worker.State.SUCCEEDED) {
-                        JSObject window = (JSObject) engineW.executeScript("window");
-                        window.setMember("java", new JavaBridge(webView, appStage));
+//        engineW.getLoadWorker().stateProperty().addListener(
+//                (observable, oldState, newState) -> {
+//                    if (newState == Worker.State.SUCCEEDED) {
+//                        JSObject window = (JSObject) engineW.executeScript("window");
+//                        window.setMember("java", new JavaBridge(webView, appStage));
+//
+//                        String script = "var inputsList = document.getElementsByTagName('input');"
+//                                + "function onFocus() { window.java.sendMessage('focus'); }"
+//                                + "function onFocusOut() { window.java.sendMessage('focusout'); }"
+//                                + "for (var index = 0; index < inputsList.length; ++index) { "
+//                                + "inputsList[index].addEventListener('focus', onFocus); "
+//                                + "inputsList[index].addEventListener('focusout', onFocusOut); "
+//                                + "}";
+//                        webView.getEngine().executeScript(script);
+//                    }
+//                });
 
-                        String script =
-                               "var inputsList = document.getElementsByTagName('input');"
-                                        + "for (var index = 0; index < inputsList.length; ++index) { "
-                                        + "inputsList[index].addEventListener(\"focus\",  window.java.sendMessage(\"focus\")); "
-                                        + "inputsList[index].addEventListener(\"focusout\", window.java.sendMessage(\"focusout\")); "
-                                        + "}";
-                        webView.getEngine().executeScript(script);
-                    }
-                });
+
+        WebEngine webEngine = webView.getEngine();
+
+        webEngine.getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
+            if (newState == Worker.State.SUCCEEDED) {
+                JSObject window = (JSObject) webEngine.executeScript("window");
+                window.setMember("java", new JavaBridge());
+
+                String script = "var inputsList = document.getElementsByTagName('input');"
+                        + "for (var index = 0; index < inputsList.length; ++index) { "
+                        + "inputsList[index].addEventListener(\"focus\", function() { window.java.sendMessage(\"focus\"); }); "
+                        + "inputsList[index].addEventListener(\"focusout\", function() { window.java.sendMessage(\"focusout\"); }); "
+                        + "}";
+                webEngine.executeScript(script);
+            }
+        });
 
         HBox hBox = new HBox();
         hBox.setSpacing(20);
@@ -119,30 +137,9 @@ public class InternetApp extends VBox {
     public void hide() {
         com.sun.javafx.scene.control.skin.FXVK.detach();
     }
-    public class JavaBridge {
-        WebView webView;
-        AppStage appStage;
-        public JavaBridge(WebView webView, AppStage appStage) {
-            this.webView = webView;
-            this.appStage = appStage;
-        }
-
+    public static class JavaBridge {
         public void sendMessage(String message) {
-            System.out.println(message);
-            if (message.equals("focus")){
-                appStage.KeyboardPane.maybeShowKeyboard();
-            }else {
-                appStage.KeyboardPane.hideKeyboard();
-
-            }
-        }
-        public void show() {
-            com.sun.javafx.scene.control.skin.FXVK.init(webView);
-            com.sun.javafx.scene.control.skin.FXVK.attach(webView);
-        }
-
-        public void hide() {
-            com.sun.javafx.scene.control.skin.FXVK.detach();
+            System.out.println("Received message: " + message);
         }
     }
 }

@@ -11,7 +11,6 @@ import com.sm.smarthome.Enums.Ui.Bottons.ButtonWidthType;
 import com.sm.smarthome.Events.ButtonEvent;
 import javafx.application.Platform;
 import javafx.scene.paint.Color;
-import org.kordamp.ikonli.Ikon;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
 
 import static com.sm.smarthome.Core.Utils.Helpers.CheckUserPermissions;
@@ -42,20 +41,20 @@ public class RadiusButton extends SimpleButton{
             switch (state){
                 case Active -> {
                     this.setFocused(false);
-                    this.setStyle("-fx-border-color: "+ Helpers.GetRgbaColorToStyleFx(color, .7) +";"
+                    this.setStyle("-fx-border-color: "+ Helpers.getRgbaColorToStyleFx(color, .7) +";"
                             + "-fx-border-style: solid;"
                             + "-fx-border-width: 7;"
-                            + "-fx-background-color:"+ Helpers.GetRgbaColorToStyleFx(color, .1) +";"
+                            + "-fx-background-color:"+ Helpers.getRgbaColorToStyleFx(color, .1) +";"
                             + "-fx-background-radius: 10 10 10 10;"
                             + "-fx-border-radius: 10 10 10 10;");
                     setWidth(80);
                     setHeight(24);
                 }
                 case Inactive -> {
-                    this.setStyle("-fx-border-color: "+ Helpers.GetRgbaColorToStyleFx(color, .4) +";"
+                    this.setStyle("-fx-border-color: "+ Helpers.getRgbaColorToStyleFx(color, .4) +";"
                             + "-fx-border-style: solid;"
                             + "-fx-border-width: 7;"
-                            + "-fx-background-color:"+ Helpers.GetRgbaColorToStyleFx(color, .1) +";"
+                            + "-fx-background-color:"+ Helpers.getRgbaColorToStyleFx(color, .1) +";"
                             + "-fx-background-radius: 10 10 10 10;"
                             + "-fx-border-radius: 10 10 10 10;");
                     setWidth(80);

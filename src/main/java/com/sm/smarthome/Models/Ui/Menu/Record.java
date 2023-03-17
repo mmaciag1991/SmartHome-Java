@@ -2,9 +2,7 @@ package com.sm.smarthome.Models.Ui.Menu;
 
 import com.sm.smarthome.Core.Engine;
 import com.sm.smarthome.Enums.Other.UserPermissions;
-import com.sm.smarthome.Enums.Ui.Catalog.CatalogAction;
 import com.sm.smarthome.Enums.Ui.Record.RecordAction;
-import com.sm.smarthome.Events.Catalog.CatalogEvent;
 import com.sm.smarthome.Events.Record.RecordEvent;
 import com.sm.smarthome.Interfaces.IRecord;
 import com.sm.smarthome.Interfaces.IRecordButton;

@@ -41,11 +41,11 @@ public class MarkButton extends SimpleButton {
             switch (state){
                     case Active -> {
                         this.setFocused(false);
-                        this.setStyle("-fx-border-color: "+ Helpers.GetRgbaColorToStyleFx(color, .9) +" -fx-border-width: 0 5 0 0;");
+                        this.setStyle("-fx-border-color: "+ Helpers.getRgbaColorToStyleFx(color, .9) +" -fx-border-width: 0 5 0 0;");
                         //this.setEffect(engine.GuiService.GetShadow(engine.GuiService.AccentColor,1.3, 0, 15,0, false));
                     }
                     case Inactive -> {
-                        this.setStyle("-fx-border-color: "+ Helpers.GetRgbaColorToStyleFx(color, .3) +" -fx-border-width: 0 5 0 0;");
+                        this.setStyle("-fx-border-color: "+ Helpers.getRgbaColorToStyleFx(color, .3) +" -fx-border-width: 0 5 0 0;");
                         //this.setEffect(engine.GuiService.GetShadow(engine.GuiService.AccentColor,0, 0, 15, 0, false));
                     }
             }

@@ -1,10 +1,12 @@
 package com.sm.smarthome.Core.Services;
 
 import com.sm.smarthome.Core.Engine;
+import com.sm.smarthome.Core.Providers.Gui.PagesProvider;
+import com.sm.smarthome.Core.Providers.Gui.TilesProvider;
+import com.sm.smarthome.Core.Providers.Gui.TopBarProvider;
 import com.sm.smarthome.CustomControls.HanSolo.Funmenu.FunMenu;
 import com.sm.smarthome.CustomControls.Keyboard.KeyboardPane;
 import com.sm.smarthome.Enums.Actions.ButtonAction;
-import com.sm.smarthome.Enums.Ui.Bottons.ButtonState;
 import com.sm.smarthome.Events.ButtonEvent;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
@@ -20,10 +22,12 @@ public class GuiService {
     public FunMenu MainMenu;
     public KeyboardPane KeyboardPane = new KeyboardPane();
     public Stage MainStage;
+    public PagesProvider PagesProvider;
+    public TopBarProvider TopBarProvider;
+    public TilesProvider TilesProvider;
     public JMetro JMetroThemeManager = new JMetro(Style.DARK);
     public SimpleObjectProperty<Color> FontColor = new SimpleObjectProperty<Color>(Color.TRANSPARENT);
     public SimpleObjectProperty<Color> AccentColor = new SimpleObjectProperty<Color>(Color.BLACK);
-
 
     public GuiService(Engine engine, Stage mainStage){
         this.MainMenu = new FunMenu();
@@ -61,7 +65,6 @@ public class GuiService {
         }
         JMetroThemeManager.setStyle(style);
     }
-
     private void InitMainMenu(Engine engine){
 
         MainMenu.setPrefSize(400, 40);
@@ -70,7 +73,9 @@ public class GuiService {
         MainMenu.setItem3IconCode(MaterialDesign.MDI_GMAIL);
         MainMenu.setItem4IconCode(MaterialDesign.MDI_ACCOUNT);
 
-        MainMenu.setOnItem1MousePressed(e -> System.out.println("Icon 1 pressed"));
+        MainMenu.setOnItem1MousePressed(e -> {
+            engine.SystemService.PowerProvider.TurnOff(MainStage);
+        });
         MainMenu.setOnItem2MousePressed(e -> System.out.println("Icon 2 pressed"));
         MainMenu.setOnItem3MousePressed(e -> System.out.println("Icon 3 pressed"));
         MainMenu.setOnItem4MousePressed(e -> engine.ActionEventService.fireEvent(new ButtonEvent(ButtonAction.ActionLogin)));

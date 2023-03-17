@@ -3,6 +3,7 @@ package com.sm.smarthome.Models.Ui.Pages;
 import com.sm.smarthome.Application;
 import com.sm.smarthome.Controllers.Pages.HomePageViewController;
 import com.sm.smarthome.Core.Engine;
+import com.sm.smarthome.Core.Utils.Helpers;
 import com.sm.smarthome.Enums.Actions.ButtonAction;
 import com.sm.smarthome.Enums.Other.UserPermissions;
 import com.sm.smarthome.Enums.Ui.Bottons.ButtonSize;
@@ -14,7 +15,6 @@ import eu.hansolo.tilesfx.Tile;
 import eu.hansolo.tilesfx.chart.ChartData;
 import eu.hansolo.tilesfx.skins.BarChartItem;
 import eu.hansolo.tilesfx.tools.Helper;
-import javafx.animation.TranslateTransition;
 import javafx.beans.property.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -76,7 +76,7 @@ public class HomePage extends PageBase{
         InitializeRightTiles(tilesGridRight);tilesGridRight.setVisible(false);
 
         currentSubPage.addListener((observable, oldValue, newValue) -> {
-            Slide(oldValue, newValue);
+            Helpers.Slide(oldValue, newValue);
         });
 
 
@@ -97,29 +97,7 @@ public class HomePage extends PageBase{
         currentSubPage.setValue(tilesGridRight);
     }
 
-    private void Slide(GridPane oldValue, GridPane newValue){
 
-        newValue.setVisible(true);
-
-        TranslateTransition slideOldContent = new TranslateTransition(new javafx.util.Duration(500), oldValue);
-
-        TranslateTransition slideNewContent = new TranslateTransition(new javafx.util.Duration(500), newValue);
-        slideNewContent.setToX(0);
-        slideOldContent.setFromX(0);
-
-        if (Integer.parseInt(oldValue.getAccessibleRoleDescription()) > Integer.parseInt(newValue.getAccessibleRoleDescription())) {
-            slideOldContent.setToX(oldValue.getWidth());
-            slideNewContent.setFromX(-oldValue.getWidth());
-        }else{
-            slideOldContent.setToX(-oldValue.getWidth());
-            slideNewContent.setFromX(oldValue.getWidth());
-        }
-
-        slideOldContent.play();
-        slideNewContent.setOnFinished(actionEvent -> oldValue.setVisible(false));
-        slideNewContent.setToX(0);
-        slideNewContent.play();
-    }
 
     private void InitializeTilesLeft(GridPane tilesGridPane){
         tilesGridPane.setAccessibleRoleDescription("0");
@@ -166,19 +144,19 @@ public class HomePage extends PageBase{
 
         // grid.add(node, col, row, colSpan, rowSpan)
 
-        tilesGridPane.add(engine.TilesProvider.getClockTile(), 0, 0, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getFluidTile("Fluid", "Text", "Unit", val1, 40), 1, 0, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getTimerControlTile("Timer", "Text", new SimpleBooleanProperty(true)), 2, 0, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getTimelineTile("Timeline", "dl/mg", new SimpleDoubleProperty(0), new SimpleDoubleProperty(350), new SimpleDoubleProperty(70), new SimpleDoubleProperty(240), chartDataSimpleObjectProperty), 3, 0, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getClockTile(), 0, 0, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getFluidTile("Fluid", "Text", "Unit", val1, 40), 1, 0, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getTimerControlTile("Timer", "Text", new SimpleBooleanProperty(true)), 2, 0, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getTimelineTile("Timeline", "dl/mg", new SimpleDoubleProperty(0), new SimpleDoubleProperty(350), new SimpleDoubleProperty(70), new SimpleDoubleProperty(240), chartDataSimpleObjectProperty), 3, 0, 1, 1);
 
-        tilesGridPane.add(engine.TilesProvider.getBarGaugeTile("BarGauge", "txt", "F", val3, new SimpleDoubleProperty(0), new SimpleDoubleProperty(350), new SimpleDoubleProperty(70)), 0, 1, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getRadialDistributionTile("RadialChart", "Text", new SimpleStringProperty("Discr"), new SimpleDoubleProperty(0), new SimpleDoubleProperty(400), new SimpleDoubleProperty(70), new SimpleDoubleProperty(140), glucoseData), 1, 1, 2, 2);
-        tilesGridPane.add(engine.TilesProvider.getRadialPercentageTile("Radial Percentage", "txt", chartDataListSimpleObjectProperty), 3, 1, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getBarGaugeTile("BarGauge", "txt", "F", val3, new SimpleDoubleProperty(0), new SimpleDoubleProperty(350), new SimpleDoubleProperty(70)), 0, 1, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getRadialDistributionTile("RadialChart", "Text", new SimpleStringProperty("Discr"), new SimpleDoubleProperty(0), new SimpleDoubleProperty(400), new SimpleDoubleProperty(70), new SimpleDoubleProperty(140), glucoseData), 1, 1, 2, 2);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getRadialPercentageTile("Radial Percentage", "txt", chartDataListSimpleObjectProperty), 3, 1, 1, 1);
 
-        tilesGridPane.add(engine.TilesProvider.getDateTile(), 0, 2, 1, 2);
-        tilesGridPane.add(engine.TilesProvider.getFlipTile(flipText, 1000, Helper.TIME_00_TO_59), 3, 2, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getDateTile(), 0, 2, 1, 2);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getFlipTile(flipText, 1000, Helper.TIME_00_TO_59), 3, 2, 1, 1);
 
-        tilesGridPane.add(engine.TilesProvider.getSmoothAreaChartTile("Smooth Area Chart", "g", "txt", new SimpleDoubleProperty(0), new SimpleDoubleProperty(200), chartDataListSimpleObjectProperty), 1, 3, 3, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getSmoothAreaChartTile("Smooth Area Chart", "g", "txt", new SimpleDoubleProperty(0), new SimpleDoubleProperty(200), chartDataListSimpleObjectProperty), 1, 3, 3, 1);
 
 
     }
@@ -235,17 +213,17 @@ public class HomePage extends PageBase{
         thread.start();
 
 
-        tilesGridPane.add(engine.TilesProvider.getTimerCountDownTile("Timer countdown", "Text", new SimpleStringProperty("description"), new SimpleObjectProperty<Duration>(Duration.ofSeconds(10)), new SimpleBooleanProperty(true)), 0, 0, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getTimerCountDownTile("Timer countdown", "Text", new SimpleStringProperty("description"), new SimpleObjectProperty<Duration>(Duration.ofSeconds(10)), new SimpleBooleanProperty(true)), 0, 0, 1, 1);
 
-        tilesGridPane.add(engine.TilesProvider.getProcentageTile("Wilgotność", new SimpleStringProperty("Kuchnia"), new SimpleDoubleProperty(100), val1), 1, 0, 2, 1);
-        tilesGridPane.add(engine.TilesProvider.getGuageTile("Temperatura", "℃", val2, val3), 3, 0, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getClockTile(), 0, 1, 2, 1);
-        tilesGridPane.add(engine.TilesProvider.geSparkLineTile("SparkLine", "mb", val2), 2, 1, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getSwitchTile("Switch", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleBooleanProperty()), 3, 1, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getTimeControlTile(new SimpleObjectProperty<>()), 0, 2, 1, 2);
-        tilesGridPane.add(engine.TilesProvider.getPlusMinusTile("PlusMinusTile", "g", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleDoubleProperty(0), new SimpleDoubleProperty(10), new SimpleDoubleProperty(5)), 1, 3, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getSliderTile("SliderTile", "%", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleDoubleProperty(23)), 1, 2, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.geCalendarTile(calendarData), 2, 2, 2, 2);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getProcentageTile("Wilgotność", new SimpleStringProperty("Kuchnia"), new SimpleDoubleProperty(100), val1), 1, 0, 2, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getGuageTile("Temperatura", "℃", val2, val3), 3, 0, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getClockTile(), 0, 1, 2, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.geSparkLineTile("SparkLine", "mb", val2), 2, 1, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getSwitchTile("Switch", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleBooleanProperty()), 3, 1, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getTimeControlTile(new SimpleObjectProperty<>()), 0, 2, 1, 2);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getPlusMinusTile("PlusMinusTile", "g", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleDoubleProperty(0), new SimpleDoubleProperty(10), new SimpleDoubleProperty(5)), 1, 3, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getSliderTile("SliderTile", "%", new SimpleStringProperty("text"), new SimpleStringProperty("description"), new SimpleDoubleProperty(23)), 1, 2, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.geCalendarTile(calendarData), 2, 2, 2, 2);
 
     }
     public void InitializeRightTiles(GridPane tilesGridPane){
@@ -277,11 +255,11 @@ public class HomePage extends PageBase{
 
         // grid.add(node, col, row, colSpan, rowSpan)
 
-        tilesGridPane.add(engine.TilesProvider.getSparkLineTile("CPU", "%", engine.SystemService.SystemInfoProvider.CpuLoad), 0, 0, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getStockTile("RAM (%s)".formatted(engine.SystemService.SystemInfoProvider.RamTotal.getValue().getUnit().toString()), new SimpleDoubleProperty(0), new SimpleDoubleProperty(engine.SystemService.SystemInfoProvider.RamTotal.getValue().getValue()), ramUsage), 1, 0, 2, 1);
-        tilesGridPane.add(engine.TilesProvider.getDonutChartTile("Donut chart", "text", listSimpleObjectPropertya), 3, 0, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getBarChartTile("Bar chart", "text", listSimpleObjectProperty), 0, 1, 1, 1);
-        tilesGridPane.add(engine.TilesProvider.getWeather1Tile("Starachowice"), 1, 1, 2, 1);
-        tilesGridPane.add(engine.TilesProvider.getWeather2Tile("Ephemeris"), 1, 2, 2, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getSparkLineTile("CPU", "%", engine.SystemService.SystemInfoProvider.CpuLoad), 0, 0, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getStockTile("RAM (%s)".formatted(engine.SystemService.SystemInfoProvider.RamTotal.getValue().getUnit().toString()), new SimpleDoubleProperty(0), new SimpleDoubleProperty(engine.SystemService.SystemInfoProvider.RamTotal.getValue().getValue()), ramUsage), 1, 0, 2, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getDonutChartTile("Donut chart", "text", listSimpleObjectPropertya), 3, 0, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getBarChartTile("Bar chart", "text", listSimpleObjectProperty), 0, 1, 1, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getWeather1Tile("Starachowice"), 1, 1, 2, 1);
+        tilesGridPane.add(engine.GuiService.TilesProvider.getWeather2Tile("Ephemeris"), 1, 2, 2, 1);
     }
 }

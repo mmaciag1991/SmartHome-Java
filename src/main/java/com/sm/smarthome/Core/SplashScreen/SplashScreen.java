@@ -1,14 +1,11 @@
-package com.sm.smarthome.Core;
+package com.sm.smarthome.Core.SplashScreen;
 
 import com.sm.smarthome.CustomControls.HanSolo.FunIndicator.FunIndicator;
-import com.sm.smarthome.CustomControls.Indicators.CircularProgressIndicator;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
@@ -23,6 +20,8 @@ import static com.sm.smarthome.Core.Utils.Helpers.AppWidth;
 
 public class SplashScreen extends Stage {
     private Label loadingTextLabel = new Label();
+    private Scene scene;
+    private StackPane stackPane;
     public SplashScreen(){
 
         JMetro JMetroThemeManager = new JMetro(Style.DARK);
@@ -41,22 +40,28 @@ public class SplashScreen extends Stage {
         loadingTextLabel.setFont(new Font(48));
         VBox pane = new VBox(indicator, loadingTextLabel);
         pane.setAlignment(Pos.CENTER);
-        StackPane stackPane = new StackPane(pane);
+        stackPane = new StackPane(pane);
         stackPane.getStyleClass().add(JMetroStyleClass.BACKGROUND);
-        Scene scene = new Scene(stackPane, AppWidth, AppHeight);
+        scene = new Scene(stackPane, AppWidth, AppHeight);
         JMetroThemeManager.setScene(scene);
-        this.initStyle(StageStyle.UTILITY);
+        this.initStyle(StageStyle.TRANSPARENT);
         //this.setFullScreen(true);
         this.setTitle("Initializing");
         this.setScene(scene);
     }
 
-    public void setLoadingTextLabel(String text) {
-        Platform.runLater(() -> loadingTextLabel.setText(text));
-        Sleep(500);
+
+    public StackPane getStackPane() {
+        return stackPane;
     }
 
-    private void Sleep(int milis){
+
+    public void setLoadingTextLabel(String text) {
+        Platform.runLater(() -> loadingTextLabel.setText(text));
+        sleep(50);
+    }
+
+    private void sleep(int milis){
         try {
             Thread.sleep(milis);
         } catch (InterruptedException e) {
