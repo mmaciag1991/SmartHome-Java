@@ -1,0 +1,95 @@
+.fxvk {
+    -fx-background-color: -color-brownish-gray;
+}
+
+.fxvk .key{
+    -fx-font-family: "DINPro-Bold", "sans-serif";
+    -fx-border-image-source: null;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-background-color: #302f2f;
+}
+
+.fxvk .key:hover{
+    -fx-background-color: -color-yellow;
+}
+
+.fxvk-secondary{
+     -fx-background-color: #302f2f;
+}
+.fxvk-modifier {
+    -fx-background-color: #302f2f;
+    -fx-border-color: #aaaaaa;
+    -fx-text-fill: #ffffff;
+}
+.popup {
+    -fx-background-color: #302f2f;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 5,0,0,1 );
+}
+
+.popup .content {
+    -fx-background-color: #302f2f;
+    -fx-padding: 5px;
+}
+
+.popup .content .fxvk-key {
+    -fx-background-color: #302f2f;
+    -fx-border-color: #cccccc;
+    -fx-text-fill: #333333;
+}
+
+.popup .content .fxvk-key:hover {
+    -fx-background-color: #302f2f;
+    -fx-border-color: #aaaaaa;
+    -fx-text-fill: #ffffff;
+}
+
+.shift-icon {
+}
+
+.capslock-icon{
+}
+
+.shift{
+    -fx-fill: -color-white;
+}
+
+.special {
+    -fx-fill: -color-white;
+}
+
+.backspace{
+    -fx-fill: -color-white;
+}
+
+.enter {
+    -fx-fill: -color-white;
+}
+
+.hide{
+    -fx-fill: -color-white;
+}
+
+.multi-char-text{
+    -fx-fill: -color-white;
+}
+
+.key-text {
+    -fx-fill: -color-white;
+    -fx-font-family: "DINPro-Bold", "sans-serif";
+}
+
+.key-alttext{
+    -fx-fill: -color-white;
+    -fx-font-family: "DINPro-Bold", "sans-serif";
+}
+
+.key-icon {
+    -fx-fill: -color-white;
+}
+
+.multi-char-text{
+    -fx-fill: -color-white;
+}
